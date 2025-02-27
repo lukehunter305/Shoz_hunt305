@@ -226,41 +226,40 @@ lightweight sub-process, a smallest unit of processing. It allows the concurrent
 					<div class="toggle-content">                                
 
 
-<b><p>Java Architecture and Memory Management</b></p>
+<b><p>JAVA ARCHITECTURE AND MEMORY MANAGEMENT</b></p>
 
 
 <p><b>Can you tell me the difference between JVM, JRE, and JDK?</b>p></p>
-<p>The JVM is the engine that runs Java bytecode and making Java platform-independent. The JRE contains the JVM and the standard libraries that Java programs need to run.
-The JDK is development kit for developers that contains everything in the JRE plus tools like compilers and debuggers to create Java applications.</p>
+<p>The JVM is the engine that runs Java bytecode and making Java platform-independent. The JRE contains the JVM and the standard libraries that Java programs need to run. The JDK is development kit for developers that contains everything in the JRE plus tools like compilers and debuggers to create Java applications.</p>
 <p><b>What are the key components of JVM Architecture?</b></p>
-JVM has three components, the ClassLoader, the runtime data areas and the execution engine.
-The Class Loader loads class files into the JVM. The Runtime Data Areas store data needed while the program runs, like memory for variables and code. The Execution Engine actually runs the instructions in the class files.
+<p>JVM has three components, the ClassLoader, the runtime data areas and the execution engine.
+The Class Loader loads class files into the JVM. The Runtime Data Areas store data needed while the program runs, like memory for variables and code. The Execution Engine actually runs the instructions in the class files.</p>
 <p><b>Can a Java application be run without installing the JRE?</b></p>
-We can't run a Java application without having the JRE (Java Runtime Environment) because it has the essential tools and libraries the application needs to work. But, there's a cool tool called jlink in newer Java versions that lets us bundle our Java application with its own little version of the JRE
+<p>We can't run a Java application without having the JRE (Java Runtime Environment) because it has the essential tools and libraries the application needs to work. But, there's a cool tool called jlink in newer Java versions that lets us bundle our Java application with its own little version of the JRE</p>
 <p><b>Is it possible to have the JDK installed without having the JRE?</b></p>
-No, the JDK contains the JRE. It's not possible to have a JDK without a JRE, as the JRE contains essential components for running Java applications, which the JDK also uses for development.
+<p>No, the JDK contains the JRE. It's not possible to have a JDK without a JRE, as the JRE contains essential components for running Java applications, which the JDK also uses for development.</p>
 
 <p><b>What are Memory storages available with JVM?</b></p>
-VM memory is divided into Heap Space, Stack Memory, Method Area (Metaspace in Java 8 and above), and Native Method Stacks.
+<p>JVM memory is divided into Heap Space, Stack Memory, Method Area (Metaspace in Java 8 and above), and Native Method Stacks.
 Heap space in Java is where the program stores objects and data that it creates and shares.
 Stack memory is used for keeping track of what happens inside each function call, including variable values.
 The Method Area, or Metaspace in newer Java versions, stores information about the program's classes, like methods and constants.
-
+</p>
 <p><b>Which is faster to access between heap and stack, and why?</b></p>
 The stack is faster to access because it stores method calls and local variables in a Last-In-First-Out (LIFO) structure. The heap, used for dynamic memory allocation (objects), is slower due to its more complex management.
 
 <p><b>How does garbage collection work in Java?</b></p>
-Garbage collection in Java automatically frees memory by removing objects that are no longer used. It frees the memory by unused objects, making space for new objects.
+<p>Garbage collection in Java automatically frees memory by removing objects that are no longer used. It frees the memory by unused objects, making space for new objects.</p>
 
 <p><b>Whats the role of finalized() method in garbage collection?</b></p>
-The finalize() method is called by the garbage collector on an object when it determines that there are no more references to the object. It's meant to give the object a chance to clean up resources before it's collected, such as closing file streams or releasing network connections.
-
+<p>The finalize() method is called by the garbage collector on an object when it determines that there are no more references to the object. It's meant to give the object a chance to clean up resources before it's collected, such as closing file streams or releasing network connections.
+</p>
 	<p><b>Can you tell me what algorithm JVM uses for garbage collection?</b></p>
-JVM uses multiple garbage collection algorithms such as Mark-Sweep, Mark- Compact, and Generational Copying, depending on the collector chosen
-
+<p>JVM uses multiple garbage collection algorithms such as Mark-Sweep, Mark- Compact, and Generational Copying, depending on the collector chosen
+</p>
 <p><b>How can memory leaks occur in Java even we have automatic garbage collection?</b>p></b>
-Memory leaks in Java occur when objects are no longer needed but still referenced from other reachable objects, and hence preventing the garbage collector from reclaiming their memory.
-
+<p>Memory leaks in Java occur when objects are no longer needed but still referenced from other reachable objects, and hence preventing the garbage collector from reclaiming their memory.
+</p>
 
 <b><p>Java Fundamentals</b></p>
 
