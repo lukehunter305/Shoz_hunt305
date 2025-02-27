@@ -936,155 +936,152 @@ In the case of method overloading, Java determines which method to call based on
 looks at the arguments passed during the method call and matches them to the method that has the corresponding parameter types. If it finds an exact match, it executes that method. If it doesn’t find a match or if the call is ambiguous, it results in a compile-time error.
 
 
-16)	What happens if two packages have the same class name?
+</b></p>16)	What happens if two packages have the same class name?</b></p>
 If two packages in Java contain a class with the same name, you can still use both classes in your program, but you must manage them carefully to avoid naming conflicts. To differentiate between the two, you should use the fully qualified name of the classes, which includes the package name followed by the class name, in your code. For example, package1.ClassName and
 package2.ClassName. This approach clarifies which class you intend to use from each package.
 
 
-17)	How do you access a package-private class from another package?
+</b></p>17)	How do you access a package-private class from another package?</b></p>
 In Java, a package-private class, which is declared without any access modifiers, is only accessible within the same package. To access such a class from another package, you cannot do so directly due to its limited visibility. The typical solution involves changing the access level of the class to public, making it accessible from other packages. Alternatively, you can add methods or classes within the
 same package that can access the package-private class and expose its functionality publicly or through interfaces.
 
 
-18)	Can you modify a final object reference in Java?
+</b></p>18)	Can you modify a final object reference in Java?</b></p>
 In Java, when you declare an object reference as final, you cannot change the reference to point to a different object after it has been assigned. However, the object itself can still be modified if it is mutable. This means that while you can't reassign the final reference to a new object, you can change the object's properties or state. For instance, you can add items to a final list but cannot
 reassign it to another list.
 
 
-19)	What is the default access modifier if none is specified?
+</b></p>19)	What is the default access modifier if none is specified?</b></p>
 In Java, if no access modifier is specified for a class member (like fields or methods), it defaults to package-private. This means that the member is accessible only within classes that are in the same package. This default access level provides a moderate level of protection within the package and is less restrictive than private, but more restrictive than protected or public, preventing access from outside the package.
 
 
-20)	What are the potential issues with using mutable objects as keys in a HashMap?
+</b></p>20)	What are the potential issues with using mutable objects as keys in a HashMap?</b></p>
 Using mutable objects as keys in a HashMap can lead to significant issues. If the object’s state changes after it’s been used as a key, its hashcode can change, making it impossible to locate in the map even though it's still there. This results in a loss of access to that entry, effectively causing data loss and potential memory leaks. Therefore, it's best to use immutable objects as keys to maintain consistent behavior and reliable access.
 
  
-21)	What would happen if you override only the equals() method and not hashCode() in a custom key class used in HashMap?
+</b></p>21)	What would happen if you override only the equals() method and not hashCode() in a custom key class used in HashMap?</b></p>
 If you override only the equals() method without overriding hashCode() in a custom key class used in a HashMap, you'll run into problems. Java requires that equal objects must have the same hash code. If they don’t, the HashMap might not find the object even though it's there. This inconsistency can lead to duplicate keys and unpredictable behavior, as the HashMap uses the hash code to locate keys. Always override both methods to ensure correct behavior.
 
 
-22)	What is the difference between HashMap and IdentityHashMap in terms of how they handle keys?
+</b></p>22)	What is the difference between HashMap and IdentityHashMap in terms of how they handle keys?</b></p>
 The main difference between HashMap and IdentityHashMap is how they handle key comparison. HashMap uses the equals() method and hashCode() to determine if two keys are the same, which checks for logical equality. In contrast, IdentityHashMap uses == for key comparison, which checks
 for reference equality. This means IdentityHashMap considers two keys equal only if they are exactly the same object, not merely equal objects. This makes IdentityHashMap suitable for identity-based key operations.
 
 
-23)	How does Collections.sort() work internally?
+</b></p>23)	How does Collections.sort() work internally?</b></p>
 Internally, Collections.sort() in Java uses a modified version of the MergeSort algorithm known as TimSort. This algorithm is efficient and stable, meaning it preserves the order of equal elements. It breaks the list into smaller parts, sorts each part, and then merges them back together in sorted order, ensuring that the overall list is ordered. This method is optimized for performance and
 reliability, making it suitable for sorting both primitive types and objects based on natural ordering or a specified comparator.
 
 
-24)	What would happen if you try to sort a list containing null elements using Collections.sort()?
+</b></p>24)	What would happen if you try to sort a list containing null elements using Collections.sort()?</b></p>
 If you try to sort a list containing null elements using Collections.sort(), it will throw a
 NullPointerException. This method requires all elements in the list to be non-null and comparable. Null elements lack a comparison order, which prevents Collections.sort() from determining their position relative to other elements. To sort such lists, you must either remove null elements or use a custom comparator that explicitly handles nulls.
 
 
-25)	Can you sort a list of custom objects using Collections.sort() without providing a Comparator?
+</b></p>25)	Can you sort a list of custom objects using Collections.sort() without providing a Comparator?</b></p>
 Yes, you can sort a list of custom objects using Collections.sort() without providing a Comparator, but only if the custom objects implement the Comparable interface. This interface requires defining a compareTo method, which specifies the natural ordering of the objects. If the objects do not
 implement Comparable, or if the compareTo method is not implemented, attempting to sort without a Comparator will result in a ClassCastException.
 
 
  
-26)	What is the difference between using Collections.sort() and Stream.sorted() in Java 8+?
+</b></p>26)	What is the difference between using Collections.sort() and Stream.sorted() in Java 8+?</b></p>
 The difference between Collections.sort() and Stream.sorted() in Java 8+ lies in how they handle data and output. Collections.sort() modifies the list it sorts directly, changing the original data
 structure. On the other hand, Stream.sorted() operates on a stream of data and returns a new sorted stream without altering the original source. This makes Stream.sorted() more flexible and suitable for functional programming styles, as it supports chain operations and doesn't affect the original data.
 
 
-27)	Can an enum extend another class in Java?
+</b></p>27)	Can an enum extend another class in Java?</b></p>
 No, an enum in Java cannot extend another class. In Java, all enums implicitly extend the
 java.lang.Enum class, and since Java does not support multiple inheritance for classes, an enum cannot extend any other class. However, enums can implement interfaces, allowing them to include additional functionality beyond the basic enum capabilities. This provides a way to enhance the functionality of enums without the need for class inheritance.
 
 
-28)	How do you iterate over all values of an enum?
+</b></p>28)	How do you iterate over all values of an enum?</b></p>
 To iterate over all values of an enum in Java, you can use the values() method, which returns an array of all enum constants in the order they're declared. You can then loop through this array using a for- each loop. Here’s how it works: for each constant in the enum, you perform the desired operation.
 This method is straightforward and efficient for accessing and manipulating each constant in an enum type.
 
 
-29)	Can you serialize static fields in Java?
+</b></p>29)	Can you serialize static fields in Java?</b></p>
 No, you cannot serialize static fields in Java. Serialization in Java is designed to capture the state of an object, and static fields are not part of any individual object's state. Instead, static fields belong to
 the class itself, shared among all instances. When an object is serialized, only the object's instance variables are saved, while static fields are ignored. This ensures that the class's shared state remains consistent and is not duplicated with each object's serialization.
 
 
-30)	What happens if an exception is thrown during the serialization process?
+</b></p>30)	What happens if an exception is thrown during the serialization process?</b></p>
 If an exception is thrown during the serialization process in Java, the serialization fails, and the state of the object being serialized is not saved. Typically, a NotSerializableException is thrown if an object does not support serialization (i.e., it does not implement the Serializable interface). Other exceptions can include IOException for input/output issues. These exceptions prevent the object
 from being properly converted into a byte stream, disrupting the storage or transmission of its state.
 
 
-31)	What happens if your Serializable class contains a member which is not serializable? How do you fix it?
+</b></p>31)	What happens if your Serializable class contains a member which is not serializable? How do you fix it?</b></p>
 
  
 If your Serializable class contains a member that is not serializable, you'll encounter a
 NotSerializableException when you try to serialize the class. To fix this, you can either make the non- serializable member transient, which means it won't be included in the serialization process, or ensure that the member class also implements the Serializable interface. Alternatively, you can customize the serialization process by providing your own writeObject and readObject methods that handle the non-serializable member appropriately.
 
 
-32)	What is TypeErasure?
+</b></p>32)	What is TypeErasure?</b></p>
 Type Erasure in Java refers to the process by which the Java compiler removes generic type
 information from your code after it compiles it, enforcing generic constraints only at compile time and not at runtime. This means that generic type information is not available during the execution of the program. For example, a List<Integer> and a List<String> are just treated as List. This approach helps maintain backward compatibility with older Java versions that do not support generics.
 
 
-33)	What is a generic type inference?
+</b></p>33)	What is a generic type inference?</b></p>
 Generic type inference in Java is a feature that allows the Java compiler to automatically determine, or infer, the types of generic arguments that are necessary for method calls and expressions. This means you don't always have to explicitly specify the generic types when you're coding, which
 simplifies your code. For example, when you use the diamond operator (<>) with collections, the compiler can infer the type of the elements in the collection from the context.
 
 
-34)	Why can’t we create an array of generic types in Java?
+</b></p>34)	Why can’t we create an array of generic types in Java?</b></p>
 In Java, you cannot create an array of generic types because generics do not maintain their type information at runtime due to type erasure. This means that the Java compiler removes all
 information related to type parameters and type arguments within a generic at runtime. Arrays, however, need concrete type information at runtime to ensure type safety, which isn't possible with erased generic types. This mismatch prevents the creation of generic arrays to avoid runtime type
 errors.
 
 
-35)	How Are Strings Represented in Memory?
+</b></p>35)	How Are Strings Represented in Memory?</b></p>
 In Java, strings are represented in memory as objects of the String class, which internally uses a
 character array to store the string data. Each String object is immutable, meaning once it is created, it cannot be changed. To optimize memory usage, Java maintains a special area called the "String Pool" where literals are stored. If you create a string that already exists in the pool, Java reuses the existing string instead of creating a new one, reducing memory overhead.
 
 
-36)	What is the difference between Lambda vs. Anonymous Classes?
+</b></p>36)	What is the difference between Lambda vs. Anonymous Classes?</b></p>
 Lambda expressions and anonymous classes in Java both provide ways to implement methods from a functional interface, but they do so differently. Lambdas are more concise and focused on passing
 
  
 behavior or functionality, often written in a single line of code without a name. Anonymous classes, on the other hand, are more verbose, require a class declaration, and can be used to create instances of interfaces or abstract classes with methods. Lambdas generally lead to clearer, more readable code compared to anonymous classes.
 
 
-37)	Explain the difference between Stream API map and flatMap?
+</b></p>37)	Explain the difference between Stream API map and flatMap?</b></p>
 In Java's Stream API, map and flatMap are functions used for transforming streams. map applies a function to each element of a stream and collects the results in a new stream. For example, converting each string in a stream to its upper case. On the other hand, flatMap is used when each element of the stream is a stream itself, or can be converted into a stream. It "flattens" all these
 streams into a single stream. For instance, converting a stream of lists into a stream of elements.
 
 
-38)	Explain the difference between peek() and map(). In what scenarios should peek() be used with caution?
+</b></p>38)	Explain the difference between peek() and map(). In what scenarios should peek() be used with caution?</b></p>
 In Java's Stream API, peek() and map() both operate on elements of a stream, but they serve different purposes. map() transforms each element and returns a new stream containing the
 transformed elements. peek(), on the other hand, is mainly for debugging and allows you to perform operations on each element without altering them, returning the same stream. Caution is advised with peek() because its side effects can be unpredictable if used for purposes other than debugging, such as altering the state of objects, which can lead to inconsistent results in the stream's pipeline execution.
 
 
-39)	How do imports affect compilation and class loading?
+</b></p>39)	How do imports affect compilation and class loading?</b></p>
 Imports in Java simplify code by allowing you to refer to classes from other packages without using their fully qualified names. During compilation, the import statements help the compiler locate and recognize these classes, but they don't affect performance or class loading. Class loading occurs at runtime when a class is first used, regardless of whether it's imported. Imports don't increase
 memory usage or slow down the program—they simply make the code more readable and organized.
 
 
-40)	What is the difference between Import and Static Imports?
+</b></p>40)	What is the difference between Import and Static Imports?</b></p>
 The difference between import and static import in Java lies in what they bring into scope. Regular import is used to access classes from other packages without using their fully qualified names, making code cleaner. Static imports, introduced in Java 5, allow direct access to static members
 (fields and methods) of a class without qualifying them with the class name. This is useful when you need frequent access to static methods, like Math.sqrt() or constants like PI, simplifying the code.
 
 
-41)	What is the impact of static imports on code readability and maintainability?
+</b></p>41)	What is the impact of static imports on code readability and maintainability?</b></p>
 
-
-
- 
 Static imports can improve code readability by reducing repetitive class references, making the code more concise. For example, instead of writing Math.PI, you can just use PI. However, overusing static imports can harm maintainability, as it becomes harder to know where methods or constants are coming from, especially in larger projects. The lack of clarity can confuse developers unfamiliar with the code, so static imports should be used sparingly and wisely.
 
 
-42)	How to choose initial capacity in an ArrayList constructor in a scenario where the list is repeatedly cleared and reused?
+</b></p>42)	How to choose initial capacity in an ArrayList constructor in a scenario where the list is repeatedly cleared and reused?</b></p>
 When choosing the initial capacity of an ArrayList in a scenario where the list is repeatedly cleared and reused, it's best to base it on the expected maximum size of the list during its heaviest use. This avoids frequent resizing and reallocations, which are costly. Setting the capacity slightly higher than the typical maximum size ensures that the list has enough space without frequent expansions, leading to better performance and memory management.
 
 
-43)	Can you tell me an example of how objects and classes interact in a real-world application?
+</b></p>43)	Can you tell me an example of how objects and classes interact in a real-world application?</b></p>
 In a real-world banking application, a Customer class defines attributes like name and account number. When a user opens an account, an object of the Customer class is created with specific values. These objects interact with methods like deposit, withdraw, and check balance, encapsulating the behavior and data of the customer.
 
 
-44)	Scenario-Based: How would you handle a situation where you need to compare the content equality of two custom object instances?
+</b></p>44)	Scenario-Based: How would you handle a situation where you need to compare the content equality of two custom object instances?</b></p>
 To compare the content equality of two custom object instances, override the equals() method in the class. Inside the method, compare the object's fields (like ID, name, or other properties). This ensures that two objects with identical values are considered equal, even if their references differ.
 
 
-45)	Scenario-Based: Suppose you're storing user session data in a HashMap. How would you ensure thread safety?
+</b></p>45)	Scenario-Based: Suppose you're storing user session data in a HashMap. How would you ensure thread safety?</b></p>
 To ensure thread safety when storing user session data in a HashMap, you can use
 Collections.synchronizedMap() to wrap the HashMap, making it thread-safe by synchronizing access to it. Alternatively, for better performance in highly concurrent environments, you can use
 ConcurrentHashMap, which provides thread safety with less locking overhead by allowing
@@ -1093,70 +1090,67 @@ Example:
 Map<String, SessionData> sessionMap = new ConcurrentHashMap<>();
 
 
-46)	Can an interface with multiple default methods still be a functional interface?
-
-
- 
+</b></p>46)	Can an interface with multiple default methods still be a functional interface?</b></p>
 No, an interface with multiple default methods cannot be a functional interface. A functional interface is defined as an interface with only one abstract method, which allows it to be used with lambda expressions. Default methods are concrete (non-abstract), so having multiple default
 methods is fine, but as long as there's only one abstract method, the interface can still be functional. Multiple abstract methods would disqualify it as a functional interface.
 
 
-47)	How does TreeSet sort elements when it stores objects and not wrapper classes?
+</b></p>47)	How does TreeSet sort elements when it stores objects and not wrapper classes?</b></p>
 When a TreeSet stores objects that are not wrapper classes, it uses natural ordering provided by the object's Comparable implementation, if the class implements the Comparable interface. The
 compareTo() method in the object defines how to sort the elements. Alternatively, if the objects don't implement Comparable, you can provide a custom Comparator when creating the TreeSet, which specifies how the elements should be ordered. Without this, trying to store unsorted objects would result in a runtime error.
 
 
-48)	Can an enum extend another class in Java?
+</b></p>48)	Can an enum extend another class in Java?</b></p>
 No, an enum in Java cannot extend another class. All enums implicitly extend java.lang.Enum, and since Java doesn't allow multiple inheritance for classes, an enum cannot extend any other class. However, an enum can implement interfaces to gain additional functionality. This limitation ensures that enums remain simple, specialized types that represent fixed sets of constants, while still
 allowing some flexibility through interfaces.
 
 
-49)	How do you iterate over all values of an enum?
+</b></p>49)	How do you iterate over all values of an enum?</b></p>
 In Java, you can easily iterate over all the values of an enum using a for-each loop. First, use the values() method provided by the enum. This method returns an array containing all the values of the enum in the order they're declared. Then, use a for-each loop to go through each element in this
 array. Here, you treat each enum value as an element of the array and perform any operations inside the loop.
 
 
-50)	How does TreeSet sort elements when it stores objects and not wrapper classes?
+</b></p>50)	How does TreeSet sort elements when it stores objects and not wrapper classes?</b></p>
 In Java, a TreeSet sorts objects based on natural ordering or a custom comparator. For natural ordering, the class of the objects stored in the TreeSet must implement the Comparable interface. This interface requires a method called compareTo that defines the order. If the objects don't have natural ordering, you can provide a Comparator when creating the TreeSet, specifying how to compare and sort the objects.
 
 
-51)	Suppose you have multiple interfaces with default methods that a class implements. How would you resolve method conflicts?
+</b></p>51)	Suppose you have multiple interfaces with default methods that a class implements. How would you resolve method conflicts?</b></p>
 When a class implements multiple interfaces that have default methods with the same signature, you must resolve the conflict by overriding the method in your class. In the overridden method, you
 
  
 can explicitly choose which interface's default method to use by using the syntax InterfaceName.super.methodName(). This tells your class exactly which version of the conflicting method to execute, thus resolving the ambiguity.
 
 
-52)	How do JVM optimizations affect the performance of Java applications?
+</b></p>52)	How do JVM optimizations affect the performance of Java applications?</b></p>
 JVM optimizations significantly enhance the performance of Java applications by improving execution efficiency. The JVM uses techniques like Just-In-Time (JIT) compilation, which converts Java bytecode into native machine code that runs faster on the processor. It also employs methods like garbage
 collection optimization and inlining functions to reduce memory usage and execution time. These optimizations help Java programs run faster and more smoothly, making efficient use of system resources.
 
 
-53)	Can ‘this’ be used in a static method or block?
+</b></p>53)	Can ‘this’ be used in a static method or block?</b></p>
 No, the keyword this cannot be used in a static method or block in Java. The reason is that this refers to the current instance of a class, and static methods or blocks do not belong to any instance but to the class itself. Since static methods can be called without creating an instance of the class, there's no this context available in static contexts.
 
 
-54)	Explain Java Class Loader.
+</b></p>54)	Explain Java Class Loader.</b></p>
 The Java Class Loader is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. It does this when the class is needed for the first time, not at program start, enhancing efficiency. Java uses multiple class loaders in a hierarchy: Bootstrap, Extension, and System/Application. This mechanism helps in separating the namespace of the classes loaded by
 different class loaders, preventing conflicts.
 
 
-55)	Is it possible to unload a class in Java?
+</b></p>55)	Is it possible to unload a class in Java?</b></p>
 In Java, directly unloading a class is not possible as Java does not provide explicit control over the unloading of classes. However, a class can be unloaded when its class loader is garbage collected. This happens if there are no active references to the class and its class loader from any part of the program. Essentially, for a class to be eligible for unloading, all instances of the class and the class loader itself must no longer be in use.
 
 
-56)	How does class loading affect memory usage?
+</b></p>56)	How does class loading affect memory usage?</b></p>
 Class loading in Java affects memory usage by increasing it each time a class is loaded into the JVM.
 Each class needs memory for its metadata, methods, and associated objects. This loading is
 necessary for the JVM to use the class, but if many classes are loaded, or large libraries are in use, memory consumption can increase significantly. Proper management of class loaders can help in optimizing memory usage, especially in large applications.
 
 
  
-57)	Can you serialize static fields in Java?
+</b></p>57)	Can you serialize static fields in Java?</b></p>
 In Java, static fields are not serialized. Serialization in Java is focused on saving the state of an object, and static fields are part of the class state, not individual object state. Therefore, static fields are common to all instances of the class and remain unchanged based on individual object serialization. When you deserialize an object, the static fields will have the values set by the current running program or their initial values as defined in the class.
 
 
-58)	What is the role of ExecutorService in the Executor Framework? What methods does it provide?
+</b></p>58)	What is the role of ExecutorService in the Executor Framework? What methods does it provide?</b></p>
 The ExecutorService in the Java Executor Framework plays a crucial role in managing and controlling thread execution. It provides a higher-level replacement for working directly with threads, offering methods to manage lifecycle operations like starting, running, and stopping threads efficiently. Some key methods it provides include submit() for executing callable tasks that return a result, execute() for running runnable tasks, and shutdown() to stop the executor service gracefully once tasks are completed.
 
 
