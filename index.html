@@ -224,14 +224,13 @@ lightweight sub-process, a smallest unit of processing. It allows the concurrent
 					</div>
 					
 					<div class="toggle-content">
-								<p>                                     Paper_2
-                                     Paper_2
+								<p>                                  
 
 
 <b><p>Java Architecture and Memory Management</b></p>
 
 
-<p><b>Can you tell me the difference between JVM, JRE, and JDK?
+<p><b>Can you tell me the difference between JVM, JRE, and JDK?<p><b>
 The JVM is the engine that runs Java bytecode and making Java platform-independent. The JRE contains the JVM and the standard libraries that Java programs need to run.
 The JDK is development kit for developers that contains everything in the JRE plus tools like compilers and debuggers to create Java applications.
 <p><b>What are the key components of JVM Architecture?</b></p>
@@ -245,29 +244,30 @@ No, the JDK contains the JRE. It's not possible to have a JDK without a JRE, as 
 <p><b>What are Memory storages available with JVM?</b></p>
 VM memory is divided into Heap Space, Stack Memory, Method Area (Metaspace in Java 8 and above), and Native Method Stacks.
 Heap space in Java is where the program stores objects and data that it creates and shares.
-
- 
 Stack memory is used for keeping track of what happens inside each function call, including variable values.
 The Method Area, or Metaspace in newer Java versions, stores information about the program's classes, like methods and constants.
+
 <p><b>Which is faster to access between heap and stack, and why?</b></p>
 The stack is faster to access because it stores method calls and local variables in a Last-In-First-Out (LIFO) structure. The heap, used for dynamic memory allocation (objects), is slower due to its more complex management.
 
-
 <p><b>How does garbage collection work in Java?</b></p>
 Garbage collection in Java automatically frees memory by removing objects that are no longer used. It frees the memory by unused objects, making space for new objects.
+
 <p><b>Whats the role of finalized() method in garbage collection?</b></p>
 The finalize() method is called by the garbage collector on an object when it determines that there are no more references to the object. It's meant to give the object a chance to clean up resources before it's collected, such as closing file streams or releasing network connections.
-<p><b>Can you tell me what algorithm JVM uses for garbage collection?</b></p>
+
+	<p><b>Can you tell me what algorithm JVM uses for garbage collection?</b></p>
 JVM uses multiple garbage collection algorithms such as Mark-Sweep, Mark- Compact, and Generational Copying, depending on the collector chosen
 
-<p><b>How can memory leaks occur in Java even we have automatic garbage collection? Memory leaks in Java occur when objects are no longer needed but still referenced from other reachable objects, and hence preventing the garbage collector from reclaiming their memory.
+<p><b>How can memory leaks occur in Java even we have automatic garbage collection?<p><b>
+Memory leaks in Java occur when objects are no longer needed but still referenced from other reachable objects, and hence preventing the garbage collector from reclaiming their memory.
 
 
-</b></p>Java Fundamentals</b></p>
+<b><p>Java Fundamentals</b></p>
 
-<p><b>Is java 100% object oriented programming language ?</b></p></b></p></b></p>
+<p><b>Is java 100% object oriented programming language ?</b></p>
 No, Java is not considered 100% object-oriented because it uses primitive types (like int, char, etc.) that are not objects. In a fully object-oriented language, everything is treated as an object.
-<p><b>What are the advantages of Java being partially object-oriented?</b></p></b></p>
+<p><b>What are the advantages of Java being partially object-oriented?</b></p>
 1.	Using simple, non-object types like integers and booleans helps Java run faster and use less memory.
 2.	The mix of features allows Java to work well with other technologies and systems, which might not be fully object-oriented.
 <p><b>What is the use of object-oriented programming languages in the enterprise projects?</b></p>
@@ -314,7 +314,7 @@ because which feature of the pointer is not provided in Java.
 
 <p><b>What are wrapper classes?</b></p>
 In Java, a wrapper class is an object that encapsulates a primitive data type. It allows primitives to be treated as objects. Each primitive data type has a corresponding wrapper class (e.g., Integer for int, Double for double).
-<p><b>Why do we need wrapper classes?</b></p></b></p>
+<p><b>Why do we need wrapper classes?</b></p>
 1.	Wrapper classes are final and immutable
 2.	Provides methods like valueOf(), parseInt(), etc.
 3.	It provides the feature of autoboxing and unboxing.
@@ -325,7 +325,7 @@ Because Java collections, such as ArrayList, HashMap, and others in the Java Col
 <p><b>Can you explain the difference between unboxing and autoboxing in Java?</b></p>
 Autoboxing automatically converts a primitive type (like int) to its corresponding wrapper class (Integer). Unboxing does the reverse, converting an Integer back to an int.
 
-<p><b>Can you provide an example where autoboxing could lead to unexpected behavior?</b></p></b></p>
+<p><b>Can you provide an example where autoboxing could lead to unexpected behavior?</b></p>
 When comparing two Integer instances using ==, autoboxing might lead to false results because it compares object references, not values, for integers outside the cache range of -128 to 127.
 <p><b>Is there a scenario where autoboxing and unboxing could cause a NullPointerException?</b></p>
 
@@ -375,7 +375,7 @@ StringBuilder is similar to StringBuffer but is not thread-safe, making it faste
 
 <p><b>Give a scenario where StringBuffer is better than the String?</b></p>
 A scenario where StringBuffer is more appropriate than String is in a multi-threaded server application where multiple threads modify a shared string, such as constructing a complex log entry concurrently from different threads.
-<p><b>What is the difference between a String literal and a String object?</b></p></b></p>
+<p><b>What is the difference between a String literal and a String object?</b></p>
 A String literal is stored in the String pool for reusability. A String object, created using new String(), is stored in the heap, even if it has the same value as a literal.
 
 <p><b>Why is String immutable?</b></p>
@@ -386,7 +386,7 @@ In Java, packages are namespaces that organize classes and interfaces into group
 
 
  
-<p><b>Why packages are used?</b></p></b></p>
+<p><b>Why packages are used?</b></p>
 1.	They help in organizing code
 2.	Packages prevent naming conflicts by providing a unique namespace
 3.	Packages support modularity by allowing developers to separate the program
@@ -398,19 +398,19 @@ Object Oriented Programming Concepts
 
 <p><b>What are access modifies in java?</b></p>
 ava uses public, protected, default (no modifier), and private to control access to classes, methods, and fields, ensuring appropriate visibility and encapsulation.
-<p><b>Can you provide examples of when to use each type of access modifier?</b></p></b></p></b></p>
+<p><b>Can you provide examples of when to use each type of access modifier?</b></p>
 1.	Public: Used when members should be accessible from any other class.
 2.	Protected: Ideal for members that should be accessible to subclasses and classes within the same package.
 3.	Default: Use when members should be accessible only within the same package.
 4.	Private: Best for members intended only for use within their own class.
 
-<p><b>Why do we use getters setter when we can make fields publick and setting getting directly?</b></p></b></p>
+<p><b>Why do we use getters setter when we can make fields publick and setting getting directly?</b></p>
 Using getters and setters instead of public variables allows us to control how values are set and accessed, add validation, and keep the ability to change how data is stored without affecting other parts of your program.
 <p><b>Can a top-level class be private or protected in Java?</b></p>
 No, a top-level class cannot be private or protected because it restricts access, making it unusable from any other classes, contrary to the purpose of a top-level class.
 
 
-<p><b>Explain the concepts of classes and objects in Java.</b></p></b></p>
+<p><b>Explain the concepts of classes and objects in Java.</b></p>
 Classes are blueprints for objects in Java, defining the state and behavior that the objects of the class can have. Objects are instances of classes, representing entities with states and behaviors defined by their class.
 <p><b>What are the ways to create an object?</b></p>
 1.	Using the new Keyword, example: MyClass object = new MyClass();
@@ -452,7 +452,7 @@ Immutability in Java means that once an object's state is created, it cannot be 
 <p><b>Why immutable objects are useful for concorrent programming?</b></p>
 These are useful in concurrent programming because they can be shared between threads without needing synchronization.
 
-<p><b>What are immutable classes?</b></p></b></p>
+<p><b>What are immutable classes?</b></p>
 Immutable classes in Java are classes whose objects cannot be modified after they are created. This means all their fields are final and set only once, typically through the constructor.
 <p><b>How can we create immutable class?</b></p>
 1.	Declare the class as final so it can’t be extended.
@@ -482,10 +482,10 @@ Composition is a strong association where the child cannot exist without the par
 
 <p><b>Explain the IS-A (inheritance) and Has-A (composition) relationships in Java.</b></p>
 IS-A refers to inheritance, where a subclass is a type of the superclass. Has-A refers to composition, where a class contains references to other classes as fields.
-<p><b>What does mean by polymorphism in Java?</b></p></b></p></b></p>
+<p><b>What does mean by polymorphism in Java?</b></p>
 Polymorphism in Java means that the same piece of code can do different things depending on what kind of object it's dealing with. For example, if you have a method called "draw," it might make a circle for a Circle object and a square for a Square object.
 
-<p><b>How does method overloading relate to polymorphism?</b></p></b></p>
+<p><b>How does method overloading relate to polymorphism?</b></p>
 Method overloading is using the same method name with different inputs in the same class. It's a simple way to use polymorphism when you're writing your code.
 <p><b>What is dynamic method dispatch in Java?</b></p>
 Dynamic method dispatch is a way Java decides which method to use at runtime when methods are overridden in subclasses. It ensures the correct method is used based on the type of object.
@@ -512,7 +512,7 @@ interface is like a blueprint for a class. It defines a set of methods that the 
 <p><b>What is the difference between an interface and an abstract class in Java?</b></p>
  abstract class achieves partial abstraction (0 to 100%) whereas interface achieves fully abstraction. Abstract class can have abstract and non-abstract methods
 whereas Interface can have only abstract methods. (Since Java 8, it can have default and static methods also.)
-<p><b>Can you provide examples of when to use an interface versus when to extend a class?</b></p></b></p>
+<p><b>Can you provide examples of when to use an interface versus when to extend a class?</b></p>
 Use an interface when we want to list the methods a class should have, without detailing how they work. Use class extension when we want a new class to inherit features and behaviors from an existing class and possibly modify them.
 <p><b>How do you use multiple inheritance in Java using interfaces?</b></p>
 In Java, we can't inherit features from multiple classes directly, but we can use interfaces for a similar effect. A class can follow the guidelines of many interfaces at once, which lets it combine many sets of capabilities.
@@ -550,7 +550,7 @@ You can prevent specific fields from being serialized by marking them with the t
 
  
 A class can still be serialized even if one of its member fields is not serializable. However, you must mark the non-serializable field as transient. If the field is not transient and is not serializable, attempting to serialize the object will result in a NotSerializableException.
-<p><b>What is the difference between writeObject() and readObject() methods in Java serialization?</b></p></b></p>
+<p><b>What is the difference between writeObject() and readObject() methods in Java serialization?</b></p>
 The writeObject() and readObject() methods allow customization of the serialization and deserialization processes. writeObject() is used to customize how an object is serialized, while readObject() customizes how it is deserialized. These methods can be overridden to handle complex scenarios, such as serializing transient fields or managing class versioning.
 
 <p><b>Is it possible to serialize static fields in Java? Why or why not?</b></p>
@@ -559,7 +559,7 @@ No, static fields are not serialized in Java because they belong to the class, n
 Java handles circular references during serialization by keeping track of references that have already been serialized. When the same object reference appears again, Java writes a reference to the already serialized object rather than serializing it again. This prevents infinite recursion and maintains the object graph structure.
 
 
-<p><b>What is method overloading in Java?</b></p></b></p>
+<p><b>What is method overloading in Java?</b></p>
 Polymorphism in Java means that the same piece of code can do different things depending on what kind of object it's dealing with. For example, if you have a method called "draw," it might make a circle for a Circle object and a square for a Square object.
 <p><b>How does the Java compiler determine which overloaded method to call? When we call an overloaded method, the Java compiler looks at the number and type of arguments you've provided and picks the method that matches these arguments best.
 <p><b>Is it possible to overload methods that differ only by their return type in Java? In Java, we cannot overload methods just by changing their return type. The methods must differ by their parameters for overloading to be valid.
@@ -576,7 +576,7 @@ To override a method, the new method in the subclass must have the same name, re
 <p><b>What are the rules and conditions for method overriding in Java?</b></p>
 In Java, method overriding occurs when a subclass has a method with the same name, return type, and parameters as one in its parent class. The method in the subclass replaces the one in the parent class when called.
 
-<p><b>How does the @Override annotation influence method overriding?</b></p></b></p>
+<p><b>How does the @Override annotation influence method overriding?</b></p>
 The @Override annotation tells the compiler that the method is supposed to replace one from its superclass. It's useful because it helps find mistakes if the method does not actually override an existing method from the parent class.
 
 <p><b>What happens if a superclass method is overridden by more than one subclass in Java?</b></p>
@@ -603,7 +603,7 @@ Yes, a static block can throw an exception, but if it does, the exception must b
 <p><b>Can we override static methods in Java?</b></p>
 No, static methods cannot be overridden in Java because method overriding is based on dynamic binding at runtime and static methods are bound at compile time.
 
-<p><b>Is it possible to access non-static members from within a static method?</b></p></b></p>
+<p><b>Is it possible to access non-static members from within a static method?</b></p>
 No, it's not possible to access non-static members (instance variables or methods) directly from within a static method. This is because static methods belong to the class itself, not to any specific instance. To access non-static members, you need to create an instance of the class and use that object to reference the non-static members.
 <p><b>What is static block?</b></p>
 To initialize static variables, the statements inside static block are executed only once, when the class is loaded in the memory.
