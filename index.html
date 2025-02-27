@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="author" content="ShozSheikh">
-	<title>Java Interview Questions</title>
+	<title>Java</title>
 	<script>
 		!function (theme, navWidth) {
 			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
@@ -851,6 +851,9 @@ Generics provide type safety by allowing classes and methods to operate on objec
 <p><b>What is the difference between Young Generation and Old Generation memory spaces?</b></p>
 The Young Generation stores newly created objects. The Old Generationholds objects that have survived several garbage collection cycles in the Young Generation
 
+
+
+						
 							</div>
 					
 					<div class="navbar-item is-hoverable">
@@ -858,80 +861,78 @@ The Young Generation stores newly created objects. The Old Generationholds objec
 					</div>
 					
 					<div class="toggle-content">
-								<p>Index
+							
 
-1)	Describe a scenario where you used a PriorityQueue, and explain why it was chosen over other types of queues.
+<b><p>1)	Describe a scenario where you used a PriorityQueue, and explain why it was chosen over other types of queues.</b></p>
 I used a PriorityQueue in a scenario where I needed to manage tasks by their priority, not just by the order they arrived. This type of queue helped in automatically sorting tasks such that the most critical ones were handled first. Unlike regular queues that process tasks in the order they come
 (FIFO), PriorityQueue sorts them based on their urgency, making it ideal for situations where some tasks are more important than others.
 
 
-2)	What are enums in Java and how are they useful?
+</b></p>2)	What are enums in Java and how are they useful?</b></p>
 Enums in Java are special types used to define a set of fixed constants, like days of the week or
 directions (NORTH, SOUTH, etc.). They are useful because they make the code more readable and prevent errors by limiting the possible values for a variable. Instead of using random numbers or strings, enums ensure only predefined values are used, improving code clarity and safety.
 
 
-3)	What is the Builder Pattern in Java? How is it different from the Factory Pattern?
+</b></p>3)	What is the Builder Pattern in Java? How is it different from the Factory Pattern?</b></p>
 The Builder Pattern in Java is used to construct complex objects step by step, allowing different parts of an object to be built independently and then assembled as a final step. It's different from the
 Factory Pattern, which is used to create objects without exposing the creation logic to the client. The Builder Pattern gives more control over the construction process, whereas the Factory Pattern focuses on creating a finished object in a single step.
 
 
-4)	What is the impact of declaring a method as final on inheritance?
+</b></p>4)	What is the impact of declaring a method as final on inheritance?</b></p>
 Declaring a method as final in Java prevents it from being overridden in any subclass. This is useful when you want to ensure that the functionality of a method remains consistent and unchanged,
 regardless of inheritance. It provides a safeguard that the method will behave the same way, even in derived classes, maintaining the original behavior and preventing any alteration or unexpected behavior in the program.
 
  
-5)	Can method overloading be determined at runtime?
+</b></p>5)	Can method overloading be determined at runtime?</b></p>
 No, method overloading cannot be determined at runtime; it is resolved at compile-time. Method overloading occurs when multiple methods have the same name but different parameters within the same class. The compiler determines which method to use based on the method signature (method name and parameter types) when the code is compiled. This is unlike method overriding, where the method to execute is determined at runtime based on the object’s actual class type.
 
 
-6)	How does Java resolve a call to an overloaded method?
+</b></p>6)	How does Java resolve a call to an overloaded method?</b></p>
 Java resolves a call to an overloaded method at compile time by looking at the method signature, which includes the method name and the types and number of parameters. The compiler matches
 the arguments used in the method call to the parameters of the defined methods. It selects the most specific method that fits the arguments provided. If there's no exact match or it's ambiguous, the compiler will throw an error.
 
 
 
-7)	What is the diamond operator, and how does it work?
+</b></p>7)	What is the diamond operator, and how does it work?</b></p>
 The diamond operator in Java, introduced in Java 7, simplifies the notation of generics by reducing
 the need to duplicate generic type parameters. For instance, instead of writing List<String> list = new ArrayList<String>();, you can use the diamond operator: List<String> list = new ArrayList<>();. The compiler infers the type parameter String for the ArrayList based on the variable's declared type, making the code cleaner and easier to read.
 
 
-8)	Explain inner classes in Java.
+</b></p>8)	Explain inner classes in Java.</b></p>
 Inner classes in Java are classes defined within another class. They are useful for logically grouping classes that will only be used in one place, increasing encapsulation. Inner classes have access to the attributes and methods of the outer class, even if they are declared private. There are several types: non-static nested classes (inner classes), static nested classes, local classes (inside a method), and anonymous classes (without a class name). Each type serves different purposes based on the specific need for grouping and scope control.
 
 
-9)	Can inner classes have static declarations?
+</b></p>9)	Can inner classes have static declarations?</b></p>
 Inner classes in Java can have static declarations if they are themselves declared as static. These static nested classes can contain static methods, fields, or blocks. However, non-static inner classes, which are associated with an instance of the outer class, cannot contain any static members. The reason is that static members belong to the class rather than an instance, and non-static inner classes are intimately linked to the outer class's instance.
 
 
 
  
-10)	What is the significance of an anonymous inner class?
+</b></p>10)	What is the significance of an anonymous inner class?</b></p>
 Anonymous inner classes in Java are useful when you need to implement an interface or extend a class without creating a separate named class. They are defined and instantiated all at once, typically at the point of use. This is particularly helpful for handling events or creating runnable objects in GUI applications with minimal code. By using anonymous inner classes, developers can make their code more concise and focused on specific tasks.
 
 
-11)	What do you think Java uses: pass by value or pass by reference?
+</b></p>11)	What do you think Java uses: pass by value or pass by reference?</b></p>
 Java uses pass by value. This means when you pass a variable to a method, Java copies the actual value of an argument into the formal parameter of the function. For primitive types, Java copies the actual values, while for objects, Java copies the value of the reference to the object. Therefore, changes made to the parameter inside the method do not affect the original value outside the method.
 
 
-12)	What are the differences between implementing Runnable and extending Thread in Java?
+</b></p>12)	What are the differences between implementing Runnable and extending Thread in Java?</b></p>
 In Java, implementing the Runnable interface and extending the Thread class are two ways to create a thread, but they serve different purposes. Implementing Runnable is generally preferred as it
 allows a class to extend another class while still being able to run in a thread, promoting better object-oriented design and flexibility. Extending Thread makes a class unable to extend any other class due to Java's single inheritance limitation, but it can be simpler for straightforward scenarios.
 
 
-13)	What is a marker interface?
+</b></p>13)	What is a marker interface?</b></p>
 A marker interface in Java is an interface with no methods or fields. It serves to provide runtime information to objects about what they can do. Essentially, it "marks" a class with a certain property, allowing the program to use instanceof checks to trigger specific behavior based on the presence of the marker. Examples include Serializable and Cloneable, which indicate that a class is capable of
 serialization or cloning, respectively.
 
 
-14)	Can you provide a scenario where creating a custom marker interface would be beneficial?
+</b></p>14)	Can you provide a scenario where creating a custom marker interface would be beneficial?</b></p>
 Creating a custom marker interface can be beneficial in scenarios where you want to enforce a special handling or policy for certain classes without adding any actual methods. For example,
 consider a security system where only certain data objects can be transmitted over a network. You could define a marker interface like Transmittable. By implementing this interface in certain classes, you can use instanceof to check and ensure that only objects of these classes are transmitted, enhancing security controls.
 
 
-15)	How does Java determine which method to call in the case of method overloading?
+</b></p>15)	How does Java determine which method to call in the case of method overloading?</b></p>
 In the case of method overloading, Java determines which method to call based on the method's signature. This includes the method name and the number and types of parameters. The compiler
-
- 
 looks at the arguments passed during the method call and matches them to the method that has the corresponding parameter types. If it finds an exact match, it executes that method. If it doesn’t find a match or if the call is ambiguous, it results in a compile-time error.
 
 
