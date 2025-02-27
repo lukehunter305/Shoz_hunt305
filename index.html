@@ -653,7 +653,7 @@ Sealed Classes, Pattern Matching for switch, Foreign Function and Memory API are
  
 <p><b>Can you tell me some new features that were introduced in Java 21?</b></p>
 Virtual Threads, Structured Concurrency, Scoped Values, Sequenced Collections, Record Pattern are some of the examples
-<p><b>Which is faster, traditional for loop or Streams?
+<p><b>Which is faster, traditional for loop or Streams?</b></p>
 Traditional for loops are generally faster due to less overhead, but Streams provide better readability and are optimized for parallel processing in large datasets.
 
 <p><b>In which scenarios would you prefer traditional for loops and streams?</b></p>
@@ -661,9 +661,9 @@ Use traditional loops for simple, small datasets requiring maximum performance. 
 
 <p><b>Explain intermediate and terminal operations in streams.</b></p>
 Intermediate operations (e.g., filter(), map()) return another stream and are lazy (executed only when a terminal operation is called). Terminal operations (e.g., forEach(), collect()) trigger the actual processing of the stream and produce a result or side effect.
-<p><b>Differences in Interface from Java 7 to Java 8.
+<p><b>Differences in Interface from Java 7 to Java 8.</b></p>
 In Java 7, interfaces could only have abstract methods. Java 8 introduced default and static methods, allowing interfaces to have method implementations.
-<p><b>Use of String.join(….) in Java 8?
+<p><b>Use of String.join(….) in Java 8?</b></p>
 String.join() concatenates a sequence of strings with a specified delimiter, simplifying string joining operations.
 
 
@@ -672,7 +672,8 @@ String.join() concatenates a sequence of strings with a specified delimiter, sim
 The Java Collection Framework is a set of tools that helps us organize, store, and manage groups of data easily. It includes various types of collections like lists, sets, and maps.
 <p><b>What are the main interfaces of the Java Collection Framework?</b></p>
 The main parts of the Java Collection Framework are interfaces like Collection, List, Set, Queue, and Map. Each one helps manage data in different ways.
-<p><b>Can you explain how Iterator works within the Java Collection Framework? An Iterator is a tool in the Collection Framework that lets you go through a collection's elements one by one.
+<p><b>Can you explain how Iterator works within the Java Collection Framework?</b></p>
+An Iterator is a tool in the Collection Framework that lets you go through a collection's elements one by one.
 <p><b>What are some common methods available in all Collection types?</b></p>
 Some common methods all collection types have are add, remove, clear, size, and isEmpty. These methods let us add and remove items, check the size, and see if the collection is empty.
  
@@ -691,7 +692,7 @@ Arrays.sort() uses a Dual-Pivot Quicksort algorithm for primitive types and TimS
 <p><b>How do you store elements in a set to preserve insertion order?</b></p>
 Use a LinkedHashSet, which preserves the insertion order of elements.
 
-<p><b>How do you store elements in a way that they are sorted?</b></p></b></p>
+<p><b>How do you store elements in a way that they are sorted?</b></p>
 Use a TreeSet or a TreeMap, which automatically sorts elements based on their natural ordering or a specified comparator.
 
 <p><b>Whats the use case of arrayList, linkedList and Hashset?</b></p>
@@ -710,7 +711,7 @@ A HashSet in Java uses a HashMap under the hood. Each element you add is treated
 <p><b>Why is it important to override the hashCode method when you override equals?</b></p>
 What would be the consequence if we don’t?
 Overriding hashCode() is crucial because hash-based collections like HashMap and HashSet use the hashcode to locate objects. Without consistent hashCode() and equals(), objects may not be found or stored correctly.
-<p><b>Can you give an example where a TreeSet is more appropriate than HashSet?
+<p><b>Can you give an example where a TreeSet is more appropriate than HashSet?</b></p>
  A TreeSet is more appropriate than a HashSet when you need to maintain the elements in a sorted order. For example, if we are managing a list of customer names that must be displayed alphabetically, using a TreeSet would be ideal.
 <p><b>What is the internal implementation of ArrayList and LinkedList?</b></p>
 ArrayList is backed by a dynamic array, which provides O(1) access time but requires resizing. LinkedList is implemented as a doubly-linked list, providing O(1) insertion and deletion at both ends but O(n) access time.
@@ -751,11 +752,8 @@ ConcurrentHashMap boosts performance in multi-threaded settings by letting diffe
 O(log n) for operations like insertions, deletion and retrieval NOTE: HashSet and HashMap are not internally sorted
 <p><b>What techniques did hashMap, treeMap, hashSet and TreeSet uses internally for performing operations?</b></p>
 HashMap uses an array of nodes, where each node is a linked list or Tree depend upon the collisions and java versions ( From Java 8 onwards, if there is high hash collisons then linkedList gets converted to Balanced Tree).
-
- 
 TreeMap uses a Red-Black tree, which is a type of self-balancing binary search tree. Each node in the Red-Black tree stores a key-value pair.
 HashSet internally uses a HashMap whereas TreeSet internally uses TreeMap
-
 
 <p><b>Design Patterns and Principles Basics</b></p>
 
@@ -769,7 +767,7 @@ Common design patterns in Java:
 3.	Factory Method: Delegates the creation of objects to subclasses, promoting flexibility.
 <p><b>How can design patterns affect the performance of a Java application?</b></p>
 Design patterns can impact performance by adding complexity, but they improve system architecture and maintainability. The long-term benefits often outweigh the initial performance cost.
-<p><b>Which design pattern would you use to manage database connections efficiently in a Java application?</b></p></b></p>
+<p><b>Which design pattern would you use to manage database connections efficiently in a Java application?</b></p>
 The Singleton pattern is commonly used to manage database connections, ensuring a single shared connection instance is reused efficiently.
 <p><b>How do you choose the appropriate design pattern for a particular problem in Java?</b></p>
 Understand the problem fully, identify similar problems solved by design patterns, and consider the implications of each pattern on the application’s design and performance.
@@ -796,7 +794,7 @@ For Example: Instead of one large interface VehicleOperations with methods like 
 For Example: If a VehicleTracker class needs to log vehicle positions, it shouldn't depend directly on a specific GPS device model. Instead, it should interact through a GPSDevice interface, allowing any GPS device that implements this interface to be used without changing the VehicleTracker class.
 
 
-Concurrency and multi-threading
+<b><p>Concurrency and multi-threading</b></p>
 <p><b>What is a thread in Java and how can we create it?</b></p>
 A thread in Java is a pathway of execution within a program. You can create a thread by extending the Thread class or implementing the Runnable interface.
 <p><b>Can you explain the lifecycle of a Java thread?</b></p>
@@ -828,7 +826,7 @@ The Java Memory Model (JMM) defines the rules by which Java programs achieve con
 
 
 
-Miscellaneous questions (Not too much important)
+</b></p>Miscellaneous questions (Not too much important)</b></p>
 
 
  
