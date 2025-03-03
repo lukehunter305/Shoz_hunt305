@@ -10,100 +10,93 @@
         .question { font-weight: bold; margin-top: 20px; color: #000; background-color: yellow; padding: 10px; border-radius: 5px; }
         p, pre { background: white; padding: 10px; border-radius: 5px; color: green; font-weight: bold; }
         pre { font-size: 14px; background-color: #ecf0f1; padding: 10px; border-left: 5px solid #3498db; }
+        .navbar { background-color: #222; overflow: hidden; padding: 10px 0; text-align: center; }
+        .navbar a { color: white; text-decoration: none; padding: 14px 20px; display: inline-block; font-weight: bold; }
+        .navbar a:hover { background-color: #575757; }
+        .dropdown { display: inline-block; position: relative; }
+        .dropdown-content { display: none; position: absolute; background-color: #333; min-width: 200px; z-index: 1; }
+        .dropdown-content a { color: white; padding: 12px 16px; display: block; text-align: left; }
+        .dropdown-content a:hover { background-color: #575757; }
+        .dropdown:hover .dropdown-content { display: block; }
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <div class="dropdown">
+            <a href="#">Java</a>
+            <div class="dropdown-content">
+                <a href="#q1">What is Java?</a>
+                <a href="#q2">Features of Java</a>
+                <a href="#q3">What is JVM?</a>
+                <a href="#q4">Difference between JDK, JRE, and JVM</a>
+                <a href="#q5">public static void main()</a>
+                <a href="#q6">Object-Oriented Programming</a>
+                <a href="#q7">Inheritance</a>
+                <a href="#q8">Polymorphism</a>
+                <a href="#q9">Encapsulation</a>
+                <a href="#q10">Interface</a>
+                <a href="#q11">Abstract Class</a>
+                <a href="#q12">Constructors</a>
+                <a href="#q13">Method Overloading</a>
+                <a href="#q14">Method Overriding</a>
+                <a href="#q15">Packages</a>
+                <a href="#q16">Lambda Expressions</a>
+                <a href="#q17">Java Streams</a>
+                <a href="#q18">Functional Interface</a>
+                <a href="#q19">Default and Static Methods</a>
+                <a href="#q20">Optional Class</a>
+                <a href="#q21">HashMap vs TreeMap</a>
+                <a href="#q22">List vs Set</a>
+                <a href="#q23">Immutability</a>
+                <a href="#q24">Volatile Keyword</a>
+            </div>
+        </div>
+        <a href="#">Spring</a>
+        <a href="#">SpringBoot</a>
+        <a href="#">Microservices</a>
+        <a href="#">Java 8 Features</a>
+        <a href="#">Design Patterns</a>
+        <a href="#">Interview Questions</a>
+    </div>
+    
     <h1>Paper_1</h1>
     <p><strong style="color: #27ae60; background-color: #e8f5e9; padding: 5px; border-radius: 3px;">Preparation</strong></p>
     
-    <div class="question">Q1. What is Java?</div>
-    <p>Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a widely used language for developing applications for web, mobile, and desktop platforms.</p>
+    <div class="question" id="q1">Q1. What is Java?</div>
+    <p>Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.</p>
     
-    <div class="question">Q2. What are the features of Java?</div>
+    <div class="question" id="q2">Q2. What are the features of Java?</div>
     <p>Key features of Java include platform independence, object-orientation, security, robustness, simplicity, multithreading support, and garbage collection.</p>
     
-    <div class="question">Q3. What is JVM and why is it important?</div>
-    <p>JVM stands for Java Virtual Machine, which is the part of the Java Runtime Environment that executes Java byte code. It is important because it provides a platform-independent way of executing Java code.</p>
+    <div class="question" id="q3">Q3. What is JVM and why is it important?</div>
+    <p>JVM stands for Java Virtual Machine, which is the part of the Java Runtime Environment that executes Java byte code.</p>
     
-    <div class="question">Q4. What is the difference between JDK, JRE, and JVM?</div>
-    <p>JDK (Java Development Kit) is the full software development kit required to develop Java applications, JRE (Java Runtime Environment) is a subset of JDK that is required to run Java applications, and JVM (Java Virtual Machine) is the component of JRE that executes Java bytecode.</p>
+    <div class="question" id="q4">Q4. What is the difference between JDK, JRE, and JVM?</div>
+    <p>JDK is the full software development kit required to develop Java applications, JRE is a subset of JDK, and JVM is the component of JRE that executes Java bytecode.</p>
     
-    <div class="question">Q5. What is the use of the public static void main(String[] args) method?</div>
-    <p>This method is the entry point for any Java application. It is the method called by the JVM to run the program.</p>
+    <div class="question" id="q5">Q5. What is the use of the public static void main(String[] args) method?</div>
+    <p>This method is the entry point for any Java application.</p>
     
-    <div class="question">Q6. Explain Object-Oriented Programming in Java.</div>
-    <p>OOP in Java is based on objects that encapsulate data and behavior. Java follows OOP principles such as inheritance, encapsulation, polymorphism, and abstraction.</p>
+    <div class="question" id="q6">Q6. Explain Object-Oriented Programming in Java.</div>
+    <p>OOP in Java is based on objects that encapsulate data and behavior.</p>
     
-    <div class="question">Q7. What is inheritance in Java?</div>
+    <div class="question" id="q7">Q7. What is inheritance in Java?</div>
     <p>Inheritance allows one class to inherit the fields and methods of another class using the <code>extends</code> keyword.</p>
     
-    <div class="question">Q8. What is polymorphism in Java?</div>
-    <p>Polymorphism allows a single interface to be used for different types of data, achieved through method overloading and overriding.</p>
+    <div class="question" id="q8">Q8. What is polymorphism in Java?</div>
+    <p>Polymorphism allows a single interface to be used for different types of data.</p>
     
-    <div class="question">Q9. What is encapsulation?</div>
+    <div class="question" id="q9">Q9. What is encapsulation?</div>
     <p>Encapsulation is the process of restricting access to certain details and showing only the necessary parts of an object.</p>
     
-    <div class="question">Q10. What is an interface in Java?</div>
+    <div class="question" id="q10">Q10. What is an interface in Java?</div>
     <p>An interface is a reference type that contains only abstract methods and constants.</p>
     
-    <div class="question">Q11. What is an abstract class?</div>
+    <div class="question" id="q11">Q11. What is an abstract class?</div>
     <p>An abstract class cannot be instantiated and may contain both abstract and non-abstract methods.</p>
     
-    <div class="question">Q12. What are constructors in Java?</div>
+    <div class="question" id="q12">Q12. What are constructors in Java?</div>
     <p>Constructors initialize objects when they are created and have the same name as the class.</p>
     
-    <div class="question">Q13. What is method overloading?</div>
-    <p>Method overloading allows multiple methods to have the same name with different parameters.</p>
-    
-    <div class="question">Q14. What is method overriding?</div>
-    <p>Method overriding allows a subclass to provide a specific implementation of a method from the superclass.</p>
-    
-    <div class="question">Q15. What is a package?</div>
-    <p>A package is a namespace that groups related classes and interfaces.</p>
-    
-    <div class="question">Q16. Explain the final keyword.</div>
-    <p>The final keyword prevents modification of variables, methods, and classes.</p>
-    
-    <div class="question">Q17. What are Java exceptions?</div>
-    <p>Exceptions are errors that occur at runtime, and Java provides a mechanism to handle them using try-catch blocks.</p>
-    
-    <div class="question">Q18. Difference between checked and unchecked exceptions?</div>
-    <p>Checked exceptions must be handled at compile-time, while unchecked exceptions occur during runtime.</p>
-    
-    <div class="question">Q19. What is the static keyword?</div>
-    <p>The static keyword allows variables and methods to belong to the class rather than instances.</p>
-    
-    <div class="question">Q20. What is a thread?</div>
-    <p>A thread is the smallest unit of execution in a program.</p>
-    
-    <div class="question">Q21. Difference between == and .equals()?</div>
-    <p>The == operator compares references, while .equals() compares content.</p>
-    
-    <div class="question">Q22. What is garbage collection?</div>
-    <p>Garbage collection automatically reclaims memory from objects that are no longer in use.</p>
-    
-    <div class="question">Q23. What is the Collections Framework?</div>
-    <p>The Collections Framework provides interfaces and classes for handling collections of objects.</p>
-    
-    <div class="question">Q24. Explain the synchronized keyword.</div>
-    <p>The synchronized keyword prevents multiple threads from accessing a critical section of code simultaneously.</p>
-    
-    <div class="question">Q25. What are generics?</div>
-    <p>Generics allow parameterized types to provide compile-time type safety.</p>
-    
-    <div class="question">Q26. What is the this keyword?</div>
-    <p>The this keyword refers to the current instance of a class.</p>
-    
-    <div class="question">Q27. What is an Enum?</div>
-    <p>An Enum is a special data type that represents a fixed set of constants.</p>
-    
-    <div class="question">Q28. What is multithreading?</div>
-    <p>Multithreading allows multiple tasks to run concurrently to improve efficiency.</p>
-    
-    <div class="question">Q29. Explain the volatile keyword.</div>
-    <p>The volatile keyword ensures that variable updates are visible across threads.</p>
-    
-    <div class="question">Q30. What is the difference between HashMap and Hashtable?</div>
-    <p>HashMap is not synchronized and allows null keys, whereas Hashtable is synchronized and does not allow null keys.</p>
 </body>
 </html>
