@@ -231,6 +231,261 @@
             3. Packages support modularity by allowing developers to separate the program.<br>
             4. Organizing classes into packages makes it easier to locate related classes.</div>
 
+
+<h2>Object Oriented Programming Concepts</h2>
+<div class="question">Q1. What are access modifiers in Java?</div>
+        <div class="answer">Java uses public, protected, default (no modifier), and private to control access to classes, methods, and fields, ensuring appropriate visibility and encapsulation.</div>
+        
+        <div class="question">Q2. Can you provide examples of when to use each type of access modifier?</div>
+        <div class="answer">
+            1. <b>Public:</b> Used when members should be accessible from any other class.<br>
+            2. <b>Protected:</b> Ideal for members that should be accessible to subclasses and classes within the same package.<br>
+            3. <b>Default:</b> Use when members should be accessible only within the same package.<br>
+            4. <b>Private:</b> Best for members intended only for use within their own class.
+        </div>
+        
+        <div class="question">Q3. Why do we use getters and setters when we can make fields public and set/get directly?</div>
+        <div class="answer">Using getters and setters instead of public variables allows us to control how values are set and accessed, add validation, and keep the ability to change how data is stored without affecting other parts of your program.</div>
+        
+        <div class="question">Q4. Can a top-level class be private or protected in Java?</div>
+        <div class="answer">No, a top-level class cannot be private or protected because it restricts access, making it unusable from any other classes, contrary to the purpose of a top-level class.</div>
+        
+        <div class="question">Q5. Explain the concepts of classes and objects in Java.</div>
+        <div class="answer">Classes are blueprints for objects in Java, defining the state and behavior that the objects of the class can have. Objects are instances of classes, representing entities with states and behaviors defined by their class.</div>
+        
+        <div class="question">Q6. What are the ways to create an object?</div>
+        <div class="answer">
+            1. Using the <b>new</b> Keyword, example: <code>MyClass object = new MyClass();</code><br>
+            2. Using <b>Class Factory Methods</b>, example: <code>Calendar calendar = Calendar.getInstance();</code><br>
+            3. Using the <b>clone()</b> method.
+        </div>
+        
+        <div class="question">Q7. Can a class in Java be without any methods or fields?</div>
+        <div class="answer">Yes, a class in Java can be declared without any methods or fields. Such a class can still be used to create objects, although these objects would have no specific behavior or state.</div>
+        
+        <div class="question">Q8. What are the methods available in the Object class, and how are they used?</div>
+        <div class="answer">The key methods are <code>equals()</code>, <code>hashCode()</code>, <code>toString()</code>, <code>clone()</code>, <code>finalize()</code>, <code>wait()</code>, <code>notify()</code>, and <code>notifyAll()</code>. These provide basic operations like equality checks, memory management, and thread coordination.</div>
+        
+        <div class="question">Q9. What are anonymous classes and their advantages?</div>
+        <div class="answer">Anonymous classes in Java are classes without a name, defined and instantiated in one place. They are useful when you need to create a subclass or implement an interface for a one-time use. The advantages include reduced boilerplate code, encapsulation of specific functionality, and the ability to override methods on the fly.</div>
+        
+        <div class="question">Q10. What is a Singleton Class?</div>
+        <div class="answer">A singleton class in Java is a special class that can have only one instance (or object) at any time. It's useful when we want to make sure there's just one shared resource, like a configuration setting or a connection to a database.</div>
+        
+        <div class="question">Q11. How can we create a Singleton class?</div>
+        <div class="answer">To create a singleton class, make the constructor private, create a private static instance of the class, and provide a static method to return the instance.</div>
+        
+        <div class="question">Q12. Are singleton classes thread-safe?</div>
+        <div class="answer">Singleton classes are not thread-safe by default. If multiple threads try to create an instance at the same time, it could result in multiple instances. To prevent this, we can synchronize the method that creates the instance or use a static initializer.</div>
+        
+        <div class="question">Q13. What is a constructor in Java?</div>
+        <div class="answer">A constructor in Java is a special method used to initialize new objects. It has the same name as the class and may take arguments to set initial values for the object's attributes.</div>
+        
+        <div class="question">Q14. Can we use a private constructor?</div>
+        <div class="answer">Yes, we can use private constructors in Java. They are mostly used in classes that provide static methods or contain only static fields. A common use is in the Singleton design pattern.</div>
+        
+        <div class="question">Q15. Can a constructor be overloaded?</div>
+        <div class="answer">Yes, you can have multiple constructors in a Java class, each with a different set of parameters. This lets you create objects in various ways depending on what information you have at the time.</div>
+        
+        <div class="question">Q16. What does immutability mean in Java?</div>
+        <div class="answer">Immutability in Java means that once an object's state is created, it cannot be changed.</div>
+        
+        <div class="question">Q17. Why are immutable objects useful for concurrent programming?</div>
+        <div class="answer">Immutable objects are useful in concurrent programming because they can be shared between threads without needing synchronization.</div>
+        
+        <div class="question">Q18. What are immutable classes?</div>
+        <div class="answer">Immutable classes in Java are classes whose objects cannot be modified after they are created. This means all their fields are final and set only once, typically through the constructor.</div>
+        
+        <div class="question">Q19. How can we create an immutable class?</div>
+        <div class="answer">
+            1. Declare the class as <b>final</b> so it can't be extended.<br>
+            2. Make all of the fields <b>final</b> and <b>private</b> so that direct access is not allowed.<br>
+            3. Don’t provide setter methods for variables.<br>
+            4. Initialize all fields using a constructor.
+        </div>
+        
+        <div class="question">Q20. What does Java's inheritance mean?</div>
+        <div class="answer">Inheritance in Java means a class can use the features of another class. This helps to reuse code and make things simpler.</div>
+     <div class="question">Q21. Can a class extend on its own?</div>
+        <div class="answer">No, a class in Java cannot extend itself. If it tries, it will cause an error.</div>
+
+        <div class="question">Q22. Why multiple inheritance is not possible in Java?</div>
+        <div class="answer">Java avoids using multiple inheritance because it can make things complicated, such as when two parent classes have methods that conflict.</div>
+
+        <div class="question">Q23. What is the difference between inheritance and composition?</div>
+        <div class="answer">Inheritance is when one class gets its features from another class. Composition is when a class is made using parts from other classes, which can be more flexible.</div>
+
+        <div class="question">Q24. Discuss the principle of "composition over inheritance". Provide an example where this principle should be applied in Java application design.</div>
+        <div class="answer">"Composition over inheritance" means using objects within other objects (composition) instead of inheriting from a parent class. It’s applied when classes have a "has-a" relationship. For example, a Car class can have an Engine class as a field rather than inheriting from an Engine.</div>
+
+        <div class="question">Q25. What is the difference between association, aggregation, and composition in Java?</div>
+        <div class="answer">Association is a general relationship between two classes. Aggregation is a weak association (has-a) where the child can exist independently of the parent. Composition is a strong association where the child cannot exist without the parent.</div>
+
+        <div class="question">Q26. Explain the IS-A (inheritance) and Has-A (composition) relationships in Java.</div>
+        <div class="answer">IS-A refers to inheritance, where a subclass is a type of the superclass. Has-A refers to composition, where a class contains references to other classes as fields.</div>
+
+        <div class="question">Q27. What does polymorphism mean in Java?</div>
+        <div class="answer">Polymorphism in Java means that the same piece of code can do different things depending on what kind of object it's dealing with. For example, if you have a method called "draw," it might make a circle for a Circle object and a square for a Square object.</div>
+
+        <div class="question">Q28. How does method overloading relate to polymorphism?</div>
+        <div class="answer">Method overloading is using the same method name with different inputs in the same class. It's a simple way to use polymorphism when you're writing your code.</div>
+
+        <div class="question">Q29. What is dynamic method dispatch in Java?</div>
+        <div class="answer">Dynamic method dispatch is a way Java decides which method to use at runtime when methods are overridden in subclasses. It ensures the correct method is used based on the type of object.</div>
+
+        <div class="question">Q30. Can constructors be polymorphic?</div>
+        <div class="answer">No, constructors cannot be polymorphic. We can have many constructors in a class with different inputs, but they don’t behave differently based on the object type like methods do.</div>
+   <div class="question">Q31. What does abstraction mean in Java?</div>
+        <div class="answer">Abstraction in Java means focusing on what needs to be done, not how to do it. You create a kind of blueprint that tells other parts of the program what actions they can perform without explaining the details.</div>
+        
+        <div class="question">Q32. Can you provide examples of where abstraction is effectively used in Java libraries?</div>
+        <div class="answer">Java uses abstraction in its collection tools. For example, when you use a List, you don't need to know how it stores data, whether as an ArrayList or a LinkedList.</div>
+        
+        <div class="question">Q33. What happens if a class includes an abstract method?</div>
+        <div class="answer">A class with an abstract method must itself be abstract. We can't create objects directly from an abstract class; it's meant to be a blueprint for other classes.</div>
+        
+        <div class="question">Q34. How does abstraction help in achieving loose coupling in software applications?</div>
+        <div class="answer">Abstraction lets us hide complex details and only show what's necessary. This makes it easier to change parts of your program without affecting others, keeping different parts independent and easier to manage.</div>
+        
+        <div class="question">Q35. What is an interface in Java?</div>
+        <div class="answer">An interface is like a blueprint for a class. It defines a set of methods that the class must implement, without specifying how these methods should work.</div>
+        
+        <div class="question">Q36. What is the difference between an interface and an abstract class in Java?</div>
+        <div class="answer">An abstract class achieves partial abstraction (0 to 100%), whereas an interface achieves full abstraction. An abstract class can have abstract and non-abstract methods, whereas an interface can have only abstract methods. (Since Java 8, it can have default and static methods also.)</div>
+        
+        <div class="question">Q37. Can you provide examples of when to use an interface versus when to extend a class?</div>
+        <div class="answer">Use an interface when we want to list the methods a class should have, without detailing how they work. Use class extension when we want a new class to inherit features and behaviors from an existing class and possibly modify them.</div>
+        
+        <div class="question">Q38. How do you use multiple inheritance in Java using interfaces?</div>
+        <div class="answer">In Java, we can't inherit features from multiple classes directly, but we can use interfaces for a similar effect. A class can follow the guidelines of many interfaces at once, which lets it combine many sets of capabilities.</div>
+        
+        <div class="question">Q39. Can an interface in Java contain static methods, and if so, how can they be used?</div>
+        <div class="answer">Yes, interfaces in Java can have static methods, which you can use without creating an instance of the class.</div>
+        
+        <div class="question">Q40. When would you use an interface, and when would you use an abstract class?</div>
+        <div class="answer">Use an interface when you need multiple classes to share a contract without implementation. Use an abstract class when you need shared behavior (method implementations) along with method declarations.</div>
+        
+        <div class="question">Q41. Explain the difference between Comparable and Comparator interfaces. When would you use one over the other?</div>
+        <div class="answer">Comparable is used for natural ordering and is implemented by the class itself, while Comparator is used for custom ordering and can be implemented externally. Use Comparable when objects have a single logical ordering; use Comparator when you need multiple ways to order objects.</div>
+     <div class="question">Q41. What is a static method in an Interface, and how is it different from a default method in an interface?</div>
+    <div class="answer">A static method in an interface belongs to the interface itself and cannot be overridden. A default method provides a default implementation for classes that implement the interface, and it can be overridden.</div>
+    
+    <div class="question">Q42. What is the diamond problem in Java and how does Java address it?</div>
+    <div class="answer">The diamond problem occurs in multiple inheritance where a class inherits from two classes with a common ancestor. Java resolves this by not allowing multiple inheritance with classes, but interfaces can use default methods to avoid this issue.</div>
+    
+    <div class="question">Q43. How does the concept of default methods in interfaces help resolve the diamond problem?</div>
+    <div class="answer">Default methods allow interfaces to provide method implementations, and in case of conflicts (multiple interfaces with the same default method), the implementing class must override the method, resolving ambiguity.</div>
+    
+    <div class="question">Q44. What does mean by encapsulation in java?</div>
+    <div class="answer">Encapsulation in Java is like putting important information into a safe. We store data and the methods inside a class, and we control who can access or change the data by using specific methods.</div>
+    
+    <div class="question">Q45. How Encapsulation Enhances Software Security and Integrity:</div>
+    <div class="answer">Encapsulation keeps important data hidden and safe. It only lets certain parts of our program use this data, which helps prevent mistakes and keeps the data secure from unwanted changes.</div>
+    
+    <div class="question">Q46. What is the concept of Serialization in Java?</div>
+    <div class="answer">Serialization is the process of converting an object into a byte stream for storage or transmission. It allows objects to be saved and restored later or transferred over a network.</div>
+    
+    <div class="question">Q47. What is the purpose of the serialVersionUID in Java serialization?</div>
+    <div class="answer">The serialVersionUID is a unique identifier for Serializable classes. It ensures that the serialized and deserialized objects are compatible by checking version consistency. If the serialVersionUID of the class doesn’t match during deserialization, an InvalidClassException is thrown, preventing incompatible class versions from being used.</div>
+    
+    <div class="question">Q48. What happens if the serialVersionUID of a class changes during deserialization?</div>
+    <div class="answer">If the serialVersionUID changes between serialization and deserialization, the JVM considers the class as incompatible with the serialized object. This results in an InvalidClassException, as the runtime expects the version of the serialized class to match with the version defined in the deserialized class.</div>
+    
+    <div class="question">Q49. How can you prevent certain fields from being serialized in Java?</div>
+    <div class="answer">You can prevent specific fields from being serialized by marking them with the transient keyword. When a field is declared as transient, it is excluded from the serialization process, meaning its value will not be saved when the object is serialized.</div>
+    
+    <div class="question">Q50. Can a class be serialized if one of its member fields is not serializable?</div>
+    <div class="answer">A class can still be serialized even if one of its member fields is not serializable. However, you must mark the non-serializable field as transient. If the field is not transient and is not serializable, attempting to serialize the object will result in a NotSerializableException.</div>
+    
+    <div class="question">Q51. What is the difference between writeObject() and readObject() methods in Java serialization?</div>
+    <div class="answer">The writeObject() and readObject() methods allow customization of the serialization and deserialization processes. writeObject() is used to customize how an object is serialized, while readObject() customizes how it is deserialized. These methods can be overridden to handle complex scenarios, such as serializing transient fields or managing class versioning.</div>
+    
+    <div class="question">Q52. Is it possible to serialize static fields in Java? Why or why not?</div>
+    <div class="answer">No, static fields are not serialized in Java because they belong to the class, not to individual instances. Serialization is intended to capture the state of an object, and static fields are part of the class's state, not the object's state.</div>
+    
+    <div class="question">Q53. How do you serialize an object with circular references in Java?</div>
+    <div class="answer">Java handles circular references during serialization by keeping track of references that have already been serialized. When the same object reference appears again, Java writes a reference to the already serialized object rather than serializing it again. This prevents infinite recursion and maintains the object graph structure.</div>
+    
+    <div class="question">Q54. What is method overloading in Java?</div>
+    <div class="answer">Method overloading allows multiple methods in the same class to have the same name but different parameters. It provides flexibility by enabling multiple ways to call a method with different arguments.</div>
+    
+    <div class="question">Q55. How does the Java compiler determine which overloaded method to call?</div>
+    <div class="answer">When we call an overloaded method, the Java compiler looks at the number and type of arguments provided and picks the method that matches these arguments best.</div>
+    
+    <div class="question">Q56. Is it possible to overload methods that differ only by their return type in Java?</div>
+    <div class="answer">In Java, we cannot overload methods just by changing their return type. The methods must differ by their parameters for overloading to be valid.</div>
+    
+    <div class="question">Q57. What are the rules for method overloading in Java?</div>
+    <div class="answer">The parameters must differ in how many there are, what type they are, or the order they are in.</div>
+    
+    <div class="question">Q58. What is method overriding in Java?</div>
+    <div class="answer">To override a method, the new method in the subclass must have the same name, return type, and parameters as the method in the parent class. Also, the new method should not be less accessible than the original.</div>
+<div class="question">Q58. What is method overriding in Java?</div>
+    <div class="answer">To override a method, the new method in the subclass must have the same name, return type, and parameters as the method in the parent class. Also, the new method should not be less accessible than the original.</div>
+   
+   <div class="question">Q59. What are the rules and conditions for method overriding in Java?</div>
+    <div class="answer">In Java, method overriding occurs when a subclass has a method with the same name, return type, and parameters as one in its parent class. The method in the subclass replaces the one in the parent class when called.</div>
+   
+   <div class="question">Q60. How does the @Override annotation influence method overriding?</div>
+    <div class="answer">The @Override annotation tells the compiler that the method is supposed to replace one from its superclass. It's useful because it helps find mistakes if the method does not actually override an existing method from the parent class.</div>
+   
+   <div class="question">Q61. What happens if a superclass method is overridden by more than one subclass in Java?</div>
+    <div class="answer">If different subclasses override the same method from a superclass, each subclass will have its own version of that method.</div>
+   
+   <div class="question">Q62. What is 'this' and 'super' keyword in Java?</div>
+    <div class="answer">'this' is used to refer current class's instance as well as static members. 'super' keyword is used to access methods of the parent class.</div>
+   
+   <div class="question">Q63. Can 'this' keyword be assigned a new value in Java?</div>
+    <div class="answer">No, this keyword cannot be assigned a new value in Java. It is a read-only reference that always points to the current object.</div>
+   
+   <div class="question">Q64. What happens if you attempt to use the "super" keyword in a class that doesn't have a superclass?</div>
+    <div class="answer">If we attempt to use the "super" keyword in a class that doesn't have a superclass, a compilation error occurs. The "super" keyword is only applicable within subclasses to refer to members of the superclass.</div>
+   
+   <div class="question">Q65. Can the this or super keyword be used in a static method?</div>
+    <div class="answer">No, the this and super keyword cannot be used in static methods. Static methods belong to the class, not instances, and super refers to the superclass's object context, which does not exist in a static context.</div>
+   
+   <div class="question">Q66. How does 'super' play a role in polymorphism?</div>
+    <div class="answer">In Java, the super keyword lets a subclass use methods from its parent class, helping it behave in different ways and that is nothing but a polymorphic behavior.</div>
+   
+   <div class="question">Q67. What is the static keyword in Java?</div>
+    <div class="answer">The static keyword in Java is used to indicate that a particular member (variable or method) belongs to the class, rather than any instance of the class. This means that the static member can be accessed without creating an instance of the class.</div>
+   
+   <div class="question">Q68. Can a static block throw an exception?</div>
+    <div class="answer">Yes, a static block can throw an exception, but if it does, the exception must be handled within the block itself or declared using a throws clause in the class.</div>
+   
+   <div class="question">Q69. Can we override static methods in Java?</div>
+    <div class="answer">No, static methods cannot be overridden in Java because method overriding is based on dynamic binding at runtime and static methods are bound at compile time.</div>
+   
+   <div class="question">Q70. Is it possible to access non-static members from within a static method?</div>
+    <div class="answer">No, it's not possible to access non-static members (instance variables or methods) directly from within a static method. This is because static methods belong to the class itself, not to any specific instance. To access non-static members, you need to create an instance of the class and use that object to reference the non-static members.</div>
+	<div class="question">Q71. What is static block?</div>
+    <div class="answer">To initialize static variables, the statements inside static block are executed only once, when the class is loaded in the memory.</div>
+    
+    <div class="question">Q72. Can we print something on console without main method in Java?</div>
+    <div class="answer">Prior to Java 8, yes, we can print something without main method but it's not possible from Java 8 onwards.</div>
+    
+    <div class="question">Q73. What is final keyword in Java?</div>
+    <div class="answer">The 'final' keyword is used to declare constants, making variables unchangeable once assigned, or to prevent method overriding or class inheritance.</div>
+    
+    <div class="question">Q74. What are some common use cases for using final variables in Java programming?</div>
+    <div class="answer">Common use cases for using final variables in Java programming include defining constants, parameters passed to methods, and local variables in lambdas or anonymous inner classes.</div>
+    
+    <div class="question">Q75. How does the "final" keyword contribute to immutability and thread safety in Java?</div>
+    <div class="answer">The "final" keyword contributes to immutability and thread safety in Java by ensuring that the value of a variable cannot be changed once assigned, preventing unintended modifications and potential concurrency issues.</div>
+    
+    <div class="question">Q76. Can you describe any performance considerations related to using final?</div>
+    <div class="answer">The final keyword improves the performance by reducing call overhead.</div>
+    
+    <div class="question">Q77. What is a functional interface?</div>
+    <div class="answer">Functional interfaces in Java are interfaces with just one abstract method. They are used to create lambda expressions, and instances of these interfaces can be created with lambdas, method references, or constructor references.</div>
+    
+    <div class="question">Q78. Can a functional interface extend another interface?</div>
+    <div class="answer">No, as a functional interface allows only a single abstract method. However, a functional interface can inherit another interface if it contains only static and default methods.</div>
+    
+    <div class="question">Q79. Advantages of using a functional interface.</div>
+    <div class="answer">Functional interfaces, which contain only one abstract method, are key to enabling functional programming in Java. They offer concise and readable code through lambda expressions and method references, improving code simplicity. Functional interfaces allow easy parallel processing, better abstraction, and reusability, especially in scenarios like streams and event handling, promoting a cleaner and more expressive programming style.</div>
+
+	
 <p><b>Can you tell me the difference between JVM, JRE, and JDK?</b></p>
 <p>The JVM is the engine that runs Java bytecode and making Java platform-independent. The JRE contains the JVM and the standard libraries that Java programs need to run. The JDK is development kit for developers that contains everything in the JRE plus tools like compilers and debuggers to create Java applications.</p>
 <p><b>What are the key components of JVM Architecture?</b></p>
