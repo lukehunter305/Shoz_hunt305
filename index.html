@@ -639,6 +639,199 @@
 
     <div class="question">Q40. What is the difference between count(), sum(), and reduce() in Java 8 Streams?</div>
     <div class="answer">In Java 8 Streams, count(), sum(), and reduce() serve different purposes: count() simply returns the number of elements in the stream, useful for tallying items. sum(), available in specialized stream types like IntStream, LongStream, and DoubleStream, calculates the total of the elements. reduce(), on the other hand, is a more general method that combines all elements in the stream using a provided binary operator to produce a single result, allowing for more complex accumulations beyond just summing.</div>
+	
+	<h2>Collection Framework Basics</h2>
+
+ <div class="question">Q1. What is collection framework in Java?</div>
+    <div class="answer">The Java Collection Framework is a set of tools that helps us organize, store, and manage groups of data easily. It includes various types of collections like lists, sets, and maps.</div>
+    
+    <div class="question">Q2. What are the main interfaces of the Java Collection Framework?</div>
+    <div class="answer">The main parts of the Java Collection Framework are interfaces like Collection, List, Set, Queue, and Map. Each one helps manage data in different ways.</div>
+    
+    <div class="question">Q3. Can you explain how Iterator works within the Java Collection Framework?</div>
+    <div class="answer">An Iterator is a tool in the Collection Framework that lets you go through a collection's elements one by one.</div>
+    
+    <div class="question">Q4. What are some common methods available in all Collection types?</div>
+    <div class="answer">Some common methods all collection types have are add, remove, clear, size, and isEmpty. These methods let us add and remove items, check the size, and see if the collection is empty.</div>
+    
+    <div class="question">Q5. How does Java Collection Framework handle concurrency?</div>
+    <div class="answer">The Collection Framework deals with multiple threads using special collection classes like ConcurrentHashMap and CopyOnWriteArrayList, which let different parts of our program modify the collection at the same time safely.</div>
+    
+    <div class="question">Q6. How do you choose the right collection type for a specific problem?</div>
+    <div class="answer">To pick the right collection type, think about what we need: List if you want an ordered collection that can include duplicates, Set if you need unique elements, Queue for processing elements in order, and Map for storing pairs of keys and values.</div>
+    
+    <div class="question">Q7. What enhancements were made to the Java Collection Framework in Java 8?</div>
+    <div class="answer">Java 8 made improvements to the Collection Framework by adding Streams, which make it easier to handle collections in bulk, and lambda expressions, which simplify writing code for operations on collections.</div>
+    
+    <div class="question">Q8. What is the difference between Iterator and ListIterator?</div>
+    <div class="answer">Iterator allows forward traversal of a collection, while ListIterator extends Iterator functionality to allow bidirectional traversal of lists and also supports element modification.</div>
+    
+    <div class="question">Q9. Name of algorithm used by Arrays.sort(..) and Collections.sort(..)?</div>
+    <div class="answer">Arrays.sort() uses a Dual-Pivot Quicksort algorithm for primitive types and TimSort for object arrays. Collections.sort() uses TimSort, a hybrid sorting algorithm combining merge sort and insertion sort.</div>
+    
+    <div class="question">Q10. How do you store elements in a set to preserve insertion order?</div>
+    <div class="answer">Use a LinkedHashSet, which preserves the insertion order of elements.</div>
+    
+    <div class="question">Q11. How do you store elements in a way that they are sorted?</div>
+    <div class="answer">Use a TreeSet or a TreeMap, which automatically sorts elements based on their natural ordering or a specified comparator.</div>
+    
+    <div class="question">Q12. What's the use case of ArrayList, LinkedList, and HashSet?</div>
+    <div class="answer"><strong>ArrayList:</strong> Use it when you need efficient random access to elements via indices, like retrieving elements frequently from a list without altering it.</div>
+    <div class="answer"><strong>LinkedList:</strong> Use it when you frequently add and remove elements from the beginning or middle of the list, such as implementing queues or stacks.</div>
+    <div class="answer"><strong>HashSet:</strong> Use it when you need to ensure that there are no duplicates and require fast lookups, additions, and deletions. It is ideal for scenarios like checking membership existence, such as in a set of unique items or keys.</div>
+    
+    <div class="question">Q13. How does a HashSet ensure that there are no duplicates?</div>
+    <div class="answer">A HashSet in Java uses a HashMap under the hood. Each element you add is treated as a key in this HashMap. Since keys in a HashMap are unique, HashSet automatically prevents any duplicate entries.</div>
+	<div class="question">Q13. Can you describe how hashCode() and equals() work together in a collection?</div>
+    <div class="answer">hashCode() determines which bucket an object goes into, while equals() checks equality between objects in the same bucket to handle collisions, ensuring that each key is unique.</div>
+    
+    <div class="question">Q14. Why is it important to override the hashCode method when you override equals? What would be the consequence if we don’t?</div>
+    <div class="answer">Overriding hashCode() is crucial because hash-based collections like HashMap and HashSet use the hashcode to locate objects. Without consistent hashCode() and equals(), objects may not be found or stored correctly.</div>
+    
+    <div class="question">Q15. Can you give an example where a TreeSet is more appropriate than HashSet?</div>
+    <div class="answer">A TreeSet is more appropriate than a HashSet when you need to maintain the elements in a sorted order. For example, if we are managing a list of customer names that must be displayed alphabetically, using a TreeSet would be ideal.</div>
+    
+    <div class="question">Q16. What is the internal implementation of ArrayList and LinkedList?</div>
+    <div class="answer">ArrayList is backed by a dynamic array, which provides O(1) access time but requires resizing. LinkedList is implemented as a doubly-linked list, providing O(1) insertion and deletion at both ends but O(n) access time.</div>
+    
+    <div class="question">Q17. Can you explain the internal working of HashMap in Java?</div>
+    <div class="answer">A HashMap in Java stores key-value pairs in an array where each element is a bucket. It uses a hash function to determine which bucket a key should go into for efficient data retrieval. If two keys end up in the same bucket, a collision happens. The HashMap manages these collisions by maintaining a linked list or a balanced tree depending on the Java version in each bucket.</div>
+    
+    <div class="question">Q18. What happens when two keys have the same hash code? How would you handle this scenario?</div>
+    <div class="answer">When two different Java objects have the same hashcode, it's called a hash collision. In this case, Java handles it by storing both objects in the same bucket in a hash-based collection, like a HashMap. It then compares the objects using the equals() method to differentiate them.</div>
+    
+    <div class="question">Q19. How does a HashMap handle collisions in Java?</div>
+    <div class="answer">In Java, when a HashMap encounters a collision (two keys with the same hashcode), it stores both entries in the same bucket. Prior to Java 8, it linked them in a simple list structure. In Java 8, if the number of entries in a bucket grows large, the list is converted to a balanced tree for faster lookups.</div>
+    
+    <div class="question">Q20. Can you please tell me what changes were done for the HashMap in Java 8?</div>
+    <div class="answer">Before Java 8, HashMap dealt with collisions by using a simple linked list. Starting from Java 8, when too many items end up in the same bucket, the list turns into a balanced tree, which helps speed up searching.</div>
+    
+    <div class="question">Q21. Can we include a class as a key in HashMap?</div>
+    <div class="answer">No, as a functional interface allows only a single abstract method. However, a functional interface can inherit another interface if it contains only static and default methods in it.</div>
+    
+    <div class="question">Q22. Can you please explain ConcurrentHashMap?</div>
+    <div class="answer">ConcurrentHashMap is a version of HashMap that's safe to use by many threads at once without needing to lock the entire map. It divides the map into parts that can be locked separately, allowing better performance.</div>
+    
+    <div class="question">Q23. How does ConcurrentHashMap improve performance in a multi-threaded environment?</div>
+    <div class="answer">ConcurrentHashMap boosts performance in multi-threaded settings by letting different threads access and modify different parts of the map simultaneously, reducing waiting times and improving efficiency.</div>
+	 <div class="question">Q1. What is collection framework in Java?</div>
+    <div class="answer">The Java Collection Framework is a set of tools that helps us organize, store, and manage groups of data easily. It includes various types of collections like lists, sets, and maps.</div>
+    
+    <div class="question">Q24. What is the time complexity of insertions, deletions, and retrievals in HashSet and HashMap?</div>
+    <div class="answer">
+        <ul>
+            <li><strong>Insertion:</strong></li>
+            <ul>
+                <li>Average: O(1)</li>
+                <li>Worst case: O(n) when rehashing occurs</li>
+            </ul>
+            <li><strong>Deletion:</strong></li>
+            <ul>
+                <li>Average: O(1)</li>
+                <li>Worst case: O(n) when rehashing occurs</li>
+            </ul>
+            <li><strong>Retrieval:</strong></li>
+            <ul>
+                <li>Average: O(1)</li>
+                <li>Worst case: O(n) when rehashing occurs (due to hash collisions)</li>
+            </ul>
+            <p>Note: HashSet and HashMap are not internally sorted.</p>
+        </ul>
+    </div>
+    
+    <div class="question">Q25. What is the time complexity of insertions, deletions, and retrievals in TreeSet and TreeMap?</div>
+    <div class="answer">O(log n) for operations like insertions, deletions, and retrievals.<br>Note: TreeSet and TreeMap maintain elements in sorted order.</div>
+    
+    <div class="question">Q26. What techniques do HashMap, TreeMap, HashSet, and TreeSet use internally for performing operations?</div>
+    <div class="answer">
+        <ul>
+            <li><strong>HashMap</strong> uses an array of nodes, where each node is a linked list or a tree depending on collisions and Java versions. From Java 8 onwards, if there are high hash collisions, the linked list gets converted to a balanced tree.</li>
+            <li><strong>TreeMap</strong> uses a Red-Black tree, which is a type of self-balancing binary search tree. Each node in the Red-Black tree stores a key-value pair.</li>
+            <li><strong>HashSet</strong> internally uses a HashMap.</li>
+            <li><strong>TreeSet</strong> internally uses a TreeMap.</li>
+        </ul>
+    </div>
+<h2>Collection Framework Basics</h2>
+
+<div class="question">Q1. How would you ensure that a shared resource is accessed safely by multiple threads?</div>
+    <div class="answer">To ensure safe access to a shared resource by multiple threads in Java, you can use synchronization. This involves using the synchronized keyword to lock an object or a method while a thread is using it. Only one thread can hold the lock at a time, preventing other threads from accessing the locked code until the lock is released. This mechanism helps avoid conflicts and data corruption by ensuring that only one thread can modify the shared resource at any given time.</div>
+
+    <div class="question">Q2. Explain the synchronized keyword in Java. How does it work?</div>
+    <div class="answer">The synchronized keyword in Java is used to control access to a critical section of code by locking an object or method so that only one thread can execute it at a time. When a thread enters a synchronized block or method, it obtains a lock on the specified object or class, preventing other threads from entering any synchronized blocks or methods that lock the same object or class until the lock is released. This ensures that the shared data is accessed in a thread-safe manner.</div>
+
+    <div class="question">Q3. What are the differences between using synchronized on a method versus on a block of code?</div>
+    <div class="answer">Using synchronized on a method locks the entire method, so when a thread enters this method, no other thread can enter any synchronized method of that object until the lock is released. However, using synchronized on a block of code only locks that specific block. This allows finer control over which parts of the code need synchronization, potentially improving performance by reducing the scope of locking to just critical sections of the code.</div>
+
+    <div class="question">Q4. What is the significance of the volatile keyword in Java concurrency?</div>
+    <div class="answer">The volatile keyword in Java concurrency is crucial for ensuring visibility and preventing caching of variables across threads. When a variable is declared as volatile, it tells the JVM that every read or write to that variable should go directly to main memory, bypassing any intermediate caches. This ensures that changes made to a volatile variable by one thread are immediately visible to other threads, maintaining data consistency across threads without using synchronized blocks.</div>
+
+    <div class="question">Q5. How does the introduction of Lambda expressions change the way Java handles concurrency?</div>
+    <div class="answer">Lambda expressions in Java simplify the way concurrency is handled primarily by reducing the verbosity and complexity of anonymous classes, making code more readable and concise. They facilitate the use of functional programming techniques within Java, particularly in dealing with concurrency frameworks like Streams and CompletableFuture, which rely heavily on passing behaviors (functions) as arguments. Lambdas enable cleaner and more maintainable concurrent processing by allowing developers to focus on the logic rather than boilerplate code.</div>
+
+    <div class="question">Q6. Explain the Java concurrency model.</div>
+    <div class="answer">The Java concurrency model is built around threads, which are units of execution within a process. Java provides a rich set of tools and APIs, like Thread class, Runnable interface, and concurrency utilities in the java.util.concurrent package, to manage and synchronize these threads. This model allows multiple threads to run in parallel, enhancing performance especially in multi-core processors. Synchronization and coordination between threads are achieved through mechanisms like locks, synchronized blocks/methods, and concurrent data structures, ensuring safe communication between threads.</div>
+
+    <div class="question">Q7. What are the challenges associated with Java’s thread management?</div>
+    <div class="answer">Java's thread management presents several challenges, including the complexity of ensuring thread safety, which requires careful synchronization to avoid issues like data corruption and deadlocks. Managing thread life cycles and resource allocation efficiently can also be difficult, as threads consume system resources. Overuse of threading can lead to high CPU usage and slower application performance. Additionally, debugging multithreaded applications is often more complex due to the unpredictable nature of thread execution.</div>
+
+    <div class="question">Q8. Can volatile variables be used as a replacement for synchronization?</div>
+    <div class="answer">Volatile variables cannot fully replace synchronization in Java. While they ensure that the value of a variable is consistently updated across all threads (ensuring visibility), they do not provide the mutual exclusion necessary for complex synchronization. For operations that go beyond the simple reading and writing of a single variable, such as incrementing a counter or checking and modifying multiple variables, synchronized blocks or locks are necessary to prevent race conditions and ensure data integrity.</div>
+	<div class="question">Q9. Can a deadlock occur with a single thread?</div>
+    <div class="answer">A deadlock typically involves two or more threads, where each thread is waiting for another to release a resource they need. However, a single thread can experience a similar issue called a self-deadlock or resource starvation if it recursively acquires a non-reentrant lock it already holds without releasing it first.</div>
+    
+    <div class="question">Q10. What is a synchronized collection, and how does it differ from a concurrent collection?</div>
+    <div class="answer">A synchronized collection in Java is a standard collection that has been wrapped with synchronization to make it thread-safe. A concurrent collection, like those in java.util.concurrent, is designed for simultaneous access with better performance using finer-grained locking or lock-free mechanisms.</div>
+    
+    <div class="question">Q11. How does Java handle multi-threading?</div>
+    <div class="answer">Java handles multi-threading by allowing multiple threads to run concurrently within a single application using the Thread class and Runnable interface. Java provides built-in support for thread lifecycle management, synchronization, and inter-thread communication.</div>
+    
+    <div class="question">Q12. What are the differences between Runnable and Callable in Java concurrency?</div>
+    <div class="answer">Runnable has a run() method that does not return a result, while Callable includes a call() method that returns a result and can throw checked exceptions, making it more suitable for tasks requiring outcomes.</div>
+    
+    <div class="question">Q13. How do you handle thread interruption in Java?</div>
+    <div class="answer">Thread interruption in Java is handled by checking the interrupted status using Thread.interrupted() or isInterrupted(). A thread should properly clean up resources before stopping execution upon detecting an interruption.</div>
+    
+    <div class="question">Q14. How do you check if a Thread holds a lock or not?</div>
+    <div class="answer">You can check if a thread holds a lock using Thread.holdsLock(Object obj), which returns true if the current thread holds the monitor lock on the specified object.</div>
+    
+    <div class="question">Q15. What are use cases of ThreadLocal variables in Java?</div>
+    <div class="answer">ThreadLocal variables provide thread-specific data storage without synchronization. They are useful for maintaining per-thread user sessions, transaction IDs, or temporary credentials.</div>
+    
+    <div class="question">Q16. What is the role of ExecutorService in the Executor Framework? What methods does it provide?</div>
+    <div class="answer">ExecutorService manages and controls thread execution efficiently. It provides methods such as submit() for executing callable tasks, execute() for running runnable tasks, and shutdown() to stop the executor service gracefully.</div>
+	 <div class="question">Q17. What is the difference between submit() and execute() methods in the Executor Framework?</div>
+    <div class="answer">In the Java Executor Framework, the submit() and execute() methods both schedule tasks for execution, but they differ in key aspects. The execute() method is used to run Runnable tasks and does not return any result. Conversely, the submit() method can accept both Runnable and Callable tasks, returning a Future object that can be used to retrieve the Callable task’s result or check the status of the Runnable. This makes submit() more flexible and useful for handling tasks that produce results.</div>
+
+    <div class="question">Q18. What is the RejectedExecutionHandler in ThreadPoolExecutor? How can you customize it?</div>
+    <div class="answer">The RejectedExecutionHandler in a ThreadPoolExecutor in Java is an interface that handles tasks that cannot be executed by the thread pool, typically when the pool is fully utilized and the task queue is full. You can customize it by implementing this interface and defining your own rejectedExecution method. This method decides what to do with the rejected tasks, such as logging them, running them on a different executor, or implementing a backoff and retry mechanism. This customization allows for more robust handling of task overflows in applications.</div>
+
+    <div class="question">Q19. How does ConcurrentHashMap work internally?</div>
+    <div class="answer">The ConcurrentHashMap in Java is designed for concurrent access without the extensive use of synchronization. Internally, it divides the data into segments, effectively a hashtable-like structure. Each segment manages its own lock, reducing contention by allowing multiple threads to concurrently access different segments of the map. This means that read operations can generally be performed without locking, and writes require minimal locking, significantly increasing performance over a Hashtable or synchronized Map under concurrent access scenarios.</div>
+
+    <div class="question">Q20. Difference Between synchronized and ReentrantLock?</div>
+    <div class="answer">The synchronized keyword and ReentrantLock both provide locking mechanisms in Java, but they differ in functionality and flexibility. synchronized is easier to use and automatically handles locking and unlocking, but offers less control. In contrast, ReentrantLock provides more advanced features, such as the ability to try to acquire a lock without waiting forever, lock interruptibility, and support for fairness policies. Additionally, ReentrantLock allows multiple condition variables per lock, facilitating more complex synchronization scenarios.</div>
+
+    <div class="question">Q21. What happens when an exception occurs inside a synchronized block?</div>
+    <div class="answer">When an exception occurs inside a synchronized block in Java, the lock that was acquired when entering the synchronized block is automatically released. This allows other threads to enter the synchronized block or method once the current thread has exited due to the exception. Essentially, the synchronized mechanism ensures that locks are managed cleanly, even in the event of an exception, preventing deadlocks and allowing program execution to continue in other threads.</div>
+
+    <div class="question">Q22. How do you get a thread dump in Java?</div>
+    <div class="answer">To obtain a thread dump in Java, you can use several methods depending on the environment. One common way is to send a SIGQUIT signal by pressing Ctrl+\ in Unix/Linux or Ctrl+Break in Windows on the command line where the Java application is running. Alternatively, you can use tools like jstack with the process ID to generate a thread dump. This tool is part of the JDK and provides detailed information about the threads running in your Java application.</div>
+
+    <div class="question">Q23. How to get a thread dump in Java?</div>
+    <div class="answer">To obtain a thread dump in Java, you can use several methods depending on the environment. One common way is to send a SIGQUIT signal by pressing Ctrl+\ in Unix/Linux or Ctrl+Break in Windows on the command line where the Java application is running. Alternatively, you can use tools like jstack with the process ID to generate a thread dump. This tool is part of the JDK and provides detailed information about the threads running in your Java application.</div>
+
+    <div class="question">Q24. What are the different ways to achieve synchronization in Java?</div>
+    <div class="answer">In Java, synchronization can be achieved through several methods to ensure thread safety. The primary way is using the synchronized keyword, which can be applied to methods or blocks of code to restrict access to a resource to one thread at a time. Additionally, Java provides volatile variables to ensure visibility of changes to variables across threads. More sophisticated synchronization can involve using classes from the java.util.concurrent package, like ReentrantLock, Semaphore, and CountDownLatch, which offer more control and flexibility than synchronized.</div>
+
+    <div class="question">Q25. What is the difference between synchronized method and synchronized block?</div>
+    <div class="answer">In Java, a synchronized method locks the entire method at the object or class level, depending on whether the method is an instance method or static, ensuring that only one thread can access it at a time. In contrast, a synchronized block provides more granular control by only locking a specific section of a method or a specific object, which can minimize waiting times for threads and improve performance by reducing the scope of the lock.</div>
+
+
+
+
+</body>
+</html>
+
 
 
 </body>
