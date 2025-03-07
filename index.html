@@ -12,12 +12,19 @@
     </style>
 </head>
 <body>
+
+    <div class="tab-buttons">
+        <button onclick="showTab('java1')">Java 1</button>
+        <button onclick="showTab('java2')">Java 2</button>
+        <button onclick="showTab('java3')">Java 3</button>
+    </div>
  <div class="qa-container">
-        <h1 style="background-color: blue;">Java 1</h1>
+        <h1 style="background-color: blue;">Paper 1</h1>
         
+		<div id="java1" class="tab active">
         <div class="question">Q1. What is Java?</div>
         <div class="answer">Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a widely used language for developing applications for web, mobile, and desktop platforms.</div>
-        
+        <div id="java1" class="tab active">
         <div class="question">Q2. What are the features of Java?</div>
         <div class="answer">Key features of Java include platform independence, object-orientation, security, robustness, simplicity, multithreading support, and garbage collection.</div>
         
@@ -108,7 +115,7 @@
         
 
 
-    <h1 style="background-color: blue;">Java 2</h1>
+    <h1 style="background-color: blue;">Paper 2</h1>
 
 
         <h2>Java Architecture and Memory Management</h2>
@@ -999,7 +1006,7 @@
 </body>
 </html>
 
-<h1 style="background-color: blue;">Java 3</h1>
+<h1 style="background-color: blue;">Paper 3</h1>
 
 
 <div class="question">Q1. Describe a scenario where you used a PriorityQueue, and explain why it was chosen over other types of queues.</div>
