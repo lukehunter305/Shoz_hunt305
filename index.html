@@ -1205,7 +1205,13 @@ Map&lt;String, SessionData&gt; sessionMap = new ConcurrentHashMap&lt;&gt;();</di
 
 <div class="question">58) What is the role of ExecutorService in the Executor Framework? What methods does it provide?</div>
 <div class="answer">The ExecutorService in the Java Executor Framework plays a crucial role in managing and controlling thread execution. It provides a higher-level replacement for working directly with threads, offering methods to manage lifecycle operations like starting, running, and stopping threads efficiently. Some key methods it provides include submit() for executing callable tasks that return a result, execute() for running runnable tasks, and shutdown() to stop the executor service gracefully once tasks are completed.</div>
-
+ <script>
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
        
 </body>
 </html>
