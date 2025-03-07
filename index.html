@@ -861,7 +861,61 @@
             <li><strong>TreeSet</strong> internally uses a TreeMap.</li>
         </ul>
     </div>
+	<h2>Design Patterns and Principles Basics</h2>
+
+<div class="question">Q1. What is a design pattern in Java and why do we use it?</div>
+    <div class="answer">Design patterns are best practices and solutions to common software design problems. They provide a structured approach to coding, improving maintainability, scalability, and reusability.</div>
+
+    <div class="question">Q2. Can you list and explain a few common design patterns used in Java programming?</div>
+    <div class="answer">Common design patterns in Java:
+        <ul>
+            <li><strong>Singleton:</strong> Ensures a class has only one instance, with a global access point.</li>
+            <li><strong>Observer:</strong> Allows objects to notify others about changes in their state.</li>
+            <li><strong>Factory Method:</strong> Delegates the creation of objects to subclasses, promoting flexibility.</li>
+            <li><strong>Builder:</strong> Separates object construction from its representation, making it easier to create complex objects.</li>
+        </ul>
+    </div>
+
+    <div class="question">Q3. How can design patterns affect the performance of a Java application?</div>
+    <div class="answer">Design patterns can introduce slight performance overhead due to abstraction layers, but they enhance modularity, maintainability, and scalability, which are critical for long-term software development.</div>
+
+    <div class="question">Q4. Which design pattern would you use to manage database connections efficiently in a Java application?</div>
+    <div class="answer">The <strong>Singleton</strong> pattern is commonly used for managing database connections, ensuring a single shared connection instance is reused efficiently, preventing unnecessary resource consumption.</div>
+
+    <div class="question">Q5. How do you choose the appropriate design pattern for a particular problem in Java?</div>
+    <div class="answer">Understanding the problem domain, evaluating common design patterns, and assessing their impact on maintainability, performance, and extensibility help in choosing the right pattern.</div>
+
+    <div class="question">Q6. What is the difference between HashMap and TreeMap?</div>
+    <div class="answer">HashMap stores key-value pairs without ordering, providing O(1) lookup time in ideal cases. TreeMap, on the other hand, maintains keys in sorted order and has a time complexity of O(log n) for operations.</div>
+
+    <div class="question">Q7. In what scenarios would you prefer to use a TreeMap over a HashMap?</div>
+    <div class="answer">Use TreeMap when you need to maintain a sorted order of keys, such as implementing a navigation system or a ranking system. HashMap is preferable for fast, unordered key-value lookups.</div>
+
+    <div class="question">Q8. Can we add objects as keys in a TreeMap?</div>
+    <div class="answer">Yes, objects can be used as keys in a TreeMap if they implement the <strong>Comparable</strong> interface or a custom <strong>Comparator</strong> is provided to define the sorting logic.</div>
 	
+	<div class="question">Q9. What are SOLID Principles?</div>
+<div class="answer">
+    <ul>
+        <li><strong>S - Single Responsibility Principle:</strong> A class should have only one reason to change, meaning it should handle only one functionality.<br>
+            <em>Example:</em> A class <code>VehicleRegistration</code> should only handle vehicle registration details. If it also manages vehicle insurance, it violates this principle.
+        </li>
+        <li><strong>O - Open/Closed Principle:</strong> Classes should be open for extension but closed for modification.<br>
+            <em>Example:</em> A <code>VehicleService</code> class providing maintenance services should allow extension through subclasses like <code>ElectricVehicleService</code> without modifying the original class.
+        </li>
+        <li><strong>L - Liskov Substitution Principle:</strong> Subtypes must be substitutable for their base types without altering the correctness of the program.<br>
+            <em>Example:</em> A superclass <code>Vehicle</code> with a method <code>startEngine()</code> should allow substitution with subclasses like <code>Car</code> and <code>ElectricCar</code> without breaking the system.
+        </li>
+        <li><strong>I - Interface Segregation Principle:</strong> Clients should not be forced to depend on interfaces they do not use; large interfaces should be split into smaller ones.<br>
+            <em>Example:</em> Instead of one large interface <code>VehicleOperations</code> with methods like <code>drive()</code>, <code>refuel()</code>, <code>charge()</code>, and <code>navigate()</code>, split it into focused interfaces like <code>Drivable</code>, <code>Refuelable</code>, and <code>Navigable</code>.
+        </li>
+        <li><strong>D - Dependency Inversion Principle:</strong> High-level modules should depend on abstractions rather than concrete implementations.<br>
+            <em>Example:</em> A <code>VehicleTracker</code> class that logs vehicle positions should interact through a <code>GPSDevice</code> interface instead of depending directly on a specific GPS device model.
+        </li>
+    </ul>
+</div>
+
+
 
 
 </body>
