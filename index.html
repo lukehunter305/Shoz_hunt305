@@ -1648,7 +1648,8 @@ Map&lt;String, SessionData&gt; sessionMap = new ConcurrentHashMap&lt;&gt;();</di
 	<h1 style="background-color: blue;">Springboot-3</h1> 
 	
 	 <div class="question">1) If you had to scale a Spring Boot application to handle high traffic, what strategies would you use?</div>
-    <div class="answer">To scale a Spring Boot application for high traffic, we can:
+    <div class="answer">
+        To scale a Spring Boot application for high traffic, we can:
         <ul>
             <li>Add more app instances (horizontal scaling) and use a load balancer to spread out the traffic.</li>
             <li>Break our app into microservices so each part can be scaled independently.</li>
@@ -1657,80 +1658,119 @@ Map&lt;String, SessionData&gt; sessionMap = new ConcurrentHashMap&lt;&gt;();</di
             <li>Implement an API Gateway to handle requests and take care of things like authentication.</li>
         </ul>
     </div>
-    
-    <div class="question">2) Imagine Your application requires data from an external REST API to function. Describe how you would use RestTemplate or WebClient to consume the REST API in your Spring Boot application.</div>
+
+    <div class="question">2) Imagine your application requires data from an external REST API to function. Describe how you would use RestTemplate or WebClient to consume the REST API in your Spring Boot application.</div>
     <div class="answer">
         <strong>Using RestTemplate:</strong>
-        <p>First, I would define a RestTemplate bean in a configuration class using @Bean annotation so it can be auto-injected anywhere I need it. Then, I'd use RestTemplate to make HTTP calls by creating an instance and using methods like getForObject() for a GET request, providing the URL of the external API and the class type for the response.</p>
+        <ul>
+            <li>Define a RestTemplate bean in a configuration class using <code>@Bean</code> so it can be auto-injected.</li>
+            <li>Use RestTemplate to make HTTP calls with methods like <code>getForObject()</code> for a GET request, providing the API URL and response type.</li>
+        </ul>
         <strong>Using WebClient:</strong>
-        <p>I would define a WebClient bean similarly using @Bean annotation. Then I would use this WebClient to make asynchronous requests, calling methods like get(), specifying the URL, and then using retrieve() to fetch the response. I would also handle the data using methods like bodyToMono() or bodyToFlux() depending on if I am expecting a single object or a list.</p>
+        <ul>
+            <li>Define a WebClient bean using <code>@Bean</code>.</li>
+            <li>Make asynchronous requests using methods like <code>get()</code>, <code>retrieve()</code>, and handle responses using <code>bodyToMono()</code> or <code>bodyToFlux()</code> depending on expected data type.</li>
+        </ul>
     </div>
-    
+
     <div class="question">3) Your Spring Boot backend needs to accept cross-origin requests from a specific frontend domain. Explain how you would configure CORS policies in your application.</div>
     <div class="answer">
-        To enable cross-origin requests from a specific domain in Spring Boot, I would use the @CrossOrigin annotation on my controller or method, like <code>@CrossOrigin(origins = "http://example.com")</code>. 
-        For a global approach, I'd configure a WebMvcConfigurer bean, overriding the <code>addCorsMappings</code> method to apply rules across all controllers, using <code>registry.addMapping("/**").allowedOrigins("http://example.com")</code>. 
-        This setup allows my backend to accept requests from a designated frontend domain and enhances security by restricting other cross-origin interactions.
+        To enable cross-origin requests from a specific domain:
+        <ul>
+            <li>Use <code>@CrossOrigin(origins = "http://example.com")</code> annotation on the controller or method.</li>
+            <li>For a global approach, configure a <code>WebMvcConfigurer</code> bean and override <code>addCorsMappings</code> to allow requests from a specified domain.</li>
+        </ul>
     </div>
-    
+
     <div class="question">4) Your Spring Boot application is experiencing performance issues under high load. What are the steps you would take to identify and address the performance?</div>
     <div class="answer">
-        First, I would identify the specific performance issues using monitoring tools like Spring Boot Actuator or Splunk.
-        I would also analyze application logs and metrics to spot any patterns or errors, especially under high load.
-        Then, I would start a performance test to replicate the issue and use a profiler for code-level analysis.
-        After getting findings, I might optimize the database, implement caching, or use scaling options. It's also crucial to continuously monitor the application to prevent future issues.
+        Steps to identify and fix performance issues:
+        <ul>
+            <li>Use monitoring tools like Spring Boot Actuator or Splunk.</li>
+            <li>Analyze logs and metrics to spot patterns or errors under high load.</li>
+            <li>Run performance tests and use a profiler to analyze code execution.</li>
+            <li>Optimize database queries, implement caching, and consider scaling options.</li>
+            <li>Continuously monitor the application to prevent future issues.</li>
+        </ul>
     </div>
-    
-    <div class="question">5) Imagine you need to make a simple web application with Spring Boot that serves a static homepage and a dynamic page displaying the current server time. Discuss the project structure you would use.</div>
+
+    <div class="question">5) Imagine you need to make a simple web application with Spring Boot that serves a static homepage and a dynamic page displaying current server time. Discuss the project structure you would use.</div>
     <div class="answer">
-        I would add the main application and a web controller in the <code>src/main/java</code> directory. The controller would have mappings for the homepage (<code>@GetMapping("/")</code>) and the server time page (<code>@GetMapping("/time")</code>).
-        I would add static content, like <code>index.html</code> in <code>src/main/resources/static</code>, while dynamic content uses Thymeleaf templates in <code>src/main/resources/templates</code>.
-        Configuration settings would be in <code>src/main/resources/application.properties</code>.
-        This setup efficiently organizes static and dynamic resources, ensuring clear separation and easy management of web content.
+        I would place the main application and a web controller in the <code>src/main/java</code> directory. The controller would have mappings for the homepage (<code>@GetMapping("/")</code>) and the server time page (<code>@GetMapping("/time")</code>). Static content, like <code>index.html</code>, would go in <code>src/main/resources/static</code>, while dynamic content would use Thymeleaf templates in <code>src/main/resources/templates</code>. Configuration settings would be stored in <code>src/main/resources/application.properties</code>. This setup ensures clear separation and easy management of web content.
+    </div>
+
+    <div class="question">6) Your application behaves differently in development and production environments. How would you use Spring profiles to manage these differences?</div>
+    <div class="answer">
+        To handle differences between development and production environments, I would use Spring profiles.
+        <ul>
+            <li>Define environment-specific configurations in <code>application-dev.properties</code> for development and <code>application-prod.properties</code> for production.</li>
+            <li>Activate profiles using the <code>spring.profiles.active</code> property, command-line arguments, or environment variables.</li>
+            <li>Use the <code>@Profile</code> annotation to selectively load beans or configurations based on the current environment.</li>
+        </ul>
+    </div>
+
+    <div class="question">7) What strategies would you use to optimize the performance of a Spring Boot application?</div>
+    <div class="answer">
+        Some optimization strategies include:
+        <ul>
+            <li>Implement caching for frequently accessed data.</li>
+            <li>Optimize database queries to reduce the load on the database.</li>
+            <li>Use asynchronous methods for operations like sending emails.</li>
+            <li>Use a load balancer if traffic is high.</li>
+            <li>Optimize the time complexity of the code.</li>
+            <li>Use WebFlux to handle a large number of concurrent connections.</li>
+        </ul>
     </div>
 	
-	 <div class="question">5) Imagine you need to make a simple web application with Spring Boot that serves a static homepage and a dynamic page displaying current server time. Discuss the project structure you would use.</div>
-    <div class="answer">I would add the main application and a web controller in the src/main/java directory. The controller would have mappings for the homepage (@GetMapping("/")) and the server time page (@GetMapping("/time")). Static content, like index.html, would go in src/main/resources/static, while dynamic content would use Thymeleaf templates in src/main/resources/templates. Configuration settings would be in src/main/resources/application.properties. This setup ensures a clean structure for managing static and dynamic content.</div>
-    
-    <div class="question">6) Your application behaves differently in development and production environments. How would you use Spring profiles to manage these differences?</div>
-    <div class="answer">I would use Spring profiles by defining environment-specific configurations in application-dev.properties for development and application-prod.properties for production. The active profile can be set using the spring.profiles.active property, command-line arguments, or environment variables. The @Profile annotation allows selective loading of beans or configurations based on the active environment.</div>
-    
-    <div class="question">7) What strategies would you use to optimize the performance of a Spring Boot application?</div>
-    <div class="answer">To optimize performance, I would implement caching for frequently accessed data, optimize database queries, use asynchronous methods, introduce a load balancer for high traffic, optimize code complexity, and use WebFlux to handle high concurrency efficiently.</div>
-    
-    <div class="question">8) Describe a scenario where a Spring Boot application needs to dynamically switch between multiple data sources at runtime based on the request context.</div>
-    <div class="answer">If a Spring Boot application serves users from different regions like Europe and Asia, we could switch databases based on the user's location. A component would determine the appropriate data source dynamically based on the request context, ensuring users receive region-specific content.</div>
-    
+	<div class="question">8) Describe a scenario where a Spring Boot application needs to dynamically switch between multiple data sources at runtime based on the request context.</div>
+    <div class="answer">Imagine a Spring Boot application that serves users from different places, like Europe or Asia. We switch between databases based on where the user is from. If someone from Europe visits the app, they get data from the European database, making the content more relevant to them. We set this up by having a special part in the app that knows which database to use when it sees where the request is coming from. This way, users see information and offers that make sense for their region.</div>
+
     <div class="question">9) Discuss how you would add a GraphQL API to an existing Spring Boot RESTful service.</div>
-    <div class="answer">I would add GraphQL Java and GraphQL Spring Boot dependencies, create a schema file (schema.graphqls) in src/main/resources, implement data fetchers to retrieve data, configure a GraphQL service, and expose a GraphQL endpoint. Finally, I would test the API using tools like GraphiQL or Postman.</div>
-    
+    <div class="answer">First, I'd add GraphQL Java and GraphQL Spring Boot starter dependencies to my pom.xml or build.gradle file. Secondly, I'd create a GraphQL schema file (schema.graphqls) in the src/main/resources folder. Then, I'd implement data fetchers to retrieve data from the existing services or directly from the database. Moving ahead, I'd configure a GraphQL service using the schema and data fetchers. Then, I would expose the GraphQL endpoint and make sure it is correctly configured. Finally, I'd test the GraphQL API using tools like GraphiQL or Postman to ensure it's working as expected.</div>
+
     <div class="question">10) Describe how you would secure sensitive data in a Spring Boot application that is accessed by multiple users with different roles.</div>
-    <div class="answer">I would implement authentication, role-based access control, encrypt sensitive data, store secrets securely outside the codebase, and log access to critical information for security auditing.</div>
-    
+    <div class="answer">To keep sensitive information safe in a Spring Boot app used by many people with different roles, I would do a few things. First, I would make sure everyone who uses the app proves who they are through a login system. Then, I'd use special settings to control what each person can see or do in the app based on their role. Some users can see more sensitive data while others can’t. I'd also encrypt any secret information stored in the app or sent over the internet so that only the right people can understand it. Plus, I'd keep passwords and other secret keys out of the code and in a safe place, making them easy to change if needed. Lastly, I'd keep track of who accesses or changes sensitive information to enhance security.</div>
+
     <div class="question">11) In an IoT application scenario, explain how a Spring Boot backend could be designed to efficiently process and analyze real-time data streams from thousands of IoT devices.</div>
-    <div class="answer">I would use Apache Kafka to ingest data, process it in real-time, and store it in a high-performance database for analysis. This setup ensures the system remains responsive while handling large data streams.</div>
-    
+    <div class="answer">In an IoT setup, a Spring Boot backend can manage data from lots of devices by using Apache Kafka, a tool that helps collect all the data. It then processes this data in real-time, figuring out what's important and what's not. After sorting the data, it stores it in a database designed for quick access and analysis. This way, the system can handle tons of information coming in all at once, ensuring everything runs smoothly and quickly.</div>
+
     <div class="question">12) Discuss the specific security challenges associated with using WebSockets in a Spring Boot application.</div>
-    <div class="answer">WebSockets pose risks like unauthorized access, message interception, and hijacking. To mitigate these, I would implement authentication, encrypt WebSocket communication, and enforce proper access control policies.</div>
-    
+    <div class="answer">WebSockets in Spring Boot apps face security issues because they keep a constant connection open between the user and the server, unlike regular web pages. This can lead to risks like attackers hijacking these connections to intercept or send fake messages. Also, without the usual security checks we have for web pages, it's trickier to stop unauthorized access. To keep things safe, it's important to make sure only the right people can connect and to encrypt the data being sent back and forth.</div>
+
     <div class="question">13) How would you implement efficient handling of large file uploads in a Spring Boot REST API, ensuring that the system remains responsive and scalable?</div>
-    <div class="answer">I would use streaming to process files incrementally, store them in external storage (e.g., Amazon S3), and handle uploads asynchronously to keep the system responsive.</div>
-    
+    <div class="answer">To handle big file uploads in a Spring Boot REST API without slowing down the system, I'd use a method that processes files in the background and streams them directly where they need to go, like a hard drive or the cloud. This way, the main part of the app stays fast and can handle more users or tasks at the same time. Also, by saving files outside the main server, like on Amazon S3, it helps the app run smoothly even as it grows or when lots of users are uploading files.</div>
+
     <div class="question">14) How would you use Spring WebFlux to consume data from an external service in a non-blocking manner and process this data reactively within your Spring Boot application?</div>
-    <div class="answer">I would use WebClient to fetch data asynchronously, then process it reactively with Mono or Flux to ensure non-blocking execution and improve scalability.</div>
-    
+    <div class="answer">In a Spring Boot app using Spring WebFlux, I'd use WebClient to fetch data from an external service without slowing things down. WebClient makes it easy to get data in a way that doesn't stop other parts of the app from working. When the data comes in, it's handled reactively, meaning I can work with it on the go, like filtering or changing it without waiting for everything to finish loading. This keeps the app fast and responsive, even when dealing with a lot of data or making many requests.</div>
+
     <div class="question">15) Imagine you need to develop a REST API in a Spring Boot application that allows clients to manage user data. Explain how you would structure your application.</div>
-    <div class="answer">I would organize the app into Controllers (handling requests), Services (business logic), and Repositories (database access). This separation ensures maintainability and scalability.</div>
-    
-    <div class="question">16) Imagine you are designing a Spring Boot application that interfaces with multiple external APIs. How would you handle API rate limits and failures?</div>
-    <div class="answer">I would use a circuit breaker to manage failures, implement rate limiting, add a retry mechanism with exponential backoff, and use caching to reduce requests to external APIs.</div>
-    
+    <div class="answer">To build a REST API in Spring Boot for managing user data, I'd organize the app into three main parts: Controllers, Services, and Repositories. Controllers would deal with web requests, using endpoints like /users to handle different actions—getting, adding, updating, and deleting user info. Services would focus on the app's logic, like checking if a user's data meets certain criteria before saving it. Repositories would connect to the database to actually save, update, or fetch user data. This setup keeps everything neat and makes it easier to update parts of the app without affecting others.</div>
+	
+	 <div class="question">16) Imagine you are designing a Spring Boot application that interfaces with multiple external APIs. How would you handle API rate limits and failures?</div>
+    <div class="answer">
+        To handle API rate limits and failures in a Spring Boot application, I would:
+        <ul>
+            <li>Use a circuit breaker to manage failures</li>
+            <li>Implement rate limiting to avoid exceeding API limits</li>
+            <li>Add a retry mechanism with exponential backoff for temporary issues</li>
+            <li>Use caching to reduce the number of requests</li>
+        </ul>
+        This approach helps keep the application reliable and efficient.
+    </div>
+
     <div class="question">17) You need to deploy a Spring Boot application to a cloud platform (e.g., AWS, Azure). What steps would you take, and how would you configure the application properties for different environments?</div>
-    <div class="answer">I would package the application using Maven or Gradle, select a cloud service like AWS Elastic Beanstalk or Azure App Service, and use Spring profiles for environment-specific configurations.</div>
-    
+    <div class="answer">
+        To deploy a Spring Boot app to the cloud, like AWS or Azure, first, I'd package it using Maven or Gradle. Next, I'd pick a cloud service that makes deployment easy, such as AWS Elastic Beanstalk or Azure App Service. For different settings in development, staging, and production, I'd use Spring profiles.
+        <br><br>
+        I'd make separate property files for each environment, like <code>application-dev.properties</code> for development. When deploying, I'd choose the right profile for that environment, making sure the app uses the correct settings. This way, the app runs smoothly in any environment with the right configurations.
+    </div>
+
     <div class="question">18) Explain how you would use application events in Spring Boot to notify different parts of your application about significant activities.</div>
-    <div class="answer">I would create custom event classes, implement event listeners, and use ApplicationEventPublisher to publish events. This enables decoupled communication between components.</div>
-  
-  
+    <div class="answer">
+        In Spring Boot, to let different parts of the app know about important activities, I'd use application events. First, I'd create special event classes for different types of activities, like when a new user signs up. Then, I'd write listeners for these events, which are just pieces of code that wait for a specific event to happen and then do something in response.
+        <br><br>
+        To tell the app when something important happens, I'd publish these events from anywhere in the app. This way, parts of the app can communicate and react to events without being directly connected, keeping the code clean and organized.
+    </div>
+
 </body>
 </html>
