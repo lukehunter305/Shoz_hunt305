@@ -994,6 +994,12 @@
     Catching <code>Throwable</code> in Java is generally considered bad practice because <code>Throwable</code> is the superclass of all errors and exceptions. Catching it means catching both <code>Exception</code> and <code>Error</code> classes. Errors, such as <code>OutOfMemoryError</code> or <code>StackOverflowError</code>, are typically serious problems that a normal application should not attempt to handle because they are often related to system-level issues. Catching <code>Throwable</code> may prevent the propagation of errors that should naturally cause the program to terminate, potentially leading to system instability or corrupting application state.
 </div>
 
+
+
+
+</body>
+</html>
+
 <h1 style="background-color: blue;">Java-3</h1>
 
 
@@ -1194,6 +1200,243 @@ Map&lt;String, SessionData&gt; sessionMap = new ConcurrentHashMap&lt;&gt;();</di
 <div class="question">58) What is the role of ExecutorService in the Executor Framework? What methods does it provide?</div>
 <div class="answer">The ExecutorService in the Java Executor Framework plays a crucial role in managing and controlling thread execution. It provides a higher-level replacement for working directly with threads, offering methods to manage lifecycle operations like starting, running, and stopping threads efficiently. Some key methods it provides include submit() for executing callable tasks that return a result, execute() for running runnable tasks, and shutdown() to stop the executor service gracefully once tasks are completed.</div>
 
-       
+<h1 style="background-color: blue;">Springboot-1</h1>  
+
+ <h1>Spring Boot Annotations</h1>
+    <div class="question">Q1) What is @SpringBootApplication?</div>
+    <div class="answer">It combines @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations.</div>
+    
+    <div class="question">Q2) What is @EnableAutoConfiguration?</div>
+    <div class="answer">It configures the application automatically based on included libraries.</div>
+    
+    <div class="question">Q3) What is @Configuration?</div>
+    <div class="answer">It marks a class as a source of bean definitions.</div>
+    
+    <div class="question">Q4) What is @ComponentScan?</div>
+    <div class="answer">It specifies where to look for components, services, and configurations.</div>
+    
+    <div class="question">Q5) What is @Bean?</div>
+    <div class="answer">It defines a bean explicitly within a configuration class.</div>
+    
+    <div class="question">Q6) What is @Component?</div>
+    <div class="answer">It marks a class as a Spring-managed component.</div>
+    
+    <div class="question">Q7) What is @Repository?</div>
+    <div class="answer">It designates a class as a data access component.</div>
+    
+    <div class="question">Q8) What is @Service?</div>
+    <div class="answer">It marks a class as a service layer component.</div>
+    
+    <div class="question">Q9) What is @Controller?</div>
+    <div class="answer">It defines a class as a web controller handling HTTP requests.</div>
+    
+    <div class="question">Q10) What is @RestController?</div>
+    <div class="answer">It combines @Controller and @ResponseBody to create RESTful services.</div>
+    
+    <div class="question">Q11) What is @RequestMapping?</div>
+    <div class="answer">It maps HTTP requests to handler methods.</div>
+    
+    <div class="question">Q12) What is @Autowired?</div>
+    <div class="answer">It enables automatic dependency injection.</div>
+    
+    <div class="question">Q13) What is @PathVariable?</div>
+    <div class="answer">It extracts values from URI templates.</div>
+    
+    <div class="question">Q14) What is @RequestParam?</div>
+    <div class="answer">It binds a method parameter to a request parameter.</div>
+    
+    <div class="question">Q15) What is @ResponseBody?</div>
+    <div class="answer">It returns a method's result as the HTTP response body.</div>
+    
+    <div class="question">Q16) What is @RequestBody?</div>
+    <div class="answer">It binds the request body to a method parameter.</div>
+    
+    <div class="question">Q17) What is @EnableWebMvc?</div>
+    <div class="answer">It activates default configuration for Spring MVC.</div>
+    
+    <div class="question">Q18) What is @EnableAsync?</div>
+    <div class="answer">It enables asynchronous method execution.</div>
+    
+    <div class="question">Q19) What is @Scheduled?</div>
+    <div class="answer">It triggers methods to run at scheduled intervals.</div>
+    
+    <div class="question">Q20) What is @EnableScheduling?</div>
+    <div class="answer">It enables scheduling capabilities.</div>
+    
+    <div class="question">Cross-Question: Can we use @Component instead of @Repository and @Service?</div>
+    <div class="answer">Yes, since all three create Spring beans. However, @Repository and @Service improve code clarity and functionality, with @Repository enhancing database error management.</div>
+	
+<h1>Basic Spring Boot Interview Questions and Answers</h1>
+    
+    <div class="question">Q1) What is Spring Boot?</div>
+    <div class="answer">Spring Boot is a powerful framework that streamlines the development, testing, and deployment of Spring applications. It eliminates boilerplate code and offers automatic configuration features to ease the setup and integration of various development tools.</div>
+    
+    <div class="question">Q2) What are the Features of Spring Boot?</div>
+    <div class="answer">Key features include auto-configuration, embedded servers (like Tomcat and Jetty), starter kits, Spring Boot Actuator for monitoring, and cloud support.</div>
+    
+    <div class="question">Q3) What are the advantages of using Spring Boot?</div>
+    <div class="answer">Spring Boot reduces setup time, requires less code, supports microservices, and includes built-in monitoring and security features.</div>
+    
+    <div class="question">Q4) Define the Key Components of Spring Boot.</div>
+    <div class="answer">Key components include Starter Kits, AutoConfiguration, CLI, and Actuator.</div>
+    
+    <div class="question">Q5) Why do we prefer Spring Boot over Spring?</div>
+    <div class="answer">Spring Boot offers automatic configuration, embedded servers, and reduced dependency management, making development faster and easier.</div>
+    
+    <div class="question">Q6) Explain the internal working of Spring Boot.</div>
+    <div class="answer">Spring Boot auto-configures applications based on dependencies, uses embedded servers, and simplifies configuration through properties and annotations.</div>
+    
+    <div class="question">Q7) What are the Spring Boot Starter Dependencies?</div>
+    <div class="answer">Starter dependencies bundle required libraries for features like web apps, data access, and security.</div>
+    
+    <div class="question">Q8) How does a Spring application get started?</div>
+    <div class="answer">Spring Boot applications start with SpringApplication.run(), initializing the application context and embedded server.</div>
+    
+    <div class="question">Q9) What does the @SpringBootApplication annotation do internally?</div>
+    <div class="answer">It combines @Configuration, @EnableAutoConfiguration, and @ComponentScan for auto-configuration and component scanning.</div>
+    
+    <div class="question">Q10) What is Spring Initializr?</div>
+    <div class="answer">Spring Initializr is a web tool for generating Spring Boot projects with predefined settings and dependencies.</div>
+	 <div class="question">Q11) What is a Spring Bean?</div>
+    <div class="answer">A Spring Bean is an object managed by the Spring framework. The framework creates, configures, and connects these beans for us, making it easier to manage dependencies and the lifecycle of objects.</div>
+    
+    <div class="question">Q12) What is Auto-wiring?</div>
+    <div class="answer">Auto-wiring in Spring automatically connects beans to their needed dependencies without manual setup. It uses annotations or XML to find and link beans based on their type or name.</div>
+    
+    <div class="question">Q13) What is ApplicationRunner in Spring Boot?</div>
+    <div class="answer">ApplicationRunner in Spring Boot lets us run code right after the application starts. It is useful for tasks like setting up data or resources.</div>
+    
+    <div class="question">Q14) What is CommandLineRunner in Spring Boot?</div>
+    <div class="answer">CommandLineRunner and ApplicationRunner both let us run code after the application starts. CommandLineRunner uses a String array for arguments, while ApplicationRunner uses an ApplicationArguments object.</div>
+    
+    <div class="question">Q15) What is Spring Boot CLI and the most used CLI commands?</div>
+    <div class="answer">Spring Boot CLI helps quickly create and run Spring applications using simple scripts. Common commands include ‘spring init’ to start a project and ‘spring run’ to execute scripts.</div>
+    
+    <div class="question">Q16) What is Spring Boot dependency management?</div>
+    <div class="answer">Spring Boot dependency management simplifies handling project dependencies using tools like Maven or Gradle.</div>
+    
+    <div class="question">Q17) Is it possible to change the port of the embedded Tomcat server in Spring Boot?</div>
+    <div class="answer">Yes, we can change the port by setting the server.port property in the application.properties file.</div>
+    
+    <div class="question">Q18) What happens if a starter dependency includes conflicting versions of libraries?</div>
+    <div class="answer">Spring Boot resolves conflicts using dependency resolution, ensuring only one compatible version is included.</div>
+    
+    <div class="question">Q19) What is the default port of Tomcat in Spring Boot?</div>
+    <div class="answer">The default port for Tomcat in Spring Boot is 8080.</div>
+    
+    <div class="question">Q20) Can we disable the default web server in a Spring Boot application?</div>
+    <div class="answer">Yes, by setting the spring.main.web-application-type property to none in the application.properties file.</div>
+    
+    <div class="question">Q21) How to disable a specific auto-configuration class?</div>
+    <div class="answer">We can disable specific auto-configuration classes using the exclude attribute of the @EnableAutoConfiguration annotation.</div>
+    
+    <div class="question">Q22) Can we create a non-web application in Spring Boot?</div>
+    <div class="answer">Yes, by setting the application type to 'none', which disables web-specific contexts.</div>
+    
+    <div class="question">Q23) Describe the flow of HTTPS requests through a Spring Boot application.</div>
+    <div class="answer">HTTPS requests pass through the security layer, are routed to controllers, processed, and then returned as encrypted responses.</div>
+    
+    <div class="question">Q24) Explain @RestController annotation in Spring Boot.</div>
+    <div class="answer">@RestController is used to create RESTful web controllers, combining @Controller and @ResponseBody to return JSON/XML responses directly.</div>
+	 <div class="question">25) Difference between @Controller and @RestController</div>
+    <div class="answer">The key difference is that @Controller is used to mark classes as Spring MVC Controller and typically return a view. @RestController combines @Controller and @ResponseBody, indicating that all methods assume @ResponseBody by default, returning data instead of a view.</div>
+
+    <div class="question">26) What is the difference between RequestMapping and GetMapping?</div>
+    <div class="answer">@RequestMapping is a general annotation that can be used for routing any HTTP method requests (like GET, POST, etc.), requiring explicit specification of the method. @GetMapping is a specialized version of @RequestMapping that is designed specifically for HTTP GET requests, making the code more readable and concise.</div>
+
+    <div class="question">27) What are the differences between @SpringBootApplication and @EnableAutoConfiguration annotation?</div>
+    <div class="answer">The @SpringBootApplication annotation is a convenience annotation that combines @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations. It is used to mark the main class of a Spring Boot application and trigger auto-configuration and component scanning. On the other hand, @EnableAutoConfiguration specifically enables Spring Boot's auto-configuration mechanism, which attempts to automatically configure our application based on the jar dependencies we have added. It is included within @SpringBootApplication.</div>
+
+    <div class="question">28) How can you programmatically determine which profiles are currently active in a Spring Boot application?</div>
+    <div class="answer">In a Spring Boot application, we can find out which profiles are active by using a tool called Environment. First, we include Environment in our code using @Autowired, which automatically fills it with the right information. Then, we use the getActiveProfiles() method of Environment to get a list of all the active profiles. This method gives us the names of these profiles as a simple array of strings.</div>
+
+    <div class="question">29) Mention the differences between WAR and embedded containers.</div>
+    <div class="answer">Traditional WAR deployment requires a standalone servlet container like Tomcat, Jetty, or WildFly. In contrast, Spring Boot with an embedded container allows us to package the application and the container as a single executable JAR file, simplifying deployment and ensuring that the environment configurations remain consistent.</div>
+
+    <div class="question">30) What is Spring Boot Actuator?</div>
+    <div class="answer">Spring Boot Actuator provides production-ready features to help monitor and manage our application. It includes a number of built-in endpoints that provide vital operational information about the application (like health, metrics, info, dump, env, etc.) which can be exposed via HTTP or JMX.</div>
+
+    <div class="question">31) How to enable Actuator in Spring Boot?</div>
+    <div class="answer">To enable Spring Boot Actuator, we simply add the spring-boot-starter-actuator dependency to our project’s build file. Once added, we can configure its endpoints and their visibility properties through the application properties or YAML configuration file.</div>
+
+    <div class="question">32) How to get the list of all the beans in our Spring Boot application?</div>
+    <div class="answer">To list all the beans loaded by the Spring ApplicationContext, we can inject the ApplicationContext into any Spring-managed bean and call the getBeanDefinitionNames() method. This will return a String array containing the names of all beans managed by the context.</div>
+
+    <div class="question">33) Can we check the environment properties in our Spring Boot application? Explain how.</div>
+    <div class="answer">Yes, we can access environment properties in Spring Boot via the Environment interface. Inject the Environment into a bean using the @Autowired annotation and use the getProperty() method to retrieve properties.</div>
+
+    <div class="question">34) How to enable debugging log in the Spring Boot application?</div>
+    <div class="answer">To enable debugging logs in Spring Boot, we can set the logging level to DEBUG in the application.properties or application.yml file by adding a line such as logging.level.root=DEBUG. This will provide detailed logging output, useful for debugging purposes.</div>
+
+    <div class="question">35) Explain the need of dev-tools dependency.</div>
+    <div class="answer">The dev-tools dependency in Spring Boot provides features that enhance the development experience. It enables automatic restarts of our application when code changes are detected, which is faster than restarting manually. It also offers additional development-time checks to help us catch common mistakes early.</div>
+
+    <div class="question">36) How do you test a Spring Boot application?</div>
+    <div class="answer">To test a Spring Boot application, we use different tools and annotations. For testing the whole application together, we use @SpringBootTest. When we want to test just a part of our application, like the web layer, we use @WebMvcTest. If we are testing how our application interacts with the database, we use @DataJpaTest. Tools like JUnit help us check if things are working as expected, and Mockito lets us replace some parts with dummy versions to focus on what we are testing.</div>
+
+    <div class="question">37) What is the purpose of unit testing in software development?</div>
+    <div class="answer">Unit testing is a way to check if small parts of a program work as they should. It helps find mistakes early, making it easier to fix them and keep the program running smoothly. This makes the software more reliable and easier to update later.</div>
+
+    <div class="question">38) How do JUnit and Mockito facilitate unit testing in Java projects?</div>
+    <div class="answer">JUnit and Mockito are tools that help test small parts of Java programs. JUnit lets us check if each part works right, while Mockito lets us create fake versions of parts we are not testing. This way, we can focus on testing one thing at a time.</div>
+
+    <div class="question">39) Explain the difference between @Mock and @InjectMocks in Mockito.</div>
+    <div class="answer">In Mockito, @Mock is used to create a fake version of an object to test it without using the real one. @InjectMocks is used to put these fake objects into the class we are testing. This helps us see how our class works with the fakes, making sure everything fits together correctly.</div>
+	 <div class="question">40) What is the role of @SpringBootTest annotation?</div>
+    <div class="answer">The @SpringBootTest annotation in Spring Boot is used for integration testing. It loads the entire application context to ensure that all the components of the application work together as expected.</div>
+    
+    <div class="question">41) How do you handle exceptions in Spring Boot applications?</div>
+    <div class="answer">In Spring Boot, exceptions are handled using @ControllerAdvice or @RestControllerAdvice with methods annotated with @ExceptionHandler.</div>
+    
+    <div class="question">42) Explain the purpose of the pom.xml file in a Maven project.</div>
+    <div class="answer">The pom.xml file in a Maven project is a configuration file that defines project dependencies, build plugins, and other settings for Maven-based builds.</div>
+    
+    <div class="question">43) How does auto-configuration play an important role in a Spring Boot application?</div>
+    <div class="answer">Auto-configuration simplifies setup by automatically configuring components based on classpath dependencies.</div>
+    
+    <div class="question">44) Can we customize a specific auto-configuration in Spring Boot?</div>
+    <div class="answer">Yes, we can override auto-configuration using application properties, YAML files, or custom configuration beans.</div>
+    
+    <div class="question">45) How can you disable specific auto-configuration classes in Spring Boot?</div>
+    <div class="answer">Using @SpringBootApplication(exclude = {ClassName.class}) or the spring.autoconfigure.exclude property in application.properties.</div>
+    
+    <div class="question">46) What is the purpose of having a spring-boot-starter-parent?</div>
+    <div class="answer">It simplifies dependency management and enforces consistent versions across Spring Boot projects.</div>
+    
+    <div class="question">47) How do starters simplify the Maven or Gradle configuration?</div>
+    <div class="answer">Starters bundle commonly used dependencies, reducing manual dependency management.</div>
+    
+    <div class="question">48) How do you create REST APIs?</div>
+    <div class="answer">Using @RestController with request mappings like @GetMapping, @PostMapping, @PutMapping, and @DeleteMapping.</div>
+    
+    <div class="question">49) What is versioning in REST? What are the ways to implement versioning?</div>
+    <div class="answer">Versioning allows APIs to evolve without breaking clients, using URL versioning, query parameters, headers, or media types.</div>
+    
+    <div class="question">50) What are the REST API Best practices?</div>
+    <div class="answer">Follow standard HTTP methods, use clear resource names, implement proper error handling, and secure APIs.</div>
+    
+    <div class="question">51) What are the uses of ResponseEntity?</div>
+    <div class="answer">ResponseEntity allows setting HTTP status codes, headers, and response bodies in a flexible manner.</div>
+    
+    <div class="question">52) What should the DELETE API method status code be?</div>
+    <div class="answer">It should return 200 OK (if a response body is present), 204 No Content (if no response body), or 404 Not Found (if the resource doesn't exist).</div>
+    
+    <div class="question">53) What is Swagger?</div>
+    <div class="answer">Swagger is an open-source tool for designing, documenting, and testing REST APIs.</div>
+    
+    <div class="question">54) How does Swagger help in documenting APIs?</div>
+    <div class="answer">Swagger generates interactive API documentation and provides a user-friendly interface for testing endpoints.</div>
+    
+    <div class="question">55) What servers does Spring Boot provide, and which one is the default?</div>
+    <div class="answer">Spring Boot provides Tomcat, Jetty, and Undertow, with Tomcat being the default embedded server.</div>
+    
+    <div class="question">56) How does Spring Boot decide which embedded server to use if multiple options are available?</div>
+    <div class="answer">Spring Boot selects the first embedded server found in the classpath dependencies.</div>
+    
+    <div class="question">57) How can we disable the default server and enable a different one?</div>
+    <div class="answer">Exclude the default server dependency and add the preferred server dependency in pom.xml or build.gradle.</div>
+ 
+
+  
 </body>
 </html>
