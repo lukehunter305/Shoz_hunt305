@@ -325,78 +325,311 @@ from the thread's cache memory.</div>
         - <b><code>.equals()</code></b> compares object content (checks if two objects have the same logical value).
     </div>
         
-        <div class="question">Q13. Why do we use wrapper classes in collections?</div>
-        <div class="answer">Java collections can only store objects, so wrapper classes allow primitives to be stored in collections.</div>
-        
-        <div class="question">Q14. What is the difference between unboxing and autoboxing?</div>
-        <div class="answer">Autoboxing converts a primitive to a wrapper object, while unboxing converts a wrapper object back to a primitive.</div>
-        
-        <div class="question">Q15. Can autoboxing cause unexpected behavior?</div>
-        <div class="answer">Yes, comparing two Integer objects using == might give unexpected results for values outside the range of -128 to 127.</div>
-        
-        <div class="question">Q16. Can autoboxing and unboxing cause a NullPointerException?</div>
-        <div class="answer">Yes, if a null object is unboxed, a NullPointerException will occur.</div>
-        
-        <div class="question">Q17. What is the role of try, catch, and finally in exception handling?</div>
-        <div class="answer">The try block contains risky code, catch handles exceptions, and finally executes cleanup code.</div>
-        
-        <div class="question">Q18. What happens if return is used inside try or catch?</div>
-        <div class="answer">The finally block still executes before returning the value.</div>
-        
-        <div class="question">Q19. Can we use try with finally without a catch block?</div>
-        <div class="answer">Yes, a try block can be used with finally without a catch block to ensure cleanup occurs.</div>
-		 <div class="question">Q20. How does exception handling with try-catch-finally affect the performance of a Java application?</div>
-        <div class="answer">Using try-catch-finally can affect performance slightly due to the overhead of managing exceptions but is generally minimal unless exceptions are thrown frequently.</div>
+         <div class="question">Q13. Why do we use wrapper classes in collections?</div>
+    <div class="answer">
+        Java collections, such as ArrayList, HashMap, and others in the Java Collections Framework, can only hold objects and not primitive types. 
+        Wrapper classes allow primitive values to be treated as objects, enabling them to be stored and managed within these collections.
+    </div>
+    
+    <div class="question">Q14. What is the difference between unboxing and autoboxing?</div>
+    <div class="answer">
+        <b>Autoboxing:</b> Automatically converts a primitive type (like int) to its corresponding wrapper class (Integer).<br>
+        <b>Unboxing:</b> Converts a wrapper class back to a primitive type (e.g., Integer to int).
+    </div>
+    
+    <div class="question">Q15. Can autoboxing lead to unexpected behavior?</div>
+    <div class="answer">
+        Yes, when comparing two Integer instances using <code>==</code>, autoboxing might lead to false results because it compares object references, 
+        not values, for integers outside the cache range of -128 to 127.
+    </div>
+    
+    <div class="question">Q16. Can autoboxing and unboxing cause a NullPointerException?</div>
+    <div class="answer">
+        Yes, a NullPointerException can occur if you unbox a null object; for example, assigning null to an Integer and then using it in a context 
+        where an int is expected.
+    </div>
+    
+    <div class="question">Q17. What is the role of try, catch, and finally in exception handling?</div>
+    <div class="answer">
+        <b>try:</b> Contains code that might throw exceptions.<br>
+        <b>catch:</b> Handles those exceptions.<br>
+        <b>finally:</b> Executes code after try/catch, regardless of an exception, typically for cleanup operations.
+    </div>
+    
+    <div class="question">Q18. Does the finally block execute if return is used in try or catch?</div>
+    <div class="answer">
+        Yes, the finally block executes even if a return statement is used in the try or catch block, ensuring cleanup runs.
+    </div>
+    
+    <div class="question">Q19. Can we use try with finally without a catch block?</div>
+    <div class="answer">
+        Yes, we can use try with finally without a catch block to ensure cleanup occurs even if we allow the exception to propagate up.
+    </div>
+    
+    <div class="question">Q20. Does exception handling affect Java application performance?</div>
+    <div class="answer">
+        Using try-catch-finally can affect performance slightly due to the overhead of managing exceptions but is generally minimal unless exceptions are thrown frequently.
+    </div>
+    
+    <div class="question">Q21. When will the finally block not execute?</div>
+    <div class="answer">
+        The finally block will not execute if the JVM exits via <code>System.exit()</code> during try or catch execution.
+    </div>
+    
+    <div class="question">Q22. Can we write multiple finally blocks?</div>
+    <div class="answer">
+        No, each try can only have one finally block. Multiple finally blocks are not allowed within a single try-catch-finally structure.
+    </div>
+    
+    <div class="question">Q23. What is an exception? Difference between checked and unchecked exceptions?</div>
+    <div class="answer">
+        <b>Exception:</b> An unwanted event that occurs during the execution of a program and disrupts the flow.<br>
+        <b>Checked Exceptions:</b> Must be declared or handled (e.g., IOException).<br>
+        <b>Unchecked Exceptions:</b> Do not need to be declared or caught (e.g., NullPointerException).
+    </div>
+    
+    <div class="question">Q24. How do we handle multiple exceptions in a single catch block?</div>
+    <div class="answer">
+        Use a single catch block for multiple exceptions by separating them with a pipe (<code>|</code>), e.g., <code>catch (IOException | SQLException e)</code>, 
+        to handle both exceptions with the same logic.
+    </div>
+    
+    <div class="question">Q25. What is the difference between Throwable and Exception?</div>
+    <div class="answer">
+        <b>Throwable:</b> The superclass for all errors and exceptions.<br>
+        <b>Exception:</b> A subclass of Throwable representing recoverable conditions, while <b>Error</b> (another subclass) represents serious issues the application should not attempt to recover from.
+    </div>
 
-        <div class="question">Q21. Can you tell me a condition where the finally block will not be executed?</div>
-        <div class="answer">The finally block will not execute if the JVM exits via System.exit() during try or catch execution.</div>
-
-        <div class="question">Q22. Can we write multiple finally blocks in Java?</div>
-        <div class="answer">No, each try can only have one finally block. Multiple finally blocks are not allowed within a single try-catch-finally structure.</div>
-
-        <div class="question">Q23. What is an exception and the differences between checked and unchecked exceptions?</div>
-        <div class="answer">An exception is an unwanted event that occurs during the execution of a program and disrupts the flow. Checked exceptions must be declared or handled (e.g., IOException), whereas unchecked exceptions do not need to be declared or caught (e.g., NullPointerException).</div>
-
-        <div class="question">Q24. How would you handle multiple exceptions in a single catch block?</div>
-        <div class="answer">Use a single catch block for multiple exceptions by separating them with a pipe (|), e.g., catch (IOException | SQLException e), to handle both exceptions with the same logic.</div>
-
-        <div class="question">Q25. What is the difference between a Throwable and an Exception in Java?</div>
-        <div class="answer">Throwable is the superclass for all errors and exceptions. Exception is a subclass of Throwable representing recoverable conditions, while Error (another subclass) represents serious issues the application should not attempt to recover from.</div>
-
-        <div class="question">Q26. Discuss the difference between finalize() and finally. Under what circumstances might finalize() not get called in a Java application?</div>
-        <div class="answer">finalize() is called by the garbage collector before an object is destroyed, while finally is used in a try-catch block to execute code regardless of exceptions. finalize() may not get called if the garbage collector doesn't run or the JVM shuts down.</div>
-
-        <div class="question">Q27. What is the string pool?</div>
-        <div class="answer">A Java String Pool is a place in heap memory where all the strings defined in the program are stored. Whenever a new string object is created, the JVM checks for its presence in the String pool. If the String is available in the pool, the same object reference is shared; otherwise, a new object is created.</div>
-
-        <div class="question">Q28. Are there any scenarios where using the string pool might not be beneficial?</div>
-        <div class="answer">It will not be beneficial when there are a lot of unique strings because it will be complex to check each string.</div>
-
-        <div class="question">Q29. Can you please tell me about String and StringBuffer?</div>
-        <div class="answer">String in Java is immutable, meaning once created, its value cannot be changed. StringBuffer is mutable, allowing for modification of its contents, and is thread-safe, making it suitable for use in multithreaded environments where strings need to be altered.</div>
-
-        <div class="question">Q30. How does StringBuilder differ from StringBuffer, and when should each be used?</div>
-        <div class="answer">StringBuilder is similar to StringBuffer but is not thread-safe, making it faster for single-threaded scenarios.</div>
-
-        <div class="question">Q31. Give a scenario where StringBuffer is better than String.</div>
-        <div class="answer">A scenario where StringBuffer is more appropriate than String is in a multi-threaded server application where multiple threads modify a shared string, such as constructing a complex log entry concurrently from different threads.</div>
-
-        <div class="question">Q32. What is the difference between a String literal and a String object?</div>
-        <div class="answer">A String literal is stored in the String pool for reusability. A String object, created using new String(), is stored in the heap, even if it has the same value as a literal.</div>
-
-        <div class="question">Q33. Why is String immutable?</div>
-        <div class="answer">String is immutable to improve security, caching, and performance by ensuring that its value cannot be changed once created.</div>
-
-        <div class="question">Q34. What are the packages in Java?</div>
-        <div class="answer">In Java, packages are namespaces that organize classes and interfaces into groups, preventing naming conflicts and managing access control. They provide a structured way to manage Java code, allowing related classes to be grouped together logically.</div>
-
-        <div class="question">Q35. Why are packages used?</div>
-        <div class="answer">
-            1. They help in organizing code.<br>
-            2. Packages prevent naming conflicts by providing a unique namespace.<br>
-            3. Packages support modularity by allowing developers to separate the program.<br>
-            4. Organizing classes into packages makes it easier to locate related classes.</div>
-
+         <div class="question">Q26. What is the difference between finalize() and finally?</div>
+    <div class="answer">
+        <b>finalize():</b> Called by the garbage collector before an object is destroyed.<br>
+        <b>finally:</b> Used in a try-catch block to execute code regardless of exceptions.<br>
+        <b>When might finalize() not get called?</b> If the garbage collector doesn't run or the JVM shuts down.
+    </div>
+    
+    <div class="question">Q27. What is the String pool?</div>
+    <div class="answer">
+        A Java String Pool is a place in heap memory where all the strings defined in the program are stored. 
+        Whenever a new string is created, JVM checks if it exists in the pool; if yes, it reuses the existing object, otherwise, it creates a new one.
+    </div>
+    
+    <div class="question">Q28. When is using the String pool not beneficial?</div>
+    <div class="answer">
+        The String pool may not be beneficial when there are a lot of unique strings, as checking each string increases complexity and memory usage.
+    </div>
+    
+    <div class="question">Q29. What is the difference between String and StringBuffer?</div>
+    <div class="answer">
+        <b>String:</b> Immutable, meaning once created, its value cannot be changed. 
+        <b>StringBuffer:</b> Mutable, allowing modification of contents and is thread-safe.
+    </div>
+    
+    <div class="question">Q30. How does StringBuilder differ from StringBuffer?</div>
+    <div class="answer">
+        StringBuilder is similar to StringBuffer but is not thread-safe, making it faster for single-threaded scenarios.
+    </div>
+    
+    <div class="question">Q31. Give a scenario where StringBuffer is better than String?</div>
+    <div class="answer">
+        StringBuffer is better when dealing with a lot of string modifications, especially in a multi-threaded environment, such as logging messages from different threads.
+    </div>
+    
+    <div class="question">Q32. What is the difference between a String literal and a String object?</div>
+    <div class="answer">
+        A String literal is stored in the String pool for reusability, whereas a String object created using <code>new String()</code> is stored in the heap separately.
+    </div>
+    
+    <div class="question">Q33. Why is String immutable?</div>
+    <div class="answer">
+        String is immutable to improve security, caching, and performance by ensuring that its value cannot be changed once created.
+    </div>
+    
+    <div class="question">Q34. What are packages in Java?</div>
+    <div class="answer">
+        Packages are namespaces that organize classes and interfaces into groups, preventing naming conflicts and managing access control. They provide a structured way to manage Java code.
+    </div>
+    
+    <div class="question">Q35. Why are packages used?</div>
+    <div class="answer">
+        <ul>
+            <li>They help in organizing code efficiently.</li>
+            <li>Packages prevent naming conflicts by providing a unique namespace.</li>
+            <li>They support modularity by allowing developers to separate programs logically.</li>
+            <li>Organizing classes into packages makes it easier to locate related classes.</li>
+        </ul>
+    </div> <div class="question">Q26. What is the difference between finalize() and finally?</div>
+    <div class="answer">
+        <b>finalize():</b> Called by the garbage collector before an object is destroyed.<br>
+        <b>finally:</b> Used in a try-catch block to execute code regardless of exceptions.<br>
+        <b>When might finalize() not get called?</b> If the garbage collector doesn't run or the JVM shuts down.
+    </div>
+    
+    <div class="question">Q27. What is the String pool?</div>
+    <div class="answer">
+        A Java String Pool is a place in heap memory where all the strings defined in the program are stored. 
+        Whenever a new string is created, JVM checks if it exists in the pool; if yes, it reuses the existing object, otherwise, it creates a new one.
+    </div>
+    
+    <div class="question">Q28. When is using the String pool not beneficial?</div>
+    <div class="answer">
+        The String pool may not be beneficial when there are a lot of unique strings, as checking each string increases complexity and memory usage.
+    </div>
+    
+    <div class="question">Q29. What is the difference between String and StringBuffer?</div>
+    <div class="answer">
+        <b>String:</b> Immutable, meaning once created, its value cannot be changed. 
+        <b>StringBuffer:</b> Mutable, allowing modification of contents and is thread-safe.
+    </div>
+    
+    <div class="question">Q30. How does StringBuilder differ from StringBuffer?</div>
+    <div class="answer">
+        StringBuilder is similar to StringBuffer but is not thread-safe, making it faster for single-threaded scenarios.
+    </div>
+    
+    <div class="question">Q31. Give a scenario where StringBuffer is better than String?</div>
+    <div class="answer">
+        StringBuffer is better when dealing with a lot of string modifications, especially in a multi-threaded environment, such as logging messages from different threads.
+    </div>
+    
+    <div class="question">Q32. What is the difference between a String literal and a String object?</div>
+    <div class="answer">
+        A String literal is stored in the String pool for reusability, whereas a String object created using <code>new String()</code> is stored in the heap separately.
+    </div>
+    
+    <div class="question">Q33. Why is String immutable?</div>
+    <div class="answer">
+        String is immutable to improve security, caching, and performance by ensuring that its value cannot be changed once created.
+    </div>
+    
+    <div class="question">Q34. What are packages in Java?</div>
+    <div class="answer">
+        Packages are namespaces that organize classes and interfaces into groups, preventing naming conflicts and managing access control. They provide a structured way to manage Java code.
+    </div>
+    
+    <div class="question">Q35. Why are packages used?</div>
+    <div class="answer">
+        <ul>
+            <li>They help in organizing code efficiently.</li>
+            <li>Packages prevent naming conflicts by providing a unique namespace.</li>
+            <li>They support modularity by allowing developers to separate programs logically.</li>
+            <li>Organizing classes into packages makes it easier to locate related classes.</li>
+        </ul>
+    </div> <div class="question">Q26. What is the difference between finalize() and finally?</div>
+    <div class="answer">
+        <b>finalize():</b> Called by the garbage collector before an object is destroyed.<br>
+        <b>finally:</b> Used in a try-catch block to execute code regardless of exceptions.<br>
+        <b>When might finalize() not get called?</b> If the garbage collector doesn't run or the JVM shuts down.
+    </div>
+    
+    <div class="question">Q27. What is the String pool?</div>
+    <div class="answer">
+        A Java String Pool is a place in heap memory where all the strings defined in the program are stored. 
+        Whenever a new string is created, JVM checks if it exists in the pool; if yes, it reuses the existing object, otherwise, it creates a new one.
+    </div>
+    
+    <div class="question">Q28. When is using the String pool not beneficial?</div>
+    <div class="answer">
+        The String pool may not be beneficial when there are a lot of unique strings, as checking each string increases complexity and memory usage.
+    </div>
+    
+    <div class="question">Q29. What is the difference between String and StringBuffer?</div>
+    <div class="answer">
+        <b>String:</b> Immutable, meaning once created, its value cannot be changed. 
+        <b>StringBuffer:</b> Mutable, allowing modification of contents and is thread-safe.
+    </div>
+    
+    <div class="question">Q30. How does StringBuilder differ from StringBuffer?</div>
+    <div class="answer">
+        StringBuilder is similar to StringBuffer but is not thread-safe, making it faster for single-threaded scenarios.
+    </div>
+    
+    <div class="question">Q31. Give a scenario where StringBuffer is better than String?</div>
+    <div class="answer">
+        StringBuffer is better when dealing with a lot of string modifications, especially in a multi-threaded environment, such as logging messages from different threads.
+    </div>
+    
+    <div class="question">Q32. What is the difference between a String literal and a String object?</div>
+    <div class="answer">
+        A String literal is stored in the String pool for reusability, whereas a String object created using <code>new String()</code> is stored in the heap separately.
+    </div>
+    
+    <div class="question">Q33. Why is String immutable?</div>
+    <div class="answer">
+        String is immutable to improve security, caching, and performance by ensuring that its value cannot be changed once created.
+    </div>
+    
+    <div class="question">Q34. What are packages in Java?</div>
+    <div class="answer">
+        Packages are namespaces that organize classes and interfaces into groups, preventing naming conflicts and managing access control. They provide a structured way to manage Java code.
+    </div>
+    
+    <div class="question">Q35. Why are packages used?</div>
+    <div class="answer">
+        <ul>
+            <li>They help in organizing code efficiently.</li>
+            <li>Packages prevent naming conflicts by providing a unique namespace.</li>
+            <li>They support modularity by allowing developers to separate programs logically.</li>
+            <li>Organizing classes into packages makes it easier to locate related classes.</li>
+        </ul>
+    </div>
+	<div class="question">Q26. What is the difference between finalize() and finally?</div>
+    <div class="answer">
+        <b>finalize():</b> Called by the garbage collector before an object is destroyed.<br>
+        <b>finally:</b> Used in a try-catch block to execute code regardless of exceptions.<br>
+        <b>When might finalize() not get called?</b> If the garbage collector doesn't run or the JVM shuts down.
+    </div>
+    
+    <div class="question">Q27. What is the String pool?</div>
+    <div class="answer">
+        A Java String Pool is a place in heap memory where all the strings defined in the program are stored. 
+        Whenever a new string is created, JVM checks if it exists in the pool; if yes, it reuses the existing object, otherwise, it creates a new one.
+    </div>
+    
+    <div class="question">Q28. When is using the String pool not beneficial?</div>
+    <div class="answer">
+        The String pool may not be beneficial when there are a lot of unique strings, as checking each string increases complexity and memory usage.
+    </div>
+    
+    <div class="question">Q29. What is the difference between String and StringBuffer?</div>
+    <div class="answer">
+        <b>String:</b> Immutable, meaning once created, its value cannot be changed. 
+        <b>StringBuffer:</b> Mutable, allowing modification of contents and is thread-safe.
+    </div>
+    
+    <div class="question">Q30. How does StringBuilder differ from StringBuffer?</div>
+    <div class="answer">
+        StringBuilder is similar to StringBuffer but is not thread-safe, making it faster for single-threaded scenarios.
+    </div>
+    
+    <div class="question">Q31. Give a scenario where StringBuffer is better than String?</div>
+    <div class="answer">
+        StringBuffer is better when dealing with a lot of string modifications, especially in a multi-threaded environment, such as logging messages from different threads.
+    </div>
+    
+    <div class="question">Q32. What is the difference between a String literal and a String object?</div>
+    <div class="answer">
+        A String literal is stored in the String pool for reusability, whereas a String object created using <code>new String()</code> is stored in the heap separately.
+    </div>
+    
+    <div class="question">Q33. Why is String immutable?</div>
+    <div class="answer">
+        String is immutable to improve security, caching, and performance by ensuring that its value cannot be changed once created.
+    </div>
+    
+    <div class="question">Q34. What are packages in Java?</div>
+    <div class="answer">
+        Packages are namespaces that organize classes and interfaces into groups, preventing naming conflicts and managing access control. They provide a structured way to manage Java code.
+    </div>
+    
+    <div class="question">Q35. Why are packages used?</div>
+    <div class="answer">
+        <ul>
+            <li>They help in organizing code efficiently.</li>
+            <li>Packages prevent naming conflicts by providing a unique namespace.</li>
+            <li>They support modularity by allowing developers to separate programs logically.</li>
+            <li>Organizing classes into packages makes it easier to locate related classes.</li>
+        </ul>
+    </div>
 
 <h2>Object Oriented Programming Concepts</h2>
 <div class="question">Q1. What are access modifiers in Java?</div>
