@@ -248,53 +248,82 @@ from the thread's cache memory.</div>
     </div>
 
 		<h2>Java Fundamentals</h2>
+		
+   <div class="question">Q1. Is Java 100% object-oriented programming language?</div>
+    <div class="answer">
+        No, Java is not considered 100% object-oriented because it uses primitive types (like int, char, etc.) that are not objects. 
+        In a fully object-oriented language, everything is treated as an object.
+    </div>
 
-        
-      <div class="question">Q1. Is Java 100% object-oriented programming language?</div>
-        <div class="answer">No, Java is not considered 100% object-oriented because it uses primitive types (like int, char, etc.) that are not objects.</div>
-        
-        <div class="question">Q2. What are the advantages of Java being partially object-oriented?</div>
-        <div class="answer">
-            <ul>
-                <li>Using simple, non-object types like integers and booleans helps Java run faster and use less memory.</li>
-                <li>The mix of features allows Java to work well with other technologies and systems, which might not be fully object-oriented.</li>
-            </ul>
-        </div>
-        
-        <div class="question">Q3. What is the use of object-oriented programming languages in enterprise projects?</div>
-        <div class="answer">Object-oriented programming (OOP) is used in big projects to make coding easier to handle. It helps organize code better, makes it easier to update and scale, and lets programmers reuse code, saving time and effort.</div>
-        
-        <div class="question">Q4. Explain public static void main(String args[])?</div>
-        <div class="answer">In Java, public static void main(String[] args) is the entry point of any standalone Java application.</div>
-        
-        <div class="question">Q5. What will happen if we don’t declare the main method as static?</div>
-        <div class="answer">If the main method is not declared as static, the JVM will not be able to launch the application.</div>
-        
-        <div class="question">Q6. Can we override the main method?</div>
-        <div class="answer">No, the main method cannot be overridden because it is a static method.</div>
-        
-        <div class="question">Q7. Can JVM execute our overloaded main method?</div>
-        <div class="answer">No, JVM only calls the original main method and does not execute overloaded versions.</div>
-        
-        <div class="question">Q8. What’s the difference between primitive and non-primitive data types?</div>
-        <div class="answer">Primitive data types are predefined and not objects, while non-primitive data types are objects and can call methods.</div>
-        
-        <div class="question">Q9. Can primitive data types be NULL?</div>
-        <div class="answer">No, primitive data types cannot be null. They have default values.</div>
-        
-        <div class="question">Q10. Can we declare pointers in Java?</div>
-        <div class="answer">No, Java does not support pointers for security reasons.</div>
-        
-        <div class="question">Q11. What are wrapper classes?</div>
-        <div class="answer">Wrapper classes allow primitive data types to be treated as objects. Examples include Integer, Double, etc.</div>
-        
-        <div class="question">Q12. Why do we need wrapper classes?</div>
-        <div class="answer">
-            <ul>
-                <li>They provide methods like valueOf() and parseInt().</li>
-                <li>They enable autoboxing and unboxing.</li>
-            </ul>
-        </div>
+    <div class="question">Q2. What are the advantages of Java being partially object-oriented?</div>
+    <div class="answer">
+        1. Using simple, non-object types like integers and booleans helps Java run faster and use less memory.<br>
+        2. The mix of features allows Java to work well with other technologies and systems, which might not be fully object-oriented.
+    </div>
+
+    <div class="question">Q3. What is the use of object-oriented programming languages in enterprise projects?</div>
+    <div class="answer">
+        Object-oriented programming (OOP) is used in big projects to make coding easier to handle. It helps organize code better, 
+        makes it easier to update and scale, and lets programmers reuse code, saving time and effort.
+    </div>
+
+    <div class="question">Q4. Explain <code>public static void main(String args[])</code>?</div>
+    <div class="answer">
+        In Java, <code>public static void main(String[] args)</code> is the entry point of any standalone Java application.<br><br>
+        - <b>public</b>: Makes this method accessible from anywhere.<br>
+        - <b>static</b>: Means we don't need to create an object to call this method.<br>
+        - <b>void</b>: It doesn’t return any value.<br>
+        - <b>main</b>: The name of the method.<br>
+        - <b>String[] args</b>: An array that holds any command-line arguments passed to the program.
+    </div>
+
+    <div class="question">Q5. What happens if we don’t declare the main method as static?</div>
+    <div class="answer">
+        If we don't declare the main method as static in a Java program, the JVM won't be able to launch the application. 
+        The program will compile, but it will fail to run, giving an error like:  
+        <i>"Main method is not static in class MyClass, please define the main method as: public static void main(String[] args)."</i>
+    </div>
+
+    <div class="question">Q6. Can we override the main method?</div>
+    <div class="answer">
+        No, we cannot override the main method in Java because a static method cannot be overridden. 
+        Static methods are associated with the class itself, not instances of the class.
+    </div>
+
+    <div class="question">Q7. Can we overload the main method?</div>
+    <div class="answer">
+        Yes, we can overload the main method in Java by changing its argument list.
+    </div>
+
+    <div class="question">Q8. Can JVM execute our overloaded main method?</div>
+    <div class="answer">
+        No, the JVM only calls the original main method (<code>public static void main(String[] args)</code>), not any overloaded versions.
+    </div>
+
+    <div class="question">Q9. What’s the difference between primitive data types and non-primitive data types?</div>
+    <div class="answer">
+        - <b>Primitive data types</b> in Java are the basic types of data predefined by the language and named by a keyword. 
+          They have a fixed size and are not objects. Examples include <code>int</code>, <code>double</code>, <code>char</code>, and <code>boolean</code>.<br><br>
+        - <b>Non-primitive data types</b>, on the other hand, are objects and classes that are not defined by Java itself but rather 
+          by the programmer or the Java API. They can be used to call methods to perform certain operations, and their size is not fixed. 
+          Examples include <code>String</code>, <code>arrays</code>, and any class instances.
+    </div>
+
+    <div class="question">Q10. Can primitive data types be NULL?</div>
+    <div class="answer">
+        No, primitive data types in Java cannot be null. They have default values (e.g., 0 for int, false for boolean, 0.0 for double) and must always have a value.
+    </div>
+
+    <div class="question">Q11. Can we declare pointers in Java?</div>
+    <div class="answer">
+        No, Java does not support pointers. This is because pointers can lead to security vulnerabilities and unsafe memory access.
+    </div>
+
+    <div class="question">Q12. What is the difference between <code>==</code> and <code>.equals()</code> in Java?</div>
+    <div class="answer">
+        - <b><code>==</code></b> compares object references (checks if two references point to the same memory location).<br>
+        - <b><code>.equals()</code></b> compares object content (checks if two objects have the same logical value).
+    </div>
         
         <div class="question">Q13. Why do we use wrapper classes in collections?</div>
         <div class="answer">Java collections can only store objects, so wrapper classes allow primitives to be stored in collections.</div>
