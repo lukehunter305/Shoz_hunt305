@@ -177,9 +177,78 @@ from the thread's cache memory.</div>
 
 
     <h1 style="background-color: blue;">Java-2</h1>
+	
+	<h2>Java Architecture and Memory Management</h2>
 
+<div class="question">Q1. What is the difference between JVM, JRE, and JDK?</div>
+    <div class="answer">
+        The JVM is the engine that runs Java bytecode, making Java platform-independent.  
+        The JRE contains the JVM and the standard libraries needed to run Java programs.  
+        The JDK is a development kit containing the JRE plus tools like compilers and debuggers.
+    </div>
 
-        <h2>Java Architecture and Memory Management</h2>
+    <div class="question">Q2. What are the key components of JVM Architecture?</div>
+    <div class="answer">
+        The JVM has three components: the ClassLoader, runtime data areas, and the execution engine.  
+        - The ClassLoader loads class files into the JVM.  
+        - The Runtime Data Areas store data needed while the program runs.  
+        - The Execution Engine runs the instructions in the class files.
+    </div>
+
+    <div class="question">Q3. Can a Java application run without installing the JRE?</div>
+    <div class="answer">
+        No, a Java application needs the JRE because it contains essential tools and libraries.  
+        However, newer Java versions offer <code>jlink</code>, which allows bundling an application with a minimal JRE.
+    </div>
+
+    <div class="question">Q4. Is it possible to have the JDK installed without having the JRE?</div>
+    <div class="answer">
+        No, the JDK includes the JRE. It’s not possible to have a JDK without the JRE since the JRE contains essential runtime components.
+    </div>
+
+    <div class="question">Q5. What are the memory storages available in JVM?</div>
+    <div class="answer">
+        JVM memory is divided into:  
+        - **Heap Space:** Stores objects and shared data.  
+        - **Stack Memory:** Manages method calls and local variables.  
+        - **Method Area (Metaspace in Java 8+):** Stores class metadata and constants.  
+        - **Native Method Stacks:** Used for native method execution.
+    </div>
+
+    <div class="question">Q6. Which is faster to access between heap and stack, and why?</div>
+    <div class="answer">
+        Stack memory is faster because it uses a Last-In-First-Out (LIFO) structure for method calls and local variables.  
+        The heap, used for dynamic memory allocation, is slower due to complex memory management.
+    </div>
+
+    <div class="question">Q7. How does garbage collection work in Java?</div>
+    <div class="answer">
+        Garbage collection in Java automatically frees memory by removing objects that are no longer referenced,  
+        making space for new objects.
+    </div>
+
+    <div class="question">Q8. What is the role of the <code>finalize()</code> method in garbage collection?</div>
+    <div class="answer">
+        The <code>finalize()</code> method is called by the garbage collector when an object has no more references.  
+        It allows the object to clean up resources before being collected.
+    </div>
+
+    <div class="question">Q9. What garbage collection algorithms does the JVM use?</div>
+    <div class="answer">
+        JVM uses multiple garbage collection algorithms, including:  
+        - **Mark-Sweep**  
+        - **Mark-Compact**  
+        - **Generational Copying**, depending on the chosen collector.
+    </div>
+
+    <div class="question">Q10. How can memory leaks occur in Java despite automatic garbage collection?</div>
+    <div class="answer">
+        Memory leaks occur when objects are no longer needed but still referenced,  
+        preventing the garbage collector from reclaiming their memory.
+    </div>
+
+		<h2>Java Fundamentals</h2>
+
         
       <div class="question">Q1. Is Java 100% object-oriented programming language?</div>
         <div class="answer">No, Java is not considered 100% object-oriented because it uses primitive types (like int, char, etc.) that are not objects.</div>
