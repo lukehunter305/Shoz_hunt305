@@ -2275,8 +2275,64 @@ Map&lt;String, SessionData&gt; sessionMap = new ConcurrentHashMap&lt;&gt;();</di
 <div class="question">Q35) Can you explain the Retry and Backoff patterns?</div>
 <div class="answer">The Retry pattern means trying a failed operation again, which can help solve temporary problems like a network glitch. The Backoff pattern adds waiting times between these retries, increasing the wait after each attempt. This helps avoid overloading the system while it's still recovering. Using these patterns together helps the system handle failures smoothly by not rushing to retry, giving everything a better chance to get back to normal.</div>
 
-
-
+<h1 style="background-color: blue;">Common-Step-Java-Coding</h1>
+ <h3>Q1: Write a Java Program to reverse a string without using String inbuilt function.</h3>
+    <p><strong>Explanation:</strong> This solution manually swaps the characters of the string from the start and end, moving towards the center, effectively reversing the string without using any built-in functions.</p>
+    <pre><code>
+public String reverseString(String input) {
+    char[] chars = input.toCharArray();
+    int left = 0, right = chars.length - 1;
+    while (left < right) {
+        char temp = chars[left];
+        chars[left] = chars[right];
+        chars[right] = temp;
+        left++;
+        right--;
+    }
+    return new String(chars);
+}
+    </code></pre>
+    
+    <h3>Q2: Write a Java Program to swap two numbers without using the third variable.</h3>
+    <p><strong>Explanation:</strong> This method uses arithmetic operations to swap two numbers without a temporary variable. It first adds the two numbers and stores the result in <code>a</code>, then subtracts <code>b</code> from the new <code>a</code> to recover the original <code>a</code> and assigns it to <code>b</code>, and finally subtracts the new <code>b</code> from the new <code>a</code> to recover the original <code>b</code>.</p>
+    <pre><code>
+public void swapNumbers(int a, int b) {
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    System.out.println("After swap: a = " + a + ", b = " + b);
+}
+    </code></pre>
+    
+    <h3>Q3: Write a Java Program to count the number of words in a string using HashMap.</h3>
+    <p><strong>Explanation:</strong> This solution splits the input string into words using a space delimiter, then uses a HashMap to count the occurrences of each word. The <code>getOrDefault</code> method is used to simplify the counting logic.</p>
+    <pre><code>
+public Map<String, Integer> countWords(String input) {
+    Map<String, Integer> wordCount = new HashMap<>();
+    String[] words = input.split("\\s+");
+    for (String word : words) {
+        wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+    }
+    return wordCount;
+}
+    </code></pre>
+    
+    <h3>Q4: Write a Java Program to iterate HashMap using While and Advanced for Loop.</h3>
+    <p><strong>Explanation:</strong> This method shows two ways to iterate over a HashMap: using an enhanced for loop to traverse the entry set, and using an iterator in a while-loop to perform the same task.</p>
+    <pre><code>
+public void iterateHashMap(Map<String, String> map) {
+    // Using advanced for-loop
+    for (Map.Entry<String, String> entry : map.entrySet()) {
+        System.out.println(entry.getKey() + " -> " + entry.getValue());
+    }
+    
+    // Using while-loop with iterator
+    Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+    while (iterator.hasNext()) {
+        Map.Entry<String, String> entry = iterator.next();
+        System.out.println(entry.getKey() + " -> " + entry.getValue());
+    }
+}
 
 </body>
 </html>
