@@ -2276,6 +2276,7 @@ Map&lt;String, SessionData&gt; sessionMap = new ConcurrentHashMap&lt;&gt;();</di
 <div class="answer">The Retry pattern means trying a failed operation again, which can help solve temporary problems like a network glitch. The Backoff pattern adds waiting times between these retries, increasing the wait after each attempt. This helps avoid overloading the system while it's still recovering. Using these patterns together helps the system handle failures smoothly by not rushing to retry, giving everything a better chance to get back to normal.</div>
 
 <h1 style="background-color: blue;">Common-Step-Java-Coding</h1>
+
  <h3>Q1: Write a Java Program to reverse a string without using String inbuilt function.</h3>
     <p><strong>Explanation:</strong> This solution manually swaps the characters of the string from the start and end, moving towards the center, effectively reversing the string without using any built-in functions.</p>
     <pre><code>
@@ -2333,6 +2334,855 @@ public void iterateHashMap(Map<String, String> map) {
         System.out.println(entry.getKey() + " -> " + entry.getValue());
     }
 }
+
+  <h3>Q5: Write a Java Program to find whether a number is prime or not in the most efficient way.</h3>
+    <p><strong>Explanation:</strong> This function checks for divisibility using small primes and iterates through potential factors up to the square root of the number.</p>
+    <pre><code>
+public boolean isPrime(int num) {
+    if (num <= 1) return false;
+    if (num <= 3) return true;
+    if (num % 2 == 0 || num % 3 == 0) return false;
+    for (int i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0) return false;
+    }
+    return true;
+}
+    </code></pre>
+    
+    <h3>Q6: Write a Java Program to find whether a string or number is palindrome or not.</h3>
+    <p><strong>Explanation:</strong> This method checks if a string is a palindrome by comparing characters from both ends moving toward the center.</p>
+    <pre><code>
+public boolean isPalindrome(String input) {
+    int left = 0, right = input.length() - 1;
+    while (left < right) {
+        if (input.charAt(left) != input.charAt(right)) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+    </code></pre>
+    
+    <h3>Q7: Write a Java Program for the Fibonacci series using recursion.</h3>
+    <p><strong>Explanation:</strong> This recursive function computes Fibonacci numbers.</p>
+    <pre><code>
+public int fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+    </code></pre>
+    
+    <h3>Q8: Write a Java Program to iterate ArrayList using for-loop, while-loop, and advanced for-loop.</h3>
+    <p><strong>Explanation:</strong> This method demonstrates three different ways to iterate through an ArrayList.</p>
+    <pre><code>
+public void iterateList(List<Integer> list) {
+    for (int i = 0; i < list.size(); i++) {
+        System.out.println(list.get(i));
+    }
+    int j = 0;
+    while (j < list.size()) {
+        System.out.println(list.get(j));
+        j++;
+    }
+    for (int item : list) {
+        System.out.println(item);
+    }
+}
+    </code></pre>
+	
+	  <h3>Q9: Write a Java Program to find the duplicate characters in a string.</h3>
+    <p><strong>Explanation:</strong> This solution uses a HashMap to count the occurrences of each character in the string. It then checks which characters have a count greater than one to identify duplicates.</p>
+    <pre><code>
+public void findDuplicates(String input) {
+    HashMap<Character, Integer> charCount = new HashMap<>();
+    for (char c : input.toCharArray()) {
+        charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+    }
+    for (Map.Entry<Character, Integer> entry : charCount.entrySet()) {
+        if (entry.getValue() > 1) {
+            System.out.println(entry.getKey() + " appears " + entry.getValue() + " times");
+        }
+    }
+}
+    </code></pre>
+
+    <h3>Q10: Write a Java Program to find the second-highest number in an array.</h3>
+    <p><strong>Explanation:</strong> This method maintains two variables to track the highest and second-highest numbers. It iterates through the array once, updating these values appropriately to find the second-highest number.</p>
+    <pre><code>
+public int secondHighest(int[] nums) {
+    int highest = Integer.MIN_VALUE, secondHighest = Integer.MIN_VALUE;
+    for (int num : nums) {
+        if (num > highest) {
+            secondHighest = highest;
+            highest = num;
+        } else if (num > secondHighest && num != highest) {
+            secondHighest = num;
+        }
+    }
+    return secondHighest;
+}
+    </code></pre>
+
+    <h3>Q11: Write a Java Program to check Armstrong number.</h3>
+    <p><strong>Explanation:</strong> An Armstrong number is a number that is equal to the sum of its own digits each raised to the power of the number of digits. This function checks if the given number is an Armstrong number.</p>
+    <pre><code>
+public boolean isArmstrong(int number) {
+    int original = number, sum = 0;
+    int digits = String.valueOf(number).length();
+    while (number > 0) {
+        int digit = number % 10;
+        sum += Math.pow(digit, digits);
+        number /= 10;
+    }
+    return sum == original;
+}
+    </code></pre>
+
+    <h3>Q12: Write a Java Program to remove all white spaces from a string without using replace().</h3>
+    <p><strong>Explanation:</strong> This method iterates through the string, appending only non-space characters to a StringBuilder to create the final string without spaces.</p>
+    <pre><code>
+public String removeWhitespaces(String input) {
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < input.length(); i++) {
+        if (input.charAt(i) != ' ') {
+            result.append(input.charAt(i));
+        }
+    }
+    return result.toString();
+}
+    </code></pre>
+
+    <h3>Q13: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</h3>
+    <p><strong>Explanation:</strong> This solution uses a hash map to track each element's complement (i.e., target - nums[i]). If a complement is found in the map, the indices of the current element and its complement are returned.</p>
+    <pre><code>
+public int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> numMap = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+        int complement = target - nums[i];
+        if (numMap.containsKey(complement)) {
+            return new int[] { numMap.get(complement), i };
+        }
+        numMap.put(nums[i], i);
+    }
+    throw new IllegalArgumentException("No two sum solution");
+}
+    </code></pre>
+
+    <h3>Q14: Write a program that accepts comma-separated strings, sorts the strings in ascending order, and outputs the concatenated string of sorted strings.</h3>
+    <p><strong>Explanation:</strong> This method splits the input string into an array using commas as delimiters, sorts the array, and then concatenates the sorted strings into a single string.</p>
+    <pre><code>
+public String sortAndConcatenate(String input) {
+    String[] parts = input.split(",");
+    Arrays.sort(parts);
+    return String.join("", parts);
+}
+    </code></pre>
+	
+	 <h3>Q15: Write a Java Program to check if all characters in a string appear the same number of times.</h3>
+    <p><strong>Explanation:</strong> This solution creates an array to count occurrences of each letter in the string. It then checks if all non-zero counts are the same.</p>
+    <pre><code>
+public boolean areOccurrencesEqual(String s) {
+    int[] count = new int[26];
+    for (char c : s.toCharArray()) {
+        count[c - 'a']++;
+    }
+    int frequency = 0;
+    for (int i = 0; i < 26; i++) {
+        if (count[i] != 0) {
+            if (frequency == 0) {
+                frequency = count[i];
+            } else if (frequency != count[i]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+    </code></pre>
+
+    <h3>Q16: Write a Java Program to remove all instances of a given value from an array in-place.</h3>
+    <p><strong>Explanation:</strong> This solution uses two pointers to modify the array in-place, ensuring an O(1) space complexity.</p>
+    <pre><code>
+public int removeElement(int[] nums, int val) {
+    int i = 0;
+    for (int j = 0; j < nums.length; j++) {
+        if (nums[j] != val) {
+            nums[i] = nums[j];
+            i++;
+        }
+    }
+    return i;
+}
+    </code></pre>
+
+    <h3>Q17: Given an array and queries, update the array and return the sum of even numbers.</h3>
+    <p><strong>Explanation:</strong> This solution keeps track of even numbers' sum and efficiently updates it as per queries.</p>
+    <pre><code>
+public int[] sumEvenAfterQueries(int[] nums, int[][] queries) {
+    int sumEven = 0;
+    for (int num : nums) {
+        if (num % 2 == 0) sumEven += num;
+    }
+    int[] result = new int[queries.length];
+    for (int i = 0; i < queries.length; i++) {
+        int val = queries[i][0], index = queries[i][1];
+        if (nums[index] % 2 == 0) sumEven -= nums[index];
+        nums[index] += val;
+        if (nums[index] % 2 == 0) sumEven += nums[index];
+        result[i] = sumEven;
+    }
+    return result;
+}
+    </code></pre>
+
+    <h3>Q18: Find all start indices of anagrams of a given string in another string.</h3>
+    <p><strong>Explanation:</strong> Uses a sliding window approach to efficiently detect anagrams.</p>
+    <pre><code>
+public List<Integer> findAnagrams(String s, String p) {
+    List<Integer> result = new ArrayList<>();
+    if (s.length() == 0 || p.length() > s.length()) return result;
+    int[] charCount = new int[26];
+    for (char c : p.toCharArray()) {
+        charCount[c - 'a']++;
+    }
+    int start = 0, end = 0, count = p.length();
+    while (end < s.length()) {
+        if (charCount[s.charAt(end++) - 'a']-- >= 1) count--;
+        if (count == 0) result.add(start);
+        if (end - start == p.length() && charCount[s.charAt(start++) - 'a']++ >= 0) count++;
+    }
+    return result;
+}
+    </code></pre>
+
+    <h3>Q19: Find the length of the longest substring without repeating characters.</h3>
+    <p><strong>Explanation:</strong> Uses a sliding window to efficiently track non-repeating characters.</p>
+    <pre><code>
+public int lengthOfLongestSubstring(String s) {
+    int[] chars = new int[128];
+    int left = 0, right = 0, res = 0;
+    while (right < s.length()) {
+        char r = s.charAt(right);
+        chars[r]++;
+        while (chars[r] > 1) {
+            char l = s.charAt(left);
+            chars[l]--;
+            left++;
+        }
+        res = Math.max(res, right - left + 1);
+        right++;
+    }
+    return res;
+}
+    </code></pre>
+
+    <h3>Q20: Merge two sorted linked lists and return it as a new sorted list.</h3>
+    <p><strong>Explanation:</strong> Iterates through both lists, merging them into a new linked list.</p>
+    <pre><code>
+public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    ListNode dummy = new ListNode(0);
+    ListNode current = dummy;
+    while (l1 != null && l2 != null) {
+        if (l1.val < l2.val) {
+            current.next = l1;
+            l1 = l1.next;
+        } else {
+            current.next = l2;
+            l2 = l2.next;
+        }
+        current = current.next;
+    }
+    current.next = (l1 != null) ? l1 : l2;
+    return dummy.next;
+}
+    </code></pre>
+	
+	    <h3>Q21: Rotate an n x n 2D matrix by 90 degrees clockwise.</h3>
+    <pre><code>
+public void rotate(int[][] matrix) {
+    int n = matrix.length;
+    // Transpose the matrix
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+            int temp = matrix[j][i];
+            matrix[j][i] = matrix[i][j];
+            matrix[i][j] = temp;
+        }
+    }
+    // Reverse each row
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n / 2; j++) {
+            int temp = matrix[i][j];
+            matrix[i][j] = matrix[i][n - 1 - j];
+            matrix[i][n - 1 - j] = temp;
+        }
+    }
+}
+    </code></pre>
+
+    <h3>Q22: Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.</h3>
+    <pre><code>
+public int addDigits(int num) {
+    while (num >= 10) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        num = sum;
+    }
+    return num;
+}
+    </code></pre>
+
+    <h3>Q23: Given an integer, write a function to determine if it is a power of two.</h3>
+    <pre><code>
+public boolean isPowerOfTwo(int n) {
+    return (n > 0) && ((n & (n - 1)) == 0);
+}
+    </code></pre>
+
+    <h3>Q24: Move all zeroes in an array to the end while maintaining the order of non-zero elements.</h3>
+    <pre><code>
+public void moveZeroes(int[] nums) {
+    int insertPos = 0;
+    for (int num : nums) {
+        if (num != 0) nums[insertPos++] = num;
+    }
+    while (insertPos < nums.length) {
+        nums[insertPos++] = 0;
+    }
+}
+    </code></pre>
+
+    <h3>Q25: Find all the missing numbers in an array where elements range from 1 to n.</h3>
+    <pre><code>
+public List<Integer> findDisappearedNumbers(int[] nums) {
+    List<Integer> result = new ArrayList<>();
+    for (int i = 0; i < nums.length; i++) {
+        int val = Math.abs(nums[i]) - 1;
+        if (nums[val] > 0) {
+            nums[val] = -nums[val];
+        }
+    }
+    for (int i = 0; i < nums.length; i++) {
+        if (nums[i] > 0) {
+            result.add(i + 1);
+        }
+    }
+    return result;
+}
+    </code></pre>
+	
+<h1 style="background-color: blue;">Common-Step-Stream-API-Coding-Level-I</h1>
+
+<h3>Q1: Filter Even Numbers</h3>
+    <p><strong>Problem:</strong> Given a list of integers, return a list containing only even numbers.</p>
+    <pre><code>
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+List<Integer> evenNumbers = numbers.stream()
+    .filter(n -> n % 2 == 0)
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> The filter method is used to apply a condition that keeps only even numbers. The collect method gathers the results into a new list.</p>
+
+    <h3>Q2: Find Maximum</h3>
+    <p><strong>Problem:</strong> Find the maximum value in a list of integers.</p>
+    <pre><code>
+Optional<Integer> max = numbers.stream()
+    .max(Integer::compare);
+    </code></pre>
+    <p><strong>Explanation:</strong> The max method takes a comparator and returns the maximum element wrapped in an Optional.</p>
+
+    <h3>Q3: Sum of Elements</h3>
+    <p><strong>Problem:</strong> Calculate the sum of elements in a list of integers.</p>
+    <pre><code>
+int sum = numbers.stream()
+    .mapToInt(Integer::intValue)
+    .sum();
+    </code></pre>
+    <p><strong>Explanation:</strong> mapToInt converts the stream to an IntStream, which provides the sum method to get the total.</p>
+
+    <h3>Q4: List of Names to Uppercase</h3>
+    <p><strong>Problem:</strong> Convert all strings in a list to uppercase.</p>
+    <pre><code>
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+List<String> upperNames = names.stream()
+    .map(String::toUpperCase)
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> The map function applies String::toUpperCase to each element, transforming them to uppercase.</p>
+
+    <h3>Q5: Sort List</h3>
+    <p><strong>Problem:</strong> Sort a list of integers in ascending order.</p>
+    <pre><code>
+List<Integer> sortedNumbers = numbers.stream()
+    .sorted()
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> The sorted method sorts the elements of the stream in natural order.</p>
+
+    <h3>Q6: Count Elements</h3>
+    <p><strong>Problem:</strong> Count the number of elements in a list that are greater than 5.</p>
+    <pre><code>
+long count = numbers.stream()
+    .filter(n -> n > 5)
+    .count();
+    </code></pre>
+    <p><strong>Explanation:</strong> The filter method removes elements that don't satisfy the condition, and count returns the number of elements remaining.</p>
+
+    <h3>Q7: Get Distinct Elements</h3>
+    <p><strong>Problem:</strong> Get a list of distinct elements from a list of integers.</p>
+    <pre><code>
+List<Integer> distinctNumbers = numbers.stream()
+    .distinct()
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> The distinct method filters the stream to include only unique elements.</p>
+
+<h3>Q8: Reduce to Sum</h3>
+    <pre><code>
+int total = numbers.stream()
+    .reduce(0, Integer::sum);
+    </code></pre>
+    <p><strong>Explanation:</strong> The reduce method takes an identity (0 in this case) and an accumulator function (Integer::sum) to calculate the total.</p>
+
+    <h3>Q9: Find Any</h3>
+    <pre><code>
+Optional<Integer> anyElement = numbers.stream()
+    .findAny();
+    </code></pre>
+    <p><strong>Explanation:</strong> findAny potentially returns any element from the stream, wrapped in an Optional.</p>
+
+    <h3>Q10: List First Names</h3>
+    <pre><code>
+List<String> fullNames = Arrays.asList("Alice Johnson", "Bob Harris", "Charlie Lou");
+List<String> firstNames = fullNames.stream()
+    .map(name -> name.split(" ")[0])
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> The map function splits each name string and selects the first part.</p>
+
+    <h3>Q11: All Match</h3>
+    <pre><code>
+boolean allPositive = numbers.stream()
+    .allMatch(n -> n > 0);
+    </code></pre>
+    <p><strong>Explanation:</strong> allMatch returns true if every element in the stream matches the given predicate.</p>
+
+    <h3>Q12: None Match</h3>
+    <pre><code>
+boolean noneNegative = numbers.stream()
+    .noneMatch(n -> n < 0);
+    </code></pre>
+    <p><strong>Explanation:</strong> noneMatch checks that no elements match the negative condition.</p>
+
+    <h3>Q13: Find First</h3>
+    <pre><code>
+Optional<Integer> first = numbers.stream()
+    .findFirst();
+    </code></pre>
+    <p><strong>Explanation:</strong> findFirst returns the first element of the stream, wrapped in an Optional.</p>
+
+    <h3>Q14: FlatMap for Nested Lists</h3>
+    <pre><code>
+List<List<Integer>> nestedNumbers = Arrays.asList(Arrays.asList(1, 2), Arrays.asList(3, 4, 5));
+List<Integer> flatList = nestedNumbers.stream()
+    .flatMap(List::stream)
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> flatMap converts each element into its own stream and then merges them into a single stream.</p>
+
+    <h3>Q15: Grouping Elements</h3>
+    <pre><code>
+Map<Integer, List<User>> usersByAge = users.stream()
+    .collect(Collectors.groupingBy(User::getAge));
+    </code></pre>
+    <p><strong>Explanation:</strong> The groupingBy collector groups elements based on the age property, creating a map where each key is an age and each value is a list of users with that age.</p>
+
+    <h3>Q16: Peek Elements</h3>
+    <pre><code>
+List<Integer> peekedAtNumbers = numbers.stream()
+    .peek(System.out::println)
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> peek is used for debugging or performing actions without changing the stream. It prints each element before passing it along the stream.</p>
+
+    <h3>Q17: Limit Stream</h3>
+    <pre><code>
+List<Integer> limited = numbers.stream()
+    .limit(3)
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> limit truncates the stream to be no longer than the specified size.</p>
+ <h3>Q18: Skip Elements</h3>
+    <p><strong>Problem:</strong> Skip the first 2 elements of a list and return the rest.</p>
+    <pre><code>
+List<Integer> skipped = numbers.stream()
+    .skip(2)
+    .collect(Collectors.toList());
+    </code></pre>
+    <p><strong>Explanation:</strong> The skip method discards the first n elements of the stream.</p>
+
+    <h3>Q19: Convert to Set</h3>
+    <p><strong>Problem:</strong> Convert a list of integers to a set to remove duplicates.</p>
+    <pre><code>
+Set<Integer> uniqueNumbers = numbers.stream()
+    .collect(Collectors.toSet());
+    </code></pre>
+    <p><strong>Explanation:</strong> Collecting the stream into a Set automatically removes duplicates.</p>
+
+    <h3>Q20: Summarizing Statistics</h3>
+    <p><strong>Problem:</strong> Get summary statistics for a list of integers.</p>
+    <pre><code>
+IntSummaryStatistics stats = numbers.stream()
+    .mapToInt(Integer::intValue)
+    .summaryStatistics();
+    </code></pre>
+    <p><strong>Explanation:</strong> summaryStatistics provides a summary (max, min, average, sum, count) for a stream of integers.</p>
+
+
+<h1 style="background-color: blue;">Common-Step-Stream-API-Coding-Level-II</h1>
+
+    <h3>Q1: Given a list of integers, find out all the even numbers that exist in the list using Stream functions.</h3>
+    <p><strong>Explanation:</strong> This method filters the input list to include only even numbers and prints them.</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+
+public class EvenNumber {
+    public static void main(String args[]) {
+        List<Integer> list = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
+        list.stream()
+            .filter(n -> n % 2 == 0)
+            .forEach(System.out::println);
+    }
+}
+    </code></pre>
+
+    <h3>Q2: Given a list of integers, find out all the numbers starting with 1 using Stream functions.</h3>
+    <p><strong>Explanation:</strong> This method converts numbers to strings, filters those starting with '1', and prints them.</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+
+public class NumberStartingWithOne {
+    public static void main(String args[]) {
+        List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 32);
+        myList.stream()
+              .map(s -> s + "")
+              .filter(s -> s.startsWith("1"))
+              .forEach(System.out::println);
+    }
+}
+    </code></pre>
+
+    <h3>Q3: How to find duplicate elements in a given integer list in Java using Stream functions?</h3>
+    <p><strong>Explanation:</strong> This method filters elements that appear more than once and prints them.</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+
+public class DuplicateElements {
+    public static void main(String args[]) {
+        List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+        Set<Integer> set = new HashSet<>();
+        myList.stream()
+              .filter(n -> !set.add(n))
+              .forEach(System.out::println);
+    }
+}
+    </code></pre>
+
+    <h3>Q4: Given the list of integers, find the first element of the list using Stream functions.</h3>
+    <p><strong>Explanation:</strong> This method retrieves the first element in the list using findFirst().</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+
+public class FindFirstElement {
+    public static void main(String args[]) {
+        List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+        myList.stream()
+              .findFirst()
+              .ifPresent(System.out::println);
+    }
+}
+    </code></pre>
+
+    <h3>Q5: Given a list of integers, find the total number of elements present in the list using Stream functions.</h3>
+    <p><strong>Explanation:</strong> This method counts the elements in the list.</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+
+public class CountElements {
+    public static void main(String args[]) {
+        List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+        long count = myList.stream().count();
+        System.out.println(count);
+    }
+}
+    </code></pre>
+	
+	 <h3>Q6: Given a list of integers, find the maximum value element present in it using Stream functions.</h3>
+    <p><strong>Explanation:</strong> The max function finds the highest value in the stream using Integer::compare. The result is obtained using get().</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+
+public class FindMaxElement {
+    public static void main(String args[]) {
+        List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+        int max = myList.stream()
+                        .max(Integer::compare)
+                        .get();
+        System.out.println(max);
+    }
+}
+    </code></pre>
+
+    <h3>Q7: Given a String, find the first non-repeated character in it using Stream functions.</h3>
+    <p><strong>Explanation:</strong> The input string is converted into a character stream, mapped to lowercase, grouped by frequency, and then the first character with a count of 1 is returned.</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.Function;
+
+public class FirstNonRepeated {
+    public static void main(String args[]) {
+        String input = "Java articles are Awesome";
+        Character result = input.chars()
+                .mapToObj(s -> Character.toLowerCase((char) s))
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() == 1L)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+        System.out.println(result);
+    }
+}
+    </code></pre>
+
+    <h3>Q8: Given a String, find the first repeated character in it using Stream functions.</h3>
+    <p><strong>Explanation:</strong> The input string is converted into a character stream, mapped to lowercase, grouped by frequency, and then the first character with a count greater than 1 is returned.</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.Function;
+
+public class FirstRepeated {
+    public static void main(String args[]) {
+        String input = "Java Articles are Awesome";
+        Character result = input.chars()
+                .mapToObj(s -> Character.toLowerCase((char) s))
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() > 1L)
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+        System.out.println(result);
+    }
+}
+    </code></pre>
+
+    <h3>Q9: Given a list of integers, sort all the values present in it using Stream functions.</h3>
+    <p><strong>Explanation:</strong> The sorted function sorts the stream in ascending order and prints the sorted values.</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+
+public class SortValues {
+    public static void main(String args[]) {
+        List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+        myList.stream()
+              .sorted()
+              .forEach(System.out::println);
+    }
+}
+    </code></pre>
+
+    <h3>Q10: Given a list of integers, sort all the values present in it in descending order using Stream functions.</h3>
+    <p><strong>Explanation:</strong> The sorted function with Collections.reverseOrder() sorts the stream in descending order and prints the sorted values.</p>
+    <pre><code>
+import java.util.*;
+import java.util.stream.*;
+
+public class SortDescending {
+    public static void main(String args[]) {
+        List<Integer> myList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
+        myList.stream()
+              .sorted(Collections.reverseOrder())
+              .forEach(System.out::println);
+    }
+}
+    </code></pre>
+	
+	  <h3>Q11: Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.</h3>
+    <p><strong>Explanation:</strong> This method converts the array to a list and then a set. If the set size is smaller than the list, duplicates exist.</p>
+    <pre><code>
+public boolean containsDuplicate(int[] nums) {
+    Set<Integer> set = new HashSet<>();
+    return Arrays.stream(nums).anyMatch(num -> !set.add(num));
+}
+    </code></pre>
+
+    <h3>Q12: How will you get the current date and time using Java 8 Date and Time API?</h3>
+    <p><strong>Explanation:</strong> Uses Java 8 LocalDate, LocalTime, and LocalDateTime APIs to fetch and print the current date, time, and both.</p>
+    <pre><code>
+public class Java8 {
+    public static void main(String[] args) {
+        System.out.println("Current Local Date: " + java.time.LocalDate.now());
+        System.out.println("Current Local Time: " + java.time.LocalTime.now());
+        System.out.println("Current Local Date and Time: " + java.time.LocalDateTime.now());
+    }
+}
+    </code></pre>
+
+    <h3>Q13: Write a Java 8 program to concatenate two Streams.</h3>
+    <p><strong>Explanation:</strong> Converts two lists into streams and then concatenates them using Stream.concat().</p>
+    <pre><code>
+public class Java8 {
+    public static void main(String[] args) {
+        List<String> list1 = Arrays.asList("Java", "8");
+        List<String> list2 = Arrays.asList("explained", "through", "programs");
+        Stream<String> concatStream = Stream.concat(list1.stream(), list2.stream());
+        concatStream.forEach(str -> System.out.print(str + " "));
+    }
+}
+    </code></pre>
+
+    <h3>Q14: Java 8 program to perform cube on list elements and filter numbers greater than 50.</h3>
+    <p><strong>Explanation:</strong> Maps each number to its cube and filters values greater than 50.</p>
+    <pre><code>
+public class Main {
+    public static void main(String[] args) {
+       List<Integer> integerList = Arrays.asList(4,5,6,7,1,2,3);
+       integerList.stream()
+                  .map(i -> i*i*i)
+                  .filter(i -> i>50)
+                  .forEach(System.out::println);
+    }
+}
+    </code></pre>
+
+    <h3>Q15: Write a Java 8 program to sort an array and then convert the sorted array into Stream.</h3>
+    <p><strong>Explanation:</strong> Uses Arrays.parallelSort() for sorting and then converts the array into a Stream.</p>
+    <pre><code>
+public class Java8 {
+    public static void main(String[] args) {
+        int arr[] = { 99, 55, 203, 99, 4, 91 };
+        Arrays.parallelSort(arr);
+        Arrays.stream(arr).forEach(n -> System.out.print(n + " "));
+    }
+}
+    </code></pre>
+
+    <h3>Q16: How to use map to convert object into Uppercase in Java 8?</h3>
+    <p><strong>Explanation:</strong> Uses the map function to convert all strings in a list to uppercase.</p>
+    <pre><code>
+public class Java8 {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("aa", "bb", "cc", "dd");
+        List<String> nameLst = names.stream()
+                                    .map(String::toUpperCase)
+                                    .collect(Collectors.toList());
+        System.out.println(nameLst);
+    }
+}
+    </code></pre>
+
+    <h3>Q17: How to convert a List of objects into a Map by considering duplicated keys and store them in sorted order?</h3>
+    <p><strong>Explanation:</strong> Converts a list of objects into a sorted map using Collectors.toMap().</p>
+    <pre><code>
+public class TestNotes {
+    public static void main(String[] args) {
+        List<Notes> noteLst = Arrays.asList(
+            new Notes(1, "note1", 11),
+            new Notes(2, "note2", 22),
+            new Notes(3, "note3", 33),
+            new Notes(4, "note4", 44),
+            new Notes(5, "note5", 55),
+            new Notes(6, "note4", 66)
+        );
+        Map<String, Long> notesRecords = noteLst.stream()
+            .sorted(Comparator.comparingLong(Notes::getTagId).reversed())
+            .collect(Collectors.toMap(
+                Notes::getTagName, Notes::getTagId,
+                (oldValue, newValue) -> oldValue,
+                LinkedHashMap::new
+            ));
+        System.out.println("Notes : " + notesRecords);
+    }
+}
+    </code></pre>
+
+ <h3>Q18: How to count each element/word from the String ArrayList in Java 8?</h3>
+    <pre><code>
+public class TestNotes {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("AA", "BB", "AA", "CC");
+        Map<String, Long> namesCount = names.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(namesCount);
+    }
+}
+    </code></pre>
+    <p><strong>Output:</strong> {CC=1, BB=1, AA=2}</p>
+
+    <h3>Q19: How to find only duplicate elements with their count from the String ArrayList in Java 8?</h3>
+    <pre><code>
+public class TestNotes {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("AA", "BB", "AA", "CC");
+        Map<String, Long> namesCount = names.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .filter(entry -> entry.getValue() > 1)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        System.out.println(namesCount);
+    }
+}
+    </code></pre>
+    <p><strong>Output:</strong> {AA=2}</p>
+
+    <h3>Q20: How to check if a list is empty in Java 8 using Optional?</h3>
+    <pre><code>
+Optional.ofNullable(noteLst)
+        .orElseGet(Collections::emptyList)
+        .stream()
+        .filter(Objects::nonNull)
+        .map(Notes::getTagName)
+        .forEach(System.out::println);
+    </code></pre>
+
+    <h3>Q21: Write a Program to find the Maximum element in an array.</h3>
+    <pre><code>
+public static int findMaxElement(int[] arr) {
+    return Arrays.stream(arr).max().getAsInt();
+}
+    </code></pre>
+    <p><strong>Input:</strong> 12, 19, 20, 88, 00, 9</p>
+    <p><strong>Output:</strong> 88</p>
+
+    <h3>Q22: Write a program to print the count of each character in a String.</h3>
+    <pre><code>
+public static void findCountOfChars(String s) {
+    Map<String, Long> map = Arrays.stream(s.split(""))
+            .map(String::toLowerCase)
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    System.out.println(map);
+}
+    </code></pre>
+    <p><strong>Input:</strong> "string data to count each character"</p>
+    <p><strong>Output:</strong> {s=1, t=5, r=3, i=1, n=2, g=1,  =5, d=1, a=5, o=2, c=4, u=1, e=2, h=2}</p>
+
 
 </body>
 </html>
