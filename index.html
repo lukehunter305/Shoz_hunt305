@@ -24,6 +24,44 @@
 <a href="Step-8-Spring-Boot-Level-3-Scenario-Based.pdf" target="_blank">View Springboot-3</a>
 <a href="Step-14-Microservices-Level-1.pdf" target="_blank">View Microservices-1</a>
 <a href="zenz.pdf" target="_blank">View Zenz</a>
+
+	  <input type="checkbox" id="enableLinks"> Enable Links
+
+    <br><br>
+
+    <a href="#" id="link1">View Java-1</a><br>
+    <a href="#" id="link2">View Java-2</a><br>
+    <a href="#" id="link3">View Java-3</a><br>
+    <a href="#" id="link4">View Springboot-1</a><br>
+    <a href="#" id="link5">View Springboot-2</a><br>
+    <a href="#" id="link6">View Springboot-3</a><br>
+    <a href="#" id="link7">View Microservices-1</a><br>
+    <a href="#" id="link8">View Zenz</a><br>
+
+    <script>
+        document.getElementById("enableLinks").addEventListener("change", function() {
+            if (this.checked) {
+                document.getElementById("link1").setAttribute("href", "Step-1-Core-Java-Level-1.pdf");
+                document.getElementById("link2").setAttribute("href", "Step-2-Core-Java-Level-2.pdf");
+                document.getElementById("link3").setAttribute("href", "Step-3-Core-Java-Level-3.pdf");
+                document.getElementById("link4").setAttribute("href", "Step-6-Spring-Boot-Level-1.pdf");
+                document.getElementById("link5").setAttribute("href", "Step-7-Spring-Boot-Level-2.pdf");
+                document.getElementById("link6").setAttribute("href", "Step-8-Spring-Boot-Level-3-Scenario-Based.pdf");
+                document.getElementById("link7").setAttribute("href", "Step-14-Microservices-Level-1.pdf");
+                document.getElementById("link8").setAttribute("href", "zenz.pdf");
+            } else {
+                document.getElementById("link1").setAttribute("href", "#");
+                document.getElementById("link2").setAttribute("href", "#");
+                document.getElementById("link3").setAttribute("href", "#");
+                document.getElementById("link4").setAttribute("href", "#");
+                document.getElementById("link5").setAttribute("href", "#");
+                document.getElementById("link6").setAttribute("href", "#");
+                document.getElementById("link7").setAttribute("href", "#");
+                document.getElementById("link8").setAttribute("href", "#");
+            }
+        });
+    </script>
+
 	 
 		<div id="java1" class="tab active">
         <div class="question">Q1. What is Java?</div>
