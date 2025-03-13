@@ -25,43 +25,85 @@
 <a href="Step-14-Microservices-Level-1.pdf" target="_blank">View Microservices-1</a>
 <a href="zenz.pdf" target="_blank">View Zenz</a>
 
-	  <input type="checkbox" id="enableLinks"> Enable Links
+	 <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .grid-item {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .grid-item:hover {
+            transform: scale(1.1);
+        }
+        .grid-item img {
+            width: 80px;
+            height: 80px;
+        }
+        .grid-item a {
+            color: #76ff03;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
 
-    <br><br>
-
-    <a href="#" id="link1">View Java-1</a><br>
-    <a href="#" id="link2">View Java-2</a><br>
-    <a href="#" id="link3">View Java-3</a><br>
-    <a href="#" id="link4">View Springboot-1</a><br>
-    <a href="#" id="link5">View Springboot-2</a><br>
-    <a href="#" id="link6">View Springboot-3</a><br>
-    <a href="#" id="link7">View Microservices-1</a><br>
-    <a href="#" id="link8">View Zenz</a><br>
-
-    <script>
-        document.getElementById("enableLinks").addEventListener("change", function() {
-            if (this.checked) {
-                document.getElementById("link1").setAttribute("href", "Step-1-Core-Java-Level-1.pdf");
-                document.getElementById("link2").setAttribute("href", "Step-2-Core-Java-Level-2.pdf");
-                document.getElementById("link3").setAttribute("href", "Step-3-Core-Java-Level-3.pdf");
-                document.getElementById("link4").setAttribute("href", "Step-6-Spring-Boot-Level-1.pdf");
-                document.getElementById("link5").setAttribute("href", "Step-7-Spring-Boot-Level-2.pdf");
-                document.getElementById("link6").setAttribute("href", "Step-8-Spring-Boot-Level-3-Scenario-Based.pdf");
-                document.getElementById("link7").setAttribute("href", "Step-14-Microservices-Level-1.pdf");
-                document.getElementById("link8").setAttribute("href", "zenz.pdf");
-            } else {
-                document.getElementById("link1").setAttribute("href", "#");
-                document.getElementById("link2").setAttribute("href", "#");
-                document.getElementById("link3").setAttribute("href", "#");
-                document.getElementById("link4").setAttribute("href", "#");
-                document.getElementById("link5").setAttribute("href", "#");
-                document.getElementById("link6").setAttribute("href", "#");
-                document.getElementById("link7").setAttribute("href", "#");
-                document.getElementById("link8").setAttribute("href", "#");
-            }
-        });
-    </script>
-
+    <h1>Resource Links</h1>
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="java-icon.png" alt="Java 1">
+            <a href="Step-1-Core-Java-Level-1.pdf" target="_blank">View Java-1</a>
+        </div>
+        <div class="grid-item">
+            <img src="java-icon.png" alt="Java 2">
+            <a href="Step-2-Core-Java-Level-2.pdf" target="_blank">View Java-2</a>
+        </div>
+        <div class="grid-item">
+            <img src="java-icon.png" alt="Java 3">
+            <a href="Step-3-Core-Java-Level-3.pdf" target="_blank">View Java-3</a>
+        </div>
+        <div class="grid-item">
+            <img src="spring-icon.png" alt="Springboot 1">
+            <a href="Step-6-Spring-Boot-Level-1.pdf" target="_blank">View Springboot-1</a>
+        </div>
+        <div class="grid-item">
+            <img src="spring-icon.png" alt="Springboot 2">
+            <a href="Step-7-Spring-Boot-Level-2.pdf" target="_blank">View Springboot-2</a>
+        </div>
+        <div class="grid-item">
+            <img src="spring-icon.png" alt="Springboot 3">
+            <a href="Step-8-Spring-Boot-Level-3-Scenario-Based.pdf" target="_blank">View Springboot-3</a>
+        </div>
+        <div class="grid-item">
+            <img src="microservices-icon.png" alt="Microservices 1">
+            <a href="Step-14-Microservices-Level-1.pdf" target="_blank">View Microservices-1</a>
+        </div>
+        <div class="grid-item">
+            <img src="zenz-icon.png" alt="Zenz">
+            <a href="zenz.pdf" target="_blank">View Zenz</a>
+        </div>
+    </div>
 	 
 		<div id="java1" class="tab active">
         <div class="question">Q1. What is Java?</div>
